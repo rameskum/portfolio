@@ -10,8 +10,10 @@
 		"css:lint": "stylelint --fix \"src/scss/*.scss\" --custom-syntax postcss-scss || true",
 		"build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
 		"build:images": "imagemin src/images/**/* --out-dir=dist/images",
+		"build:js": "webpack --mode=production",
 		"watch:css": "onchange \"src/scss\" -- npm run build:css",
 		"watch:images": "onchange \"src/images\" -- npm run build:images",
+		"watch:js": "onchange \"src/js\" -- webpack --mode=development",
 		"serve": "browser-sync start --server \"dist\" --files \"dist\"",
 		"watch": "run-p serve watch:*",
 		"build": "run-p build:*"
@@ -31,14 +33,20 @@
 	},
 	"homepage": "https://rameskum.com",
 	"devDependencies": {
+		"@babel/preset-env": "^7.16.11",
 		"autoprefixer": "^10.4.2",
+		"babel-loader": "^8.2.3",
 		"browser-sync": "^2.27.7",
+		"eslint": "^7.32.0",
+		"eslint-loader": "^4.0.2",
 		"imagemin-cli": "^7.0.0",
 		"node-sass": "^7.0.1",
 		"npm-run-all": "^4.1.5",
 		"onchange": "^7.1.0",
 		"postcss-cli": "^9.1.0",
 		"postcss-scss": "^4.0.3",
-		"stylelint": "^14.5.3"
+		"stylelint": "^14.5.3",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2"
 	}
 }
