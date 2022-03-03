@@ -1,0 +1,27 @@
+{
+  "name": "rameskum-portfolio",
+  "version": "1.0.0",
+  "description": "Ramesh Kumar Portfolio Website",
+  "scripts": {
+    "build-css": "./bin/build-css",
+    "watch-css": "./bin/watch-css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rameskum/portfolio.git"
+  },
+  "keywords": [
+    "rameskum",
+    "portfolio"
+  ],
+  "author": "Ramesh Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rameskum/portfolio/issues"
+  },
+  "homepage": "https://github.com/rameskum/portfolio#readme",
+  "devDependencies": {
+    "node-sass": "npm:null@*",
+    "nodemon": "^2.0.15"
+  }
+}
