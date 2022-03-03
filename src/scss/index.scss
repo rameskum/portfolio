@@ -14,25 +14,15 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
   line-height: 1;
   font-weight: 400;
   color: $text;
 }
 
-.hero-section {
-  background-color: $background;
-  padding: 9.6rem 0;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 130rem;
-  margin: 0 auto;
-  gap: 9.6rem;
-  align-items: center;
-}
+/**************************************/
+/* GENERAL REUSABLE COMPONENTS */
+/**************************************/
 
 .hero-header {
   font-size: 5.2rem;
@@ -43,18 +33,13 @@ body {
   margin-bottom: 3.2rem;
 }
 
-.hero-description {
-  font-size: 2rem;
-  line-height: 1.6;
-  margin-bottom: 4.8rem;
-}
-
 .btn:link,
 .btn:visited {
   display: inline-block;
   text-decoration: none;
   color: $white;
   font-size: 2rem;
+  font-weight: 600;
   padding: 1.6rem 3.2rem;
   border-radius: 9px;
 
@@ -84,11 +69,54 @@ body {
   box-shadow: 0 0 0 3px $white;
 }
 
-.hero-img {
-  width: 100%;
-  stroke: $primary;
-}
-
 .margin-right-sm {
   margin-right: 1.6rem !important;
+}
+
+/**************************************/
+/* HEADER */
+/**************************************/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $background;
+
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+.logo {
+  height: 3rem;
+}
+
+/**************************************/
+/* HERO SECTION */
+/**************************************/
+
+.hero-section {
+  background-color: $background;
+  padding: 9.6rem 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 130rem;
+  margin: 0 auto;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+
+.hero-img {
+  width: 100%;
 }
