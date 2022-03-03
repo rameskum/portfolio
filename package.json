@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Ramesh Kumar Portfolio Website",
   "scripts": {
-    "build-css": "./bin/build-css",
-    "watch-css": "./bin/watch-css"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/rameskum/portfolio#readme",
   "devDependencies": {
-    "node-sass": "npm:null@*",
-    "nodemon": "^2.0.15"
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.49.9"
   }
 }
