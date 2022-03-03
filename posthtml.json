@@ -5,7 +5,6 @@
     "posthtml-modules": {
       "root": "./src/views",
       "initial": true
-    },
-    "htmlnano": {}
+    }
   }
 }

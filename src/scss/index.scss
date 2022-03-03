@@ -1,5 +1,4 @@
 @import "variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 *,
 *::after,
@@ -156,7 +155,10 @@ body {
   margin-bottom: 4.8rem;
 }
 
-
 .hero-img {
   width: 100%;
+}
+
+#shirt path, #bar path {
+  fill: $primary-light !important;
 }

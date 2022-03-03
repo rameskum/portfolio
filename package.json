@@ -54,5 +54,8 @@
     "stylelint": "^14.5.3",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "cssnano": "^5.1.0"
   }
 }
