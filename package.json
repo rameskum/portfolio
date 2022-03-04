@@ -4,8 +4,7 @@
   "description": "Ramesh Kumar Portfolio Website",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "deploy": "npm run build; push-dir --dir=dist --branch=release --cleanup"
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,7 +23,6 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.3.2",
     "parcel": "^2.3.2",
-    "push-dir": "^0.4.1",
     "sass": "^1.49.9"
   }
 }
