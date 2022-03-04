@@ -1,13 +1,176 @@
+@import "variables.scss";
+
 *,
-*:before,
-*:after {
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all .2s;
 }
 
-$badass: pink;
+html {
+  font-size: 65%;
+}
 
 body {
-  background-color: $badass;
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-default);
+}
+
+/**************************************/
+/* GENERAL REUSABLE COMPONENTS */
+/**************************************/
+
+.hero-header {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  color: var(--text-dark);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--primary-dark);
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: var(--white);
+  color: var(--text-default);
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: var(--background);
+  box-shadow: 0 0 0 3px var(--white);
+}
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+/**************************************/
+/* HEADER */
+/**************************************/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background);
+
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+
+.logo {
+  height: 3rem;
+  transform: scale(3);
+}
+
+#background {
+  fill: var(--primary);
+}
+
+#text text {
+  fill: var(--white);
+}
+
+/**************************************/
+/* NAVIGATION */
+/**************************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: var(--primary-dark);
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: var(--white);
+  background-color: var(--primary);
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: var(--primary-dark);
+}
+
+/**************************************/
+/* HERO SECTION */
+/**************************************/
+
+.hero-section {
+  background-color: var(--background);
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+#shirt path, #bar path {
+  fill: var(--primary) !important;
 }

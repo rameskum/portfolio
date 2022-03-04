@@ -1,7 +1,84 @@
-$primary: #124f88;
-$primary-dark: darken($primary, 5%);
-$background: lighten($primary, 65%);
-$white: #fff;
+:root {
+  --primary: #495057;
+  --primary-dark: #212529;
+  --background: #f1f3f5;
+  --white: #fff;
+  --text-default: #555;
+  --text-dark: #333;
+}
 
-$text: #555;
-$text-dark: #333;
+$themes: (
+        -grey: (
+                'primary': #495057,
+                'primary-dark': #212529,
+                'background': #f1f3f5,
+        ),
+        -red: (
+                'primary': #e03131,
+                'primary-dark': #c92a2a,
+                'background': #fff5f5,
+        ),
+        -pink: (
+                'primary': #d6336c,
+                'primary-dark': #a61e4d,
+                'background': #fff0f6,
+        ),
+        -grape: (
+                'primary': #ae3ec9,
+                'primary-dark': #862e9c,
+                'background': #f8f0fc,
+        ),
+        -violet: (
+                'primary': #7048e8,
+                'primary-dark': #5f3dc4,
+                'background': #f3f0ff,
+        ),
+        -indigo: (
+                'primary': #4263eb,
+                'primary-dark': #364fc7,
+                'background': #edf2ff,
+        ),
+        -blue: (
+                'primary': #1c7ed6,
+                'primary-dark': #1864ab,
+                'background': #e7f5ff,
+        ),
+        -cyan: (
+                'primary': #1098ad,
+                'primary-dark': #0b7285,
+                'background': #e3fafc,
+        ),
+        -teal: (
+                'primary': #0ca678,
+                'primary-dark': #087f5b,
+                'background': #e6fcf5,
+        ),
+        -green: (
+                'primary': #37b24d,
+                'primary-dark': #2b8a3e,
+                'background': #ebfbee,
+        ),
+        -lime: (
+                'primary': #74b816,
+                'primary-dark': #5c940d,
+                'background': #f4fce3,
+        ),
+        -yellow: (
+                'primary': #f59f00,
+                'primary-dark': #e67700,
+                'background': #fff9db,
+        ),
+        -orange: (
+                'primary': #f76707,
+                'primary-dark': #d9480f,
+                'background': #fff4e6,
+        ),
+);
+
+@each $name, $map in $themes {
+  .theme#{$name} {
+    @each $key, $value in $map {
+      --#{$key}: #{$value};
+    }
+  }
+}
