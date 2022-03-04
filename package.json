@@ -4,7 +4,8 @@
   "description": "Ramesh Kumar Portfolio Website",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "build-gh": "parcel build src/index.html --public-url portfolio"
   },
   "repository": {
     "type": "git",
