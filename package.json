@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/rameskum/portfolio/issues"
   },
-  "homepage": "https://github.com/rameskum/portfolio#readme",
+  "homepage": "https://rameskum.com",
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "sass": "^1.49.9"
