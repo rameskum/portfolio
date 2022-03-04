@@ -21,7 +21,8 @@
   },
   "homepage": "https://rameskum.com",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
+    "@parcel/transformer-sass": "^2.3.2",
+    "parcel": "^2.3.2",
     "sass": "^1.49.9"
   }
 }
