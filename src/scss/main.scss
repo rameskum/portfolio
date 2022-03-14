@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "general.scss";
 
 *,
 *::after,
@@ -6,11 +7,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 html {
-  font-size: 65%;
+  font-size: 62.5%;
 }
 
 body {
@@ -18,61 +19,6 @@ body {
   line-height: 1;
   font-weight: 400;
   color: var(--text-default);
-}
-
-/**************************************/
-/* GENERAL REUSABLE COMPONENTS */
-/**************************************/
-
-.hero-header {
-  font-size: 5.2rem;
-  line-height: 1.05;
-  color: var(--text-dark);
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 3.2rem;
-}
-
-.btn:link,
-.btn:visited {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--white);
-  font-size: 2rem;
-  font-weight: 600;
-  padding: 1.6rem 3.2rem;
-  border-radius: 9px;
-  border: none;
-  cursor: pointer;
-
-  transition: background-color 0.2s;
-}
-
-.btn--full:link,
-.btn--full:visited {
-  background-color: var(--primary);
-  color: var(--white);
-}
-
-.btn--full:hover,
-.btn--full:active {
-  background-color: var(--primary-dark);
-}
-
-.btn--outline:link,
-.btn--outline:visited {
-  background-color: var(--white);
-  color: var(--text-default);
-}
-
-.btn--outline:hover,
-.btn--outline:active {
-  background-color: var(--background);
-  box-shadow: 0 0 0 3px var(--white);
-}
-
-.margin-right-sm {
-  margin-right: 1.6rem !important;
 }
 
 /**************************************/
@@ -94,11 +40,11 @@ body {
   transform: scale(3);
 }
 
-#background {
+#logo-background {
   fill: var(--primary);
 }
 
-#text text {
+#logo-text text {
   fill: var(--white);
 }
 
@@ -151,13 +97,13 @@ body {
 }
 
 .hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9.6rem;
   align-items: center;
-  max-width: 130rem;
-  margin: 0 auto;
-  padding: 0 3.2rem;
 }
 
 
@@ -171,6 +117,67 @@ body {
   width: 100%;
 }
 
-#shirt path, #bar path {
+#hero-img-shirt path, #bar path {
   fill: var(--primary) !important;
+}
+
+/**************************************/
+/* SECTION HOW IT WORKS */
+/**************************************/
+.section-how {
+  padding: 9.6rem 0;
+}
+
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: var(--text-shadow);
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: '';
+  display: block;
+
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step-img-box::before {
+  width: 70%;
+
+  /*height: 60%;*/
+
+  /* 60% of parent width */
+  padding-bottom: 70%;
+  background-color: var(--background);
+  z-index: -2;
+}
+
+.step-img-box::after {
+  width: 50%;
+  padding-bottom: 50%;
+  background-color: var(--background-dark);
+  z-index: -1;
+}
+
+.step-img {
+  width: 35%;
 }

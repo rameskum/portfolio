@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Ramesh Kumar Portfolio Website",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./"
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,11 @@
     "@parcel/transformer-sass": "^2.3.2",
     "@parcel/transformer-webmanifest": "^2.3.2",
     "parcel": "^2.3.2",
+    "parcel-plugin-watch-reload": "^1.0.3",
     "sass": "^1.49.9"
+  },
+  "watchreload": {
+    "files": "dist/**",
+    "reloadDelay": 200
   }
 }
