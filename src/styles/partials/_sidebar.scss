@@ -56,7 +56,6 @@ Sidebar
 .social-icon {
   font-size: 1.5rem;
   color: var(--clr-grey-1);
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -71,7 +70,6 @@ Sidebar
   font-size: 3rem;
   background: transparent;
   border: transparent;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
   color: #bb2525;
   cursor: pointer;
