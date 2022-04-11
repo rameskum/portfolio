@@ -1,10 +1,11 @@
 import {useState} from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import {Route, Routes} from 'react-router-dom';
 import ProjectsPage from "./pages/ProjectsPage";
+import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -20,8 +21,9 @@ function App() {
             <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
 
             <Routes>
-                <Route path='/*' element={<HomePage/>}/>
+                <Route path='/' element={<HomePage/>}/>
                 <Route path='/projects' element={<ProjectsPage/>}/>
+                <Route path='*' element={<NotFound/>}/>
             </Routes>
 
             <Footer/>
