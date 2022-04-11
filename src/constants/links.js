@@ -21,4 +21,12 @@ const links = [
     },
 ]
 
+export const aboutLink = () => {
+    return links.filter(link => link.id === 'about-page')
+}
+
+export const projectLink = () => {
+    return links.filter(link => link.id === 'project-page')
+}
+
 export default links
