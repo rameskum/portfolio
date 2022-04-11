@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import {useState} from "react";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 
 function Home() {
 
@@ -20,6 +21,8 @@ function Home() {
                 {/*<Jobs/>*/}
                 {/*<Projects title="featured projects" showLink/>*/}
             </main>
+
+            <Footer/>
         </>
     )
 }
