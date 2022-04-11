@@ -1,4 +1,4 @@
-const data = [
+const links = [
     {
         id: "home-page",
         text: "home",
@@ -21,4 +21,4 @@ const data = [
     },
 ]
 
-export default data
+export default links

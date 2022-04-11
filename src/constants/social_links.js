@@ -1,7 +1,6 @@
-import React from "react"
 import {FaBehanceSquare, FaDribbbleSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare,} from "react-icons/fa"
 
-const data = [
+const social_links = [
     {
         id: 1,
         icon: <FaFacebookSquare className="social-icon"/>,
@@ -29,4 +28,4 @@ const data = [
     },
 ]
 
-export default data
+export default social_links

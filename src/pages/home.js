@@ -3,6 +3,7 @@ import {useState} from "react";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import About from "../components/About";
 
 function Home() {
 
@@ -18,6 +19,8 @@ function Home() {
             <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
 
             <Hero/>
+            <About/>
+
             <main>
                 {/*<Services/>*/}
                 {/*<Jobs/>*/}
