@@ -1,12 +1,8 @@
 import profilePicture from "../assets/images/about-img.png"
 import Title from "./Title";
-import links from "../constants/links";
+import {Link} from "react-router-dom";
 
 const About = ({showMore = false}) => {
-
-    const getAboutLink = () => {
-        return links.find(link => link.id === 'about-page');
-    }
 
     return (
         <section className="section about">
@@ -30,7 +26,7 @@ const About = ({showMore = false}) => {
                         specializes in
                         back-end development, algorithms, and data structure.
                     </p>
-                    {showMore && <a className="btn" href={getAboutLink()?.url}>learn more</a>}
+                    {showMore && <Link className="btn" to='/about/'>learn more</Link>}
                 </article>
             </div>
         </section>

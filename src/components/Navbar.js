@@ -1,6 +1,7 @@
 import React from "react"
 import pageLinks from "../constants/links"
 import {FaBars} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Navbar = ({toggleSidebar}) => {
     return (
@@ -29,7 +30,7 @@ const Navbar = ({toggleSidebar}) => {
                     {pageLinks.map(link => {
                         return (
                             <li key={link.id}>
-                                <a href={link.url}>{link.text}</a>
+                                <Link to={link.url}>{link.text}</Link>
                             </li>
                         )
                     })}

@@ -2,7 +2,7 @@ import React from "react"
 import Title from "./Title"
 import {FaAngleDoubleRight} from "react-icons/fa"
 import jobs from "../constants/jobs";
-import {aboutLink} from "../constants/links";
+import {Link} from "react-router-dom";
 
 const Jobs = () => {
     const [value, setValue] = React.useState(0)
@@ -37,7 +37,7 @@ const Jobs = () => {
                     })}
                 </article>
             </div>
-            <a href={aboutLink()?.url} className='btn center-btn'>more info</a>
+            <Link to='/about' className='btn center-btn'>more info</Link>
         </section>
     )
 }

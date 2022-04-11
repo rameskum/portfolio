@@ -1,8 +1,8 @@
 import React from "react"
 import Title from "./Title"
-import {projectLink} from "../constants/links";
 import projects from "../constants/projects";
 import Project from "./Project";
+import {Link} from "react-router-dom";
 
 const Projects = ({title, showLink}) => {
 
@@ -11,15 +11,15 @@ const Projects = ({title, showLink}) => {
             <Title title={title} sectionDesc="Latest applications I developed as fun projects and self learning."/>
             <div className="section-center projects-center">
                 {projects
-                    .filter(project => project.present)
+                    .filter(project => (project.present || !showLink))
                     .map((project, index) => {
                         return <Project key={project.id} index={index} {...project} />
                     })}
             </div>
             {showLink && (
-                <a href={projectLink()?.url} className="btn center-btn">
+                <Link to='/projects/' className="btn center-btn">
                     projects
-                </a>
+                </Link>
             )}
         </section>
     )

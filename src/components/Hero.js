@@ -2,6 +2,7 @@ import React from "react"
 import socialLinks from "../constants/social_links"
 import heroImg from "../assets/images/hero-img.svg";
 import links from "../constants/links";
+import {Link} from "react-router-dom";
 
 const Hero = () => {
 
@@ -16,9 +17,9 @@ const Hero = () => {
                     <div className="underline"/>
                     <h1>i'm ramesh</h1>
                     <h4>Software Developer By Trade</h4>
-                    <a href={getContactPage()?.url} className="btn hero-btn">
+                    <Link to={getContactPage()?.url} className="btn hero-btn">
                         contact me
-                    </a>
+                    </Link>
                     <ul className="social-icons hero-icons">
                         {socialLinks.map(link => {
                             return (
