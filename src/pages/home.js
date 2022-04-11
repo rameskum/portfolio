@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Projects from "../components/Projects";
 
 function Home() {
 
@@ -20,6 +21,8 @@ function Home() {
 
             <Hero/>
             <About/>
+
+            <Projects title="latest work" showLink={true} />
 
             <main>
                 {/*<Services/>*/}
