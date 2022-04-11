@@ -1,6 +1,6 @@
 import React from "react"
 import {FaGithub} from "react-icons/fa";
-import {CgArrowTopRightO} from "react-icons/cg";
+import {BsArrowUpRightSquare} from "react-icons/bs";
 
 const Project = ({
                      id,
@@ -12,29 +12,6 @@ const Project = ({
                      image
                  }) => {
     return (
-        /*<article className="project">
-            <img src={image} alt={title} className="project-img"/>
-            <div className="project-info">
-                <span className="project-number">0{id + 1}.</span>
-                <a href={`/projects/${slug}`} className="project-slug">
-                    <h3>{title}</h3>
-                </a>
-                <p className="project-desc">{description}</p>
-                <div className="project-stack">
-                    {stack.map(item => {
-                        return <span key={item.id}>{item.title}</span>
-                    })}
-                </div>
-                <div className="project-links">
-                    <a href={github}>
-                        <FaGithubSquare className="project-icon"/>
-                    </a>
-                    <a href={url}>
-                        <FaShareSquare className="project-icon"/>
-                    </a>
-                </div>
-            </div>
-        </article>*/
         <article className="project">
             <div className="project-img">
                 <img alt={title} src={image}/>
@@ -57,7 +34,7 @@ const Project = ({
                         <FaGithub/>
                     </a>
                     <a className="social-icon" href={demo} target="_blank" rel="noreferrer">
-                        <CgArrowTopRightO/>
+                        <BsArrowUpRightSquare/>
                     </a>
                 </div>
             </div>
