@@ -25,8 +25,8 @@ const Project = ({
                     {description}
                 </p>
                 <div className="project-stack">
-                    {tags.map(tag => {
-                        return <span>{tag}</span>
+                    {tags.map((tag, idx) => {
+                        return <span key={'tag-' + idx}>{tag}</span>
                     })}
                 </div>
                 <div className="project-links">
