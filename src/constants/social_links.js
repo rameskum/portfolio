@@ -1,30 +1,30 @@
-import {FaBehanceSquare, FaDribbbleSquare, FaFacebookSquare, FaLinkedin, FaTwitterSquare,} from "react-icons/fa"
+import {FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter,} from "react-icons/fa"
 
 const social_links = [
     {
         id: 1,
-        icon: <FaFacebookSquare className="social-icon"/>,
-        url: "https://www.twitter.com",
+        icon: <FaLinkedin className="social-icon"/>,
+        url: "https://www.linkedin.com/in/rameskum/",
     },
     {
         id: 2,
-        icon: <FaLinkedin className="social-icon"/>,
-        url: "https://www.twitter.com",
+        icon: <FaGithub className="social-icon"/>,
+        url: "https://github.com/rameskum/",
     },
     {
         id: 3,
-        icon: <FaDribbbleSquare className="social-icon"/>,
-        url: "https://www.twitter.com",
+        icon: <FaTwitter className="social-icon"/>,
+        url: "https://twitter.com/rameskum",
     },
     {
         id: 4,
-        icon: <FaBehanceSquare className="social-icon"/>,
-        url: "https://www.twitter.com",
+        icon: <FaFacebook className="social-icon"/>,
+        url: "https://www.facebook.com/rameskum.fb",
     },
     {
         id: 5,
-        icon: <FaTwitterSquare className="social-icon"/>,
-        url: "https://www.twitter.com",
+        icon: <FaInstagram className="social-icon"/>,
+        url: "https://www.instagram.com/rameskum/",
     },
 ]
 
