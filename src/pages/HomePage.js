@@ -8,7 +8,7 @@ function HomePage() {
     return (
         <>
             <Hero/>
-            <About/>
+            <About showMore={true}/>
             <Projects title="latest work" showLink={true}/>
             <Jobs/>
         </>

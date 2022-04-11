@@ -2,7 +2,7 @@ import profilePicture from "../assets/images/about-img.png"
 import Title from "./Title";
 import links from "../constants/links";
 
-const About = () => {
+const About = ({showMore = false}) => {
 
     const getAboutLink = () => {
         return links.find(link => link.id === 'about-page');
@@ -30,7 +30,7 @@ const About = () => {
                         specializes in
                         back-end development, algorithms, and data structure.
                     </p>
-                    <a className="btn" href={getAboutLink()?.url}>learn more</a>
+                    {showMore && <a className="btn" href={getAboutLink()?.url}>learn more</a>}
                 </article>
             </div>
         </section>
