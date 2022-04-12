@@ -37,9 +37,18 @@ About
 
   .about-info {
     align-self: center;
+
+    p {
+      div {
+        padding: 4px;
+        display: flex;
+        justify-content: start;
+        gap: 5px;
+      }
+    }
   }
 
-  .about-img::before {
+  .about-img[data-border]::before {
     content: '';
     position: absolute;
     width: 100%;

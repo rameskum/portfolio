@@ -7,8 +7,8 @@ const About = ({showMore = false}) => {
     return (
         <section className="section about">
             <div className="section-center about-center">
-                <article className="about-img">
-                    <img className="hero-photo" src={profilePicture} alt="ramesh kumar profile picture"/>
+                <article className="about-img" data-border="yes">
+                    <img className="hero-photo" src={profilePicture} alt="ramesh kumar profile" />
                 </article>
                 <article className="about-info">
                     <Title title="about" className="about-title"/>

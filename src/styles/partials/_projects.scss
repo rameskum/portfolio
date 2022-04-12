@@ -117,6 +117,17 @@ Projects
   }
 }
 
+.link {
+  color: var(--clr-grey-1);
+  font-weight: bold;
+  letter-spacing: var(--spacing);
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--clr-primary-5);
+  }
+}
+
 
 @media screen and (min-width: 576px) {
   .project-img {
