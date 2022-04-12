@@ -1,7 +1,7 @@
 import React from "react"
 import {FaTimes} from "react-icons/fa"
 import links from "../constants/links"
-import socialLinks from "../constants/social_links"
+import SocialDetails from "./SocialDetails";
 
 const Sidebar = ({isOpen, toggleSidebar}) => {
     return (
@@ -21,17 +21,7 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
                         )
                     })}
                 </ul>
-                <ul className="social-icons">
-                    {socialLinks.map(link => {
-                        return (
-                            <li key={link.id}>
-                                <a href={link.url} className="social-icon" target="_blank" rel="noopener noreferrer">
-                                    {link.icon}
-                                </a>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <SocialDetails/>
             </div>
         </aside>
     )

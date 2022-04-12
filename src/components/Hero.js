@@ -1,8 +1,8 @@
 import React from "react"
-import socialLinks from "../constants/social_links"
 import heroImg from "../assets/images/hero-img.svg";
 import links from "../constants/links";
 import {Link} from "react-router-dom";
+import SocialDetails from "./SocialDetails";
 
 const Hero = () => {
 
@@ -20,17 +20,7 @@ const Hero = () => {
                     <Link to={getContactPage()?.url} className="btn hero-btn">
                         contact me
                     </Link>
-                    <ul className="social-icons hero-icons">
-                        {socialLinks.map(link => {
-                            return (
-                                <li key={link.id}>
-                                    <a className="social-icon" href={link.url}>
-                                        {link.icon}
-                                    </a>
-                                </li>
-                            )
-                        })}
-                    </ul>
+                    <SocialDetails className="social-icons hero-icons"/>
                 </article>
                 <article className="hero-img">
                     <img alt="person having coffer and saying hello" className="hero-photo"
