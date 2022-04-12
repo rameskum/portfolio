@@ -38,12 +38,15 @@ About
 	.about-info {
 		align-self: center;
 
-		p {
-			div {
-				padding: 4px;
-				display: flex;
-				justify-content: flex-start;
-				gap: 5px;
+		p.contact-info-link {
+			ul {
+				padding: 15px;
+
+				li {
+					display: flex;
+					gap: 10px;
+					padding: 5px;
+				}
 			}
 		}
 	}
