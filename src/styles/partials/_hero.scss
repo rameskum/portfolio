@@ -1,0 +1,57 @@
+/*
+===============
+Hero
+===============
+*/
+/* underline added to globals */
+.hero .underline {
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}
+
+.hero-img {
+  display: none;
+}
+
+.hero {
+  background: var(--clr-primary-10);
+}
+
+.hero-center {
+  min-height: calc(100vh - 5rem);
+  display: grid;
+  place-items: center;
+}
+
+.hero-info h4 {
+  color: var(--clr-grey-5);
+}
+
+.hero-icons {
+  justify-items: start;
+}
+
+.hero-btn {
+  margin-top: 1.25rem;
+}
+
+@media screen and (min-width: 992px) {
+  .hero-img {
+    display: block;
+    position: relative;
+    transform: scale(1.15);
+  }
+
+  .hero-center {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-photo {
+  max-width: 25rem;
+  max-height: 30rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: var(--radius);
+  position: relative;
+}

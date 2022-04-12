@@ -1,0 +1,16 @@
+@use "variables";
+
+.not-found {
+  width: 100%;
+  text-align: center;
+
+  .text {
+    font: 400 5vmin inherit;
+    font-size: 3vmin;
+  }
+
+  .text span {
+    font-size: 7vmin;
+  }
+}
+
