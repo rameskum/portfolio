@@ -1,12 +1,13 @@
 import "../styles/partials/_not_found.scss"
+import not_found_img from "../assets/images/404.svg"
 
 function NotFound() {
 
     return (
         <>
             <div className="section single-page not-found">
-                <div className="number">404</div>
-                <div className="text"><span>Ooops...</span><br/>page not found</div>
+                <img src={not_found_img} alt="404" height="450px"/>
+                <div className="text"><span>Oops...</span><br/>page not found</div>
             </div>
         </>
     )
