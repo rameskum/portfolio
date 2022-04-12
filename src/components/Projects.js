@@ -7,9 +7,9 @@ import {Link} from "react-router-dom";
 const Projects = ({title, showLink}) => {
 
     return (
-        <section className="section projects">
+        <section className="section projects bg-grey">
             <Title title={title} sectionDesc="Latest applications I developed as fun projects and self learning."/>
-            <div className="section-center projects-center">
+            <div className="section-center">
                 {projects
                     .filter(project => (project.present || !showLink))
                     .map((project, index) => {
