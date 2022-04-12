@@ -24,7 +24,7 @@ const social_links = [
     {
         id: 5,
         icon: <FaInstagram className="social-icon"/>,
-        url: "https://www.instagram.com/rameskum/",
+        url: "https://www.instagram.com/rameskum.ms/",
     },
 ]
 
