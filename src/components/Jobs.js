@@ -6,7 +6,8 @@ import {Link} from "react-router-dom";
 
 const Jobs = () => {
     const [value, setValue] = React.useState(0)
-    const {company, position, duration, bullets} = jobs[value]
+    jobs.sort((a , b) => (b.id - a.id)); // sort by reverse chronological
+    const {mainCompany, location, position, duration, bullets} = jobs[value]
     return (
         <section className="section jobs">
             <Title title="experience"/>
@@ -25,7 +26,7 @@ const Jobs = () => {
                 </div>
                 <article className="job-info">
                     <h3>{position}</h3>
-                    <h4>{company}</h4>
+                    <h4>{mainCompany + ' - ' + location}</h4>
                     <p className="job-date">{duration}</p>
                     {bullets.map((item, idx) => {
                         return (
