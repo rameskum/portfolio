@@ -7,7 +7,7 @@ const SocialDetails = ({className}) => {
             {socialLinks.map(link => {
                 return (
                     <li key={link.id}>
-                        <a className="social-icon" href={link.url}>
+                        <a target="_blank" rel="noreferrer" className="social-icon" href={link.url}>
                             {link.icon}
                         </a>
                     </li>
