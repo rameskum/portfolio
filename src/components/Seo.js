@@ -13,41 +13,32 @@ const Seo = () => {
 					{seo_meta.titlePrefix + site.title + seo_meta.titleSuffix}
 				</title>
 				<meta name="description" content={site.description} />
-
-				{site.url && <meta property="og:url" content={site.url} />}
+				<meta property="og:locale" content="en_GB" />
+				<meta name="twitter:card" content="summary_large_image" />
 
 				<link rel="canonical" href={pathname} />
 
-				<meta name="description" content={site.description} />
-				<meta name="image" content={site.image} />
-
 				{site.url && <meta property="og:url" content={site.url} />}
 
-				{(site.article ? true : null) && (
-					<meta property="og:type" content="article" />
-				)}
+				{site.type && <meta property="og:type" content={site.type} />}
 
 				{site.title && <meta property="og:title" content={site.title} />}
+				{site.title && <meta name="twitter:title" content={site.title} />}
 
 				{site.description && (
 					<meta property="og:description" content={site.description} />
 				)}
-
-				{site.image && <meta property="og:image" content={site.image} />}
-
-				<meta name="twitter:card" content="summary_large_image" />
-
-				{seo_meta.twitterUser && (
-					<meta name="twitter:creator" content={seo_meta.twitterUser} />
-				)}
-
-				{site.title && <meta name="twitter:title" content={site.title} />}
-
 				{site.description && (
 					<meta name="twitter:description" content={site.description} />
 				)}
 
+				{site.image && <meta name="image" content={site.image} />}
+				{site.image && <meta property="og:image" content={site.image} />}
 				{site.image && <meta name="twitter:image" content={site.image} />}
+
+				{seo_meta.twitterUser && (
+					<meta name="twitter:creator" content={seo_meta.twitterUser} />
+				)}
 			</Helmet>
 		</>
 	);

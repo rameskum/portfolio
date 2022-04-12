@@ -11,24 +11,28 @@ const page_meta = {
 			paths: ['/', ''],
 			url: 'https://rameskum.com',
 			image: 'home.png',
+			type: 'website',
 		},
 		{
 			id: 'about',
 			title: 'About Me',
 			description: 'Learn more about Ramesh',
 			paths: ['/about', '/about/'],
+			type: 'website',
 		},
 		{
 			id: 'projects',
 			title: 'Projects',
 			description: 'Projects developed by Ramesh.',
 			paths: ['/projects', '/projects/'],
+			type: 'website',
 		},
 		{
 			id: 'contact',
 			title: 'Contact',
 			description: 'Contact details of Ramesh.',
 			paths: ['/contact', '/contact/'],
+			type: 'website',
 		},
 	],
 };
