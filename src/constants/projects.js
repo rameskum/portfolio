@@ -6,7 +6,7 @@ const projects = [
         tags: ['HTML', 'CSS', 'JAVASCRIPT'],
         code: 'https://github.com/rameskum/hello-dog',
         demo: 'https://rameskum.github.io/hello-dog/',
-        image: 'https://github.com/rameskum/hello-dog/raw/master/src/res/app.png',
+        image: 'https://raw.githubusercontent.com/rameskum/hello-dog/master/src/res/hello-dog.png',
         present: true
     },
     {
