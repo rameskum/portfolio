@@ -27,3 +27,7 @@ Run the development server:
 Build the deployable:
 
 `npm run build`
+
+## DEMO
+
+![app](public/home.png)
