@@ -29,14 +29,14 @@ function AboutPage() {
 							<b>National Institute of Technology Rourkela</b>.
 						</p>
 						<p>
-							<Link
-								to="https://github.com/rameskum/rameskum/raw/main/RAMESH_KUMAR.pdf"
+							<a
+								href="https://github.com/rameskum/rameskum/raw/main/RAMESH_KUMAR.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="btn hero-btn"
 							>
 								Resume
-							</Link>
+							</a>
 						</p>
 						<SocialDetails />
 					</article>

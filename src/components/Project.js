@@ -11,7 +11,7 @@ const Project = ({ id, title, description, tags, code, demo, image }) => {
 			</div>
 			<div className="project-info">
 				<span className="project-number">1.</span>
-				<Link className="project-slug" href={`/projects/`}>
+				<Link className="project-slug" to={`/projects/`}>
 					<h3>{title}</h3>
 				</Link>
 				<p className="project-desc">{description}</p>
