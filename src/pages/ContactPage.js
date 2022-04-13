@@ -23,13 +23,23 @@ function ContactPage() {
 							<ul>
 								<li>
 									<MdOutlineMailOutline className="social-icon" />
-									<a className="link" href="mailto:rameskum.ms@outlook.com">
+									<a
+										className="link"
+										target="_blank"
+										rel="noopener noreferrer"
+										href="mailto:rameskum.ms@outlook.com"
+									>
 										rameskum.ms@outlook.com
 									</a>
 								</li>
 								<li>
 									<FaWhatsapp className="social-icon" />
-									<a className="link" href="https://wa.me/+917064247865">
+									<a
+										className="link"
+										target="_blank"
+										rel="noopener noreferrer"
+										href="https://wa.me/+917064247865"
+									>
 										+91 7064247865
 									</a>
 								</li>
