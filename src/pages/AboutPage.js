@@ -2,7 +2,6 @@ import '../styles/partials/_single_page.scss';
 import contactImage from '../assets/images/about.svg';
 import Title from '../components/Title';
 import SocialDetails from '../components/SocialDetails';
-import { Link } from 'react-router-dom';
 import React from 'react';
 
 function AboutPage() {
