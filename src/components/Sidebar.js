@@ -1,5 +1,6 @@
 import React from "react"
 import {FaTimes} from "react-icons/fa"
+import { Link } from "react-router-dom";
 import links from "../constants/links"
 import SocialDetails from "./SocialDetails";
 
@@ -14,14 +15,14 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
                     {links.map(link => {
                         return (
                             <li key={link.id}>
-                                <a href={link.url} onClick={toggleSidebar}>
+                                <Link to={link.url} onClick={toggleSidebar}>
                                     {link.text}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
                 </ul>
-                <SocialDetails/>
+                <SocialDetails />
             </div>
         </aside>
     )
