@@ -2,12 +2,13 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { BsArrowUpRightSquare } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import defaultProjectImage from '../assets/images/rest-api.svg';
 
 const Project = ({ id, title, description, tags, code, demo, image }) => {
 	return (
 		<article className="project">
 			<div className="project-img">
-				<img alt={title} src={image} />
+				<img alt={title} src={image || defaultProjectImage} />
 			</div>
 			<div className="project-info">
 				<span className="project-number">1.</span>

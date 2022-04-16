@@ -18,6 +18,14 @@ const projects = [
         demo: 'https://rameskum.github.io/breaking-bad/',
         image: 'https://raw.githubusercontent.com/rameskum/breaking-bad/main/breaking-bad-app-ss.png',
         present: true
+    },
+    {
+        id: 3,
+        title: 'Dog Facts',
+        description: 'This is the Dog API and it provides dog facts as a service.',
+        tags: ['JAVA', 'SPRING-BOOT'],
+        code: 'https://github.com/rameskum/dog-facts',
+        demo: 'https://rameskum.github.io/dog-facts/',
     }
 ]
 
