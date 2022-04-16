@@ -4,7 +4,7 @@ import seo_meta from '../constants/seo';
 
 const Seo = () => {
 	const { pathname } = useLocation();
-	const site = seo_meta.pages.find(page => page.paths.includes(pathname));
+	const site = seo_meta.pages.find(page => page.paths.includes(pathname)) || { title: '404', description: 'Page Not Found'};
 
 	return (
 		<>

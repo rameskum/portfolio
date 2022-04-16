@@ -1,8 +1,4 @@
-/*
-===============
-Global Styles
-===============
-*/
+@use "variables";
 
 *,
 ::after,
@@ -13,7 +9,7 @@ Global Styles
 }
 
 body {
-  font-family: var(--ff-secondary);
+  font-family: var(--ff-primary);
   background: var(--clr-white);
   color: var(--clr-grey-1);
   line-height: 1.5;
