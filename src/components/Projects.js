@@ -4,10 +4,10 @@ import projects from "../constants/projects";
 import Project from "./Project";
 import {Link} from "react-router-dom";
 
-const Projects = ({title, showLink}) => {
+const Projects = ({title, showLink, classList}) => {
 
     return (
-        <section className="section projects bg-grey">
+        <section className={(classList || '') + " section projects"}>
             <Title title={title} sectionDesc="Latest applications I developed as fun projects and self learning."/>
             <div className="section-center">
                 {projects

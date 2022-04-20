@@ -10,7 +10,7 @@ function HomePage() {
         <>
             <Hero/>
             <About showMore={true}/>
-            <Projects title="latest work" showLink={true}/>
+            <Projects title="latest work" showLink={true} classList="bg-grey"/>
             <Jobs/>
             <Connect/>
         </>
