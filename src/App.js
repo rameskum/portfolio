@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import Seo from './components/Seo';
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollTracker from "./components/ScrollTracker";
 
 function App() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ function App() {
     return (
         <>
             <Router>
+                <ScrollTracker/>
                 <Navbar toggleSidebar={toggleSidebar}/>
                 <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}/>
                 <Seo/>
