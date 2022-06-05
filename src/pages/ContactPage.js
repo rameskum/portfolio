@@ -27,9 +27,9 @@ function ContactPage() {
 										className="link"
 										target="_blank"
 										rel="noopener noreferrer"
-										href="mailto:rameskum.ms@outlook.com"
+										href="mailto:me@rameskum.com"
 									>
-										rameskum.ms@outlook.com
+										me@rameskum.com
 									</a>
 								</li>
 								<li>
