@@ -1,15 +1,15 @@
 import React from 'react';
 import './styles/index.scss';
 
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import { HelmetProvider } from 'react-helmet-async';
-import * as ReactDOM from "react-dom";
 
 const container = document.getElementById('root');
+const root = createRoot(container);
 
-ReactDOM.render(
+root.render(
 	<HelmetProvider>
 		<App />
-	</HelmetProvider>,
-	container
+	</HelmetProvider>
 );
