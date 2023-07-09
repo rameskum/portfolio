@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"async": ">=2.6.4",
+		"async": ">=3.2.4",
 		"nth-check": ">=2.0.1",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
