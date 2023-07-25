@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1703e45-4c7b-4722-81ef-10544451bbb0/deploy-status)](https://app.netlify.com/sites/rameskum-profile-site/deploys)
+
 I am a developer by trade with a keen interest in technology. Beside challenging myself, I love learning new
 technologies and languages.
 
