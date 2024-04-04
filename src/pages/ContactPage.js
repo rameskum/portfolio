@@ -1,8 +1,8 @@
-import contactImage from '../assets/images/contact.svg';
-import Title from '../components/Title';
-import SocialDetails from '../components/SocialDetails';
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdOutlineMailOutline } from 'react-icons/md';
+import SocialDetails from '../components/SocialDetails';
+import Title from '../components/Title';
+import contactImage from '../assets/images/contact.svg';
 
 function ContactPage() {
 	return (
@@ -40,7 +40,7 @@ function ContactPage() {
 										rel="noopener noreferrer"
 										href="https://wa.me/+917064247865"
 									>
-										+91 7064247865
+										+14375287719
 									</a>
 								</li>
 							</ul>
