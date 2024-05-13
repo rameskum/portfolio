@@ -14,7 +14,7 @@
 		"web-vitals": "^3.5.2"
 	},
 	"devDependencies": {
-		"sass": "^1.75.0"
+		"sass": "^1.77.1"
 	},
 	"scripts": {
 		"start": "react-scripts start",
