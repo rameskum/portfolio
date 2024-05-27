@@ -40,7 +40,7 @@ function ContactPage() {
 										rel="noopener noreferrer"
 										href="https://wa.me/+917064247865"
 									>
-										+14375287719
+										+14375187719
 									</a>
 								</li>
 							</ul>
