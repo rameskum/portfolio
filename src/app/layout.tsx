@@ -1,12 +1,13 @@
 import '@/styles/globals.css';
 
-import { Inter as FontSans } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 
-const fontSans = FontSans({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-sans',
+  variable: '--font-jet-brains-mono',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
       <body
         className={cn(
           'bg-background min-h-screen font-sans antialiased',
-          fontSans.variable,
+          jetBrainsMono.variable,
         )}
       >
         {children}
