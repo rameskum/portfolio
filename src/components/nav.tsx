@@ -11,8 +11,8 @@ const links = [
     href: '/',
   },
   {
-    name: 'About',
-    href: '/about',
+    name: 'Services',
+    href: '/services',
   },
   {
     name: 'Resume',
@@ -39,7 +39,7 @@ const Nav = () => {
           className={cn(
             'font-medium capitalize transition-all hover:text-primary',
             {
-              'border-b-2 border-accent text-primary': pathname === link.href,
+              'border-b-2 border-primary text-primary': pathname === link.href,
             },
           )}
         >
