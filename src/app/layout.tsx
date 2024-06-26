@@ -1,7 +1,9 @@
 import '@/styles/globals.css';
 
+import Header from '@/components/header';
 import { JetBrains_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 
 const jetBrainsMono = JetBrains_Mono({
@@ -25,11 +27,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          'bg-background min-h-screen font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased',
           jetBrainsMono.variable,
         )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
