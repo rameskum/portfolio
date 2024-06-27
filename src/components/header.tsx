@@ -1,5 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Logo from '@/components/logo';
+import MobileNav from '@/components/mobile-nav';
+import { ModeToggle } from '@/components/mode-toggle';
 import Nav from '@/components/nav';
 
 const Header = () => {
@@ -7,22 +10,21 @@ const Header = () => {
     <header className="py-8 xl:py-12">
       <div className="container mx-auto flex items-center justify-between">
         {/* logo */}
-        <Link href="/">
-          <h1 className="text-4xl font-semibold">
-            Ramesh <span className="text-primary">.</span>
-          </h1>
-        </Link>
+        <Logo />
 
         {/* desktop navigation & contact button */}
-        <div className="hidden items-center gap-8 xl:flex">
+        <div className="hidden items-center gap-4 xl:flex">
           <Nav />
-          <Link href="/hire">
+          <ModeToggle />
+          <Link href="/contact">
             <Button>Hire Me</Button>
           </Link>
         </div>
 
         {/* mobile navigation */}
-        <div className="xl:hidden">mobile nav</div>
+        <div className="xl:hidden">
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
