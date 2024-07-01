@@ -32,4 +32,4 @@ Build the deployable:
 
 ## DEMO
 
-![app](public/home.png)
+![app](public/home.jpeg)
