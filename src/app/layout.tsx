@@ -31,7 +31,7 @@ export default function RootLayout({
           jetBrainsMono.variable,
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
           {children}
         </ThemeProvider>
