@@ -65,4 +65,12 @@
   .h3 {
     @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
   }
+
+  .text-outline {
+    -webkit-text-stroke: 1px hsl(var(--foreground));
+  }
+
+  .text-outline-hover {
+    -webkit-text-stroke: 1px hsl(var(--primary));
+  }
 }
