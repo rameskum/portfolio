@@ -54,7 +54,15 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    @apply font-primary;
+    @apply bg-background font-primary text-foreground antialiased;
+  }
+  .h1 {
+    @apply text-[48px] font-semibold leading-[1.1] xl:text-[80px];
+  }
+  .h2 {
+    @apply text-[36px] font-semibold leading-[1.1] xl:text-[48px];
+  }
+  .h3 {
+    @apply text-[20px] font-semibold leading-[1.1] xl:text-[24px];
   }
 }
