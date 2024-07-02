@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import Photo from '@/components/photo';
 import Social from '@/components/social';
+import Stats from '@/components/stats';
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 }
