@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Logo from '@/components/logo';
 import MobileNav from '@/components/mobile-nav';
-import { ModeToggle } from '@/components/mode-toggle';
 import Nav from '@/components/nav';
 
 const Header = () => {
@@ -15,7 +14,6 @@ const Header = () => {
         {/* desktop navigation & contact button */}
         <div className="hidden items-center gap-4 xl:flex">
           <Nav />
-          <ModeToggle />
           <Link href="/contact">
             <Button>Hire Me</Button>
           </Link>
