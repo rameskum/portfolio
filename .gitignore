@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-node_modules
-.DS_Store
-.idea
-.cache
-.parcel-cache
-dist
-=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -30,4 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .idea/
->>>>>>> 692867ab1950dd928e30861796239d726c35a98f
+.next/
+.idea
+.cache
