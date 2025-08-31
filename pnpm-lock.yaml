@@ -48,8 +48,8 @@ importers:
         specifier: 5.0.1
         version: 5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.28.3))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.28.3))(@types/babel__core@7.20.5)(eslint@8.57.1)(react@18.3.1)(sass@1.91.0)(type-fest@0.21.3)(typescript@4.9.5)
       web-vitals:
-        specifier: ^2.1.4
-        version: 2.1.4
+        specifier: ^5.1.0
+        version: 5.1.0
     devDependencies:
       sass:
         specifier: ^1.91.0
@@ -5445,8 +5445,8 @@ packages:
   wbuf@1.7.3:
     resolution: {integrity: sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==}
 
-  web-vitals@2.1.4:
-    resolution: {integrity: sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==}
+  web-vitals@5.1.0:
+    resolution: {integrity: sha512-ArI3kx5jI0atlTtmV0fWU3fjpLmq/nD3Zr1iFFlJLaqa5wLBkUSzINwBPySCX/8jRyjlmy1Volw1kz1g9XE4Jg==}
 
   webidl-conversions@4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
@@ -12168,7 +12168,7 @@ snapshots:
     dependencies:
       minimalistic-assert: 1.0.1
 
-  web-vitals@2.1.4: {}
+  web-vitals@5.1.0: {}
 
   webidl-conversions@4.0.2: {}
 
