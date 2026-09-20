@@ -1,0 +1,44 @@
+[
+  {
+    "id": "java-streams",
+    "enabled": true,
+    "order": 1,
+    "featured": true,
+    "slug": "java-streams",
+    "title": "Mastering Java Streams API",
+    "excerpt": "Deep dive into functional programming with Java Streams. Learn map, filter, reduce operations and how to write cleaner, more maintainable code.",
+    "date": "2024-07-01",
+    "tags": ["Java", "Streams", "Functional Programming"],
+    "source": "rameskum-blogs",
+    "externalUrl": null,
+    "bodyPath": "/content/articles/java-streams.md"
+  },
+  {
+    "id": "spring-boot-microservices",
+    "enabled": true,
+    "order": 2,
+    "featured": true,
+    "slug": "spring-boot-microservices",
+    "title": "Building Microservices with Spring Boot",
+    "excerpt": "Practical guide to designing and implementing microservices architecture using Spring Boot, including service discovery, API gateway, and circuit breakers.",
+    "date": "2024-06-15",
+    "tags": ["Spring Boot", "Microservices", "Java"],
+    "source": "rameskum-blogs",
+    "externalUrl": null,
+    "bodyPath": "/content/articles/spring-boot-microservices.md"
+  },
+  {
+    "id": "docker-kubernetes",
+    "enabled": true,
+    "order": 3,
+    "featured": true,
+    "slug": "docker-kubernetes",
+    "title": "Container Orchestration with Kubernetes",
+    "excerpt": "From Docker basics to Kubernetes deployments. Learn how to containerize applications and manage them at scale with K8s.",
+    "date": "2024-05-20",
+    "tags": ["Docker", "Kubernetes", "DevOps"],
+    "source": "rameskum-blogs",
+    "externalUrl": null,
+    "bodyPath": "/content/articles/docker-kubernetes.md"
+  }
+]
