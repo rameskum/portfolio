@@ -49,7 +49,7 @@
     "id": "tallynest",
     "enabled": true,
     "order": 4,
-    "featured": false,
+    "featured": true,
     "highlight": false,
     "title": "TallyNest",
     "description": "Expense tracking and budget management application with category-based tracking and reporting.",
