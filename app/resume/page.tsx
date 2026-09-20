@@ -11,8 +11,8 @@ export default function ResumePage() {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto border-x border-foreground bg-background">
-        <header className="border-b border-foreground px-6 md:px-12 py-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto border-x border-border bg-background">
+        <header className="border-b border-border px-6 md:px-12 py-6 flex items-center justify-between">
           <Link href="/" className="text-lg font-bold tracking-tight hover:text-primary transition-colors">
             ← RK®
           </Link>
@@ -28,7 +28,7 @@ export default function ResumePage() {
             <h1 className="text-4xl font-bold mb-8">Resume</h1>
 
             {hasError ? (
-              <div className="border border-foreground bg-card p-8 text-center">
+              <div className="border border-border bg-card p-8 text-center">
                 <div className="text-lg font-semibold mb-4">Unable to load PDF</div>
                 <p className="text-sm text-muted-foreground mb-6">
                   The resume PDF could not be displayed in your browser.
@@ -40,7 +40,7 @@ export default function ResumePage() {
                 </Button>
               </div>
             ) : (
-              <div className="border border-foreground bg-card relative">
+              <div className="border border-border bg-card relative">
                 {isLoading && (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted">
                     <div className="text-center">

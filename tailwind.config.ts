@@ -20,7 +20,7 @@ const config: Config = {
         'accent-secondary': '#FFC46A',
         muted: '#E8E4DA',
         'muted-foreground': '#5C574E',
-        border: '#111210',
+        border: '#B9BBB3',
         ring: '#111210',
         success: '#5FB27B',
       },
@@ -28,9 +28,24 @@ const config: Config = {
         sans: ['var(--font-geist-sans)'],
         serif: ['var(--font-instrument-serif)'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#5C574E',
+            '--tw-prose-headings': '#111210',
+            '--tw-prose-links': '#E85A32',
+            '--tw-prose-bold': '#111210',
+            '--tw-prose-code': '#111210',
+            '--tw-prose-pre-code': '#111210',
+            '--tw-prose-pre-bg': '#E8E4DA',
+            '--tw-prose-borders': '#B9BBB3',
+            maxWidth: 'none',
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;

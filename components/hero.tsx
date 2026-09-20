@@ -15,9 +15,9 @@ export function Hero() {
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-[1.5fr_1fr] gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-8">
               {site.statement.leading}{' '}
               <span className="font-serif italic text-primary">
                 {site.statement.accent}
@@ -51,8 +51,8 @@ export function Hero() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square bg-card border border-foreground rounded-t-full overflow-hidden flex items-center justify-center">
-              <PlatformGrid className="w-3/4 h-3/4 text-foreground opacity-60" />
+            <div className="aspect-square bg-card border border-border rounded-t-full overflow-hidden flex items-center justify-center">
+              <PlatformGrid className="w-2/3 h-2/3 text-foreground opacity-50" />
             </div>
           </div>
         </div>

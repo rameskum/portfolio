@@ -14,7 +14,7 @@ export default function Home() {
       >
         Skip to main content
       </a>
-      <div className="max-w-7xl mx-auto border-x border-foreground bg-background">
+      <div className="max-w-7xl mx-auto border-x border-border bg-background">
         <Header />
         <main id="main-content">
           <Hero />
@@ -23,7 +23,7 @@ export default function Home() {
           <Writing />
           <Contact />
         </main>
-        <footer className="border-t border-foreground px-6 md:px-12 py-8">
+        <footer className="border-t border-border px-6 md:px-12 py-8">
           <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
             <p>© {new Date().getFullYear()} Ramesh Kumar. Built with Next.js.</p>
           </div>

@@ -8,8 +8,8 @@ export default function WritingPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto border-x border-foreground bg-background">
-        <header className="border-b border-foreground px-6 md:px-12 py-6">
+      <div className="max-w-7xl mx-auto border-x border-border bg-background">
+        <header className="border-b border-border px-6 md:px-12 py-6">
           <Link href="/" className="text-lg font-bold tracking-tight hover:text-primary transition-colors">
             ← RK®
           </Link>
@@ -29,7 +29,7 @@ export default function WritingPage() {
                   href={`/writing/${article.slug}`}
                   className="block group"
                 >
-                  <article className="border border-foreground bg-card p-6 hover:bg-muted transition-colors">
+                  <article className="border border-border bg-card p-6 hover:bg-muted transition-colors">
                     <time className="text-xs text-muted-foreground">
                       {new Date(article.date).toLocaleDateString('en-US', {
                         year: 'numeric',

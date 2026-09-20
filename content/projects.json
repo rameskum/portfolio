@@ -27,7 +27,7 @@
     "liveUrl": "https://ecommerce-admin-rameskum.vercel.app",
     "repoUrl": "https://github.com/rameskum/ecommerce-admin",
     "href": null,
-    "image": null,
+    "image": "/ecommerce-admin.jpg",
     "tier": "primary"
   },
   {
@@ -42,7 +42,7 @@
     "liveUrl": "https://ecommerce-store-rameskum.vercel.app",
     "repoUrl": "https://github.com/rameskum/ecommerce-store",
     "href": null,
-    "image": null,
+    "image": "/ecommerce-store.jpg",
     "tier": "primary"
   },
   {
