@@ -20,7 +20,7 @@ export function Projects() {
             return (
               <div
                 key={project.id}
-                className={`group border border-foreground bg-card overflow-hidden ${
+                className={`group border border-border bg-card overflow-hidden ${
                   project.highlight ? 'md:col-span-2' : ''
                 } ${isSecondary ? 'opacity-90' : ''}`}
               >

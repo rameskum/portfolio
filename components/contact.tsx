@@ -43,7 +43,7 @@ export function Contact() {
               <h2 className="text-xs tracking-[0.16em] uppercase text-muted-foreground mb-6">
                 Education
               </h2>
-              <div className="border border-foreground bg-card p-6">
+              <div className="border border-border bg-card p-6">
                 <div className="text-lg font-bold mb-2">{education.degree}</div>
                 <div className="text-sm text-muted-foreground mb-1">
                   {education.school}
