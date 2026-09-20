@@ -8,9 +8,15 @@ import { Contact } from '@/components/contact';
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-primary focus:text-primary-foreground focus:top-4 focus:left-4"
+      >
+        Skip to main content
+      </a>
       <div className="max-w-7xl mx-auto border-x border-foreground bg-background">
         <Header />
-        <main>
+        <main id="main-content">
           <Hero />
           <Work />
           <Projects />

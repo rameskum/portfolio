@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { site, education } from '@/lib/content';
 
 export function Contact() {
+  const enabledSocials = site.socials.filter(s => s.enabled).sort((a, b) => a.order - b.order);
+
   return (
     <section id="contact" className="px-6 md:px-12 py-16">
       <div className="max-w-6xl mx-auto">
@@ -21,7 +23,7 @@ export function Contact() {
               </Button>
 
               <div className="flex gap-4">
-                {site.socials.map((social) => (
+                {enabledSocials.map((social) => (
                   <Button key={social.id} variant="outline" asChild>
                     <a
                       href={social.href}
