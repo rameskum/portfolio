@@ -1,30 +1,13 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
 import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Alert } from "@/components/ui/alert";
 import { siteConfig } from "@/content/site";
-import { submitContactForm } from "@/app/actions/contact";
 
 export function ContactSection() {
-  const [state, formAction, isPending] = useActionState(
-    submitContactForm,
-    null
-  );
-  const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state?.success) {
-      formRef.current?.reset();
-    }
-  }, [state]);
-
   return (
     <section
       id="contact"
@@ -74,57 +57,11 @@ export function ContactSection() {
 
             <Separator className="my-8" />
 
-            <form ref={formRef} action={formAction} className="space-y-4 text-left">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  name="name"
-                  required
-                  disabled={isPending}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  disabled={isPending}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  disabled={isPending}
-                />
-              </div>
-
-              {state?.success && (
-                <Alert>
-                  <p className="text-sm">
-                    Thanks! Your message has been received.
-                  </p>
-                </Alert>
-              )}
-
-              {state?.error && (
-                <Alert variant="destructive">
-                  <p className="text-sm">
-                    {state.error}
-                  </p>
-                </Alert>
-              )}
-
-              <Button type="submit" disabled={isPending} className="w-full">
-                {isPending ? "Sending..." : "Send message"}
-              </Button>
-            </form>
+            <Alert className="text-left">
+              <p className="text-sm">
+                <strong>Contact form not wired yet.</strong> This is a UI scaffold — form submission is not implemented. Please use the Email button above to reach out directly.
+              </p>
+            </Alert>
           </CardContent>
         </Card>
       </div>
