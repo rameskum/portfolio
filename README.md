@@ -1,35 +1,74 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c1703e45-4c7b-4722-81ef-10544451bbb0/deploy-status)](https://app.netlify.com/sites/rameskum-profile-site/deploys)
+# Ramesh Kumar Portfolio v2
 
-I am a developer by trade with a keen interest in technology. Beside challenging myself, I love learning new
-technologies and languages.
+Portfolio website for Ramesh Kumar - Senior Backend & Data Engineer.
 
-You can access my portfolio at: [portfolio](https://rameskum.com)
+## Tech Stack
 
-This is my portfolio website that I've been developing and creating by myself.
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Fonts**: Geist Sans & Geist Mono
 
-## Development
+## Features
 
-Basic Requisite:
+- 🌑 Dark theme with teal accent
+- 📱 Mobile-first responsive design
+- ♿ Accessible (WCAG 2.1 AA)
+- ⚡ Server Components by default
+- 📝 Blog with placeholder content
+- 📄 Resume viewer page
+- 🎨 Component-based architecture
 
-- Node and npm should be installed to build the project.
-- I'm using below versions:
-  - Node: `v16.13.1`
-  - Npm: `7.15.1`
+## Getting Started
 
-**Customize?**
+Install dependencies:
 
-Install the dependencies:
+```bash
+pnpm install
+```
 
-`npm i`
+Run development server:
 
-Run the development server:
+```bash
+pnpm dev
+```
 
-`npm run start`
+Build for production:
 
-Build the deployable:
+```bash
+pnpm build
+```
 
-`npm run build`
+Type check:
 
-## DEMO
+```bash
+pnpm typecheck
+```
 
-![app](public/home.jpeg)
+## Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   ├── writing/           # Blog pages
+│   ├── resume/            # Resume viewer
+│   └── ...
+├── components/
+│   ├── home/              # Home page sections
+│   ├── layout/            # Header, Footer
+│   └── ui/                # shadcn/ui components
+├── content/               # Static content modules
+└── lib/                   # Utilities
+```
+
+## Design Decisions
+
+- Employment case studies placed above personal projects
+- Teal accent used sparingly for CTAs, metrics, and focus states
+- Dark background with high contrast for readability
+- Server Components by default; client components only where needed
+- No auth, no database - static content modules
+
+## License
+
+© 2026 Ramesh Kumar

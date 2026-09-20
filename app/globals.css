@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark + Teal theme - §2.1 from design spec */
+    --background: 162 40% 3%; /* #0A0F0E */
+    --foreground: 166 88% 96%; /* #F0FDFA */
+
+    --card: 162 33% 5%; /* #0E1614 */
+    --card-foreground: 166 88% 96%;
+
+    --popover: 162 33% 5%;
+    --popover-foreground: 166 88% 96%;
+
+    --primary: 172 85% 40%; /* #14B8A6 - Teal-500 */
+    --primary-foreground: 174 100% 9%; /* #042F2E */
+
+    --secondary: 162 40% 8%; /* subtle dark teal */
+    --secondary-foreground: 166 88% 96%;
+
+    --muted: 162 32% 8%; /* #111A18 */
+    --muted-foreground: 162 14% 58%; /* #8B9E99 */
+
+    --accent: 174 84% 18%; /* #134E4A - Teal-900 */
+    --accent-foreground: 166 88% 96%;
+
+    --destructive: 0 84% 70%; /* #F87171 */
+    --destructive-foreground: 166 88% 96%;
+
+    --border: 162 26% 15%; /* #1E2E2A */
+    --input: 162 26% 15%;
+    --ring: 172 76% 48%; /* #2DD4BF - Teal-400 */
+
+    --radius: 0.5rem;
+
+    --chart-1: 172 85% 40%;
+    --chart-2: 172 76% 48%;
+    --chart-3: 174 84% 18%;
+    --chart-4: 162 32% 8%;
+    --chart-5: 162 14% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Skip link - accessibility */
+.skip-link {
+  @apply absolute left-4 top-4 z-50 -translate-y-20 rounded-lg bg-primary px-4 py-2 text-primary-foreground transition-transform;
+  @apply focus:translate-y-0;
+}
