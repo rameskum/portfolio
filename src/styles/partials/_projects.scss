@@ -18,6 +18,8 @@ Projects
   border-top-right-radius: var(--radius);
   height: 19rem;
   z-index: 1;
+  border: 1px solid var(--clr-border-light);
+  border-bottom: none;
 
   display: inline-block;
   overflow: hidden;
@@ -41,6 +43,8 @@ Projects
   padding: 1rem 2rem;
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
+  border: 1px solid var(--clr-border-light);
+  border-top: none;
 }
 
 .project-number {

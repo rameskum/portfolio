@@ -13,6 +13,7 @@
 	-webkit-transition: var(--transition);
 	transition: var(--transition);
 	background-color: var(--clr-primary-10);
+	border-bottom: none;
 }
 
 .nav-center {
@@ -59,7 +60,7 @@
 	.nav-links a {
 		text-transform: capitalize;
 		color: var(--clr-grey-1);
-		font-weight: bold;
+		font-weight: 700;
 		letter-spacing: var(--spacing);
 		-webkit-transition: var(--transition);
 		transition: var(--transition);
@@ -85,13 +86,14 @@
 	width: 100%;
 	background: var(--clr-primary-10);
 	z-index: 2;
-	box-shadow: var(--light-shadow);
+	box-shadow: none;
 }
 
 .nav-logo {
 	width: 3em;
 	height: 3em;
-	stroke: var(--clr-grey-3);
+	stroke: var(--clr-grey-1);
+	stroke-width: 6;
 	transition: var(--transition);
 
 	&:hover {
@@ -100,7 +102,8 @@
 	}
 
 	path#R {
-		fill: var(--clr-grey-3);
-		stroke: var(--clr-grey-3);
+		fill: var(--clr-grey-1);
+		stroke: var(--clr-grey-1);
+		stroke-width: 0.5;
 	}
 }

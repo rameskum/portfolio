@@ -35,11 +35,11 @@
   .hero-img {
     display: block;
     position: relative;
-    transform: scale(1.15);
+    transform: scale(0.95);
   }
 
   .hero-center {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
   }
 }
 
