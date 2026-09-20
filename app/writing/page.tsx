@@ -1,7 +1,33 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { writing } from '@/lib/content';
 import { enabledSorted } from '@/lib/content';
+import { OG_BASE, TWITTER_CARD, ogImages } from '@/lib/seo';
+
+const pageTitle = 'Writing | Ramesh Kumar';
+const pageDescription =
+  'Technical articles by Ramesh Kumar on Java, Spring Boot microservices, Docker, Kubernetes, and backend engineering.';
+
+export const metadata: Metadata = {
+  title: 'Writing',
+  description: pageDescription,
+  alternates: {
+    canonical: '/writing',
+  },
+  openGraph: {
+    ...OG_BASE,
+    title: pageTitle,
+    description: pageDescription,
+    url: '/writing',
+    images: ogImages(pageTitle),
+  },
+  twitter: {
+    ...TWITTER_CARD,
+    title: pageTitle,
+    description: pageDescription,
+  },
+};
 
 export default function WritingPage() {
   const articles = enabledSorted(writing);
