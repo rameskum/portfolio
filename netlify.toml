@@ -7,3 +7,11 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Redirect www to the apex domain for a single canonical host.
+# Note: requires a DNS record pointing www.rameskum.com at Netlify first.
+[[redirects]]
+  from = "https://www.rameskum.com/*"
+  to = "https://rameskum.com/:splat"
+  status = 301
+  force = true

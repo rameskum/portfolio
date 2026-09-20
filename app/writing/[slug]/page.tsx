@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { promises as fs } from 'fs';
@@ -6,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Badge } from '@/components/ui/badge';
 import { writing } from '@/lib/content';
+import { OG_BASE, TWITTER_CARD, ogImages } from '@/lib/seo';
 
 export async function generateStaticParams() {
   return writing
@@ -13,6 +15,43 @@ export async function generateStaticParams() {
     .map((article) => ({
       slug: article.slug,
     }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = writing.find((a) => a.slug === slug && a.enabled);
+
+  if (!article) return {};
+
+  const url = `/writing/${article.slug}`;
+  const pageTitle = `${article.title} | Ramesh Kumar`;
+
+  return {
+    title: article.title,
+    description: article.excerpt,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      ...OG_BASE,
+      type: 'article',
+      title: pageTitle,
+      description: article.excerpt,
+      url,
+      publishedTime: article.date,
+      tags: article.tags,
+      images: ogImages(article.title),
+    },
+    twitter: {
+      ...TWITTER_CARD,
+      title: pageTitle,
+      description: article.excerpt,
+    },
+  };
 }
 
 async function getArticleContent(bodyPath: string | null | undefined): Promise<string | null> {
@@ -41,8 +80,27 @@ export default async function ArticlePage({
 
   const content = await getArticleContent(article.bodyPath);
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: article.title,
+    description: article.excerpt,
+    url: `https://rameskum.com/writing/${article.slug}`,
+    datePublished: article.date,
+    author: {
+      '@type': 'Person',
+      name: 'Ramesh Kumar',
+      url: 'https://rameskum.com',
+    },
+    keywords: article.tags.join(', '),
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto border-x border-border bg-background">
         <header className="border-b border-border px-6 md:px-12 py-6">
           <Link href="/writing" className="text-lg font-bold tracking-tight hover:text-primary transition-colors">
@@ -74,7 +132,9 @@ export default async function ArticlePage({
 
             {content ? (
               <div className="prose prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-p:leading-relaxed prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-pre:bg-muted prose-pre:border prose-pre:border-border prose-pre:rounded-lg prose-pre:p-4 prose-pre:overflow-x-auto">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {/* The article title is already rendered as the page h1 above,
+                    so demote markdown h1s to h2 to keep a single h1 per page. */}
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ h1: 'h2' }}>
                   {content}
                 </ReactMarkdown>
               </div>
