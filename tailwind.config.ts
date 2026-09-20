@@ -20,7 +20,7 @@ const config: Config = {
         'accent-secondary': '#FFC46A',
         muted: '#E8E4DA',
         'muted-foreground': '#5C574E',
-        border: '#111210',
+        border: '#B9BBB3',
         ring: '#111210',
         success: '#5FB27B',
       },

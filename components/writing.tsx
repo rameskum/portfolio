@@ -25,7 +25,7 @@ export function Writing() {
               href={`/writing/${article.slug}`}
               className="group"
             >
-              <article className="border border-foreground bg-card p-6 hover:bg-muted transition-colors">
+              <article className="border border-border bg-card p-6 hover:bg-muted transition-colors">
                 <time className="text-xs text-muted-foreground">
                   {new Date(article.date).toLocaleDateString('en-US', {
                     year: 'numeric',

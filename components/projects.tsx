@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { featuredProjects } from '@/lib/content';
@@ -23,11 +24,19 @@ export function Projects() {
                   project.highlight ? 'md:col-span-2' : ''
                 } ${isSecondary ? 'opacity-90' : ''}`}
               >
-                <div className="relative aspect-video bg-muted flex items-center justify-center border-b border-foreground">
-                  {project.motif === 'HomelabRack' && (
+                <div className="relative aspect-video bg-muted flex items-center justify-center border-b border-border">
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                  {!project.image && project.motif === 'HomelabRack' && (
                     <HomelabRack className="w-1/2 h-1/2 text-foreground opacity-40" />
                   )}
-                  {!project.motif && (
+                  {!project.image && !project.motif && (
                     <div className="text-sm text-muted-foreground">Preview</div>
                   )}
                   

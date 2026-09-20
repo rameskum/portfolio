@@ -18,7 +18,7 @@ export function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between py-6 px-6 md:px-12 border-b border-border">
+    <header className="flex items-center justify-between py-6 px-6 md:px-12">
       <div className="text-lg font-bold tracking-tight">{site.wordmark}</div>
       
       <nav className="hidden md:flex items-center gap-8">
@@ -26,7 +26,7 @@ export function Header() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-xs tracking-[0.16em] uppercase hover:text-primary transition-colors"
+            className="text-xs font-bold tracking-[0.16em] uppercase hover:text-primary transition-colors"
           >
             {link.label}
           </Link>
@@ -59,7 +59,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-base tracking-[0.08em] uppercase hover:text-primary transition-colors"
+                className="text-base font-bold tracking-[0.08em] uppercase hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
