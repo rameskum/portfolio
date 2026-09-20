@@ -1,0 +1,78 @@
+[
+  {
+    "id": "td-endava",
+    "enabled": true,
+    "order": 1,
+    "featured": true,
+    "highlight": true,
+    "org": "TD Securities / Endava",
+    "role": "Senior Backend Engineer",
+    "location": "Toronto",
+    "start": "2022-01",
+    "end": null,
+    "title": "Cut data upload cycles from 20 minutes to 2",
+    "summary": "Modernized legacy batch pipelines for high-volume financial data ingestion. Replaced monolithic SSIS workflows with event-driven microservices on AKS, enabling parallel processing and real-time validation.",
+    "bullets": [
+      "Redesigned ETL architecture from sequential batch to streaming microservices, reducing upload time 10x",
+      "Built REST APIs for pipeline orchestration and monitoring with Spring Boot",
+      "Implemented Iceberg and Delta Lake formats for incremental data processing",
+      "Integrated Databricks for analytics workloads with automated schema evolution"
+    ],
+    "metrics": [
+      { "value": "20→2 min", "label": "Upload cycles" },
+      { "value": "weeks→days", "label": "Delivery cycle" }
+    ],
+    "stack": ["Java", "Spring Boot", "AKS", "Iceberg", "Delta Lake", "Databricks", "REST APIs"],
+    "motif": "PipelineFlow",
+    "writingSlug": null
+  },
+  {
+    "id": "amdocs",
+    "enabled": true,
+    "order": 2,
+    "featured": true,
+    "org": "Amdocs",
+    "role": "Senior Software Engineer",
+    "location": "Pune, India",
+    "start": "2018-06",
+    "end": "2021-12",
+    "title": "Reduced operational overhead 25% with automated recovery",
+    "summary": "Built the Automated Recovery Tool (ART) for telecom service provisioning. When workflows failed, ART diagnosed the cause, retried safe operations, and escalated unrecoverable errors—cutting manual intervention by a quarter.",
+    "bullets": [
+      "Designed fault-tolerant recovery engine for provisioning workflows",
+      "Implemented intelligent retry logic with exponential backoff and circuit breakers",
+      "Built diagnostic engine to classify failure types and suggest remediation",
+      "Reduced manual operations overhead by 25% through automation"
+    ],
+    "metrics": [
+      { "value": "−25%", "label": "Operational overhead" }
+    ],
+    "stack": ["Java", "Spring", "Oracle", "REST", "Workflow Engines"],
+    "motif": "RecoveryLoop",
+    "writingSlug": null
+  },
+  {
+    "id": "homelab",
+    "enabled": true,
+    "order": 3,
+    "featured": true,
+    "highlight": true,
+    "org": "Personal",
+    "role": "Systems Engineer",
+    "location": "Toronto",
+    "start": "2021-01",
+    "end": null,
+    "title": "Production-grade homelab for continuous learning",
+    "summary": "Self-hosted infrastructure for testing new technologies and maintaining personal services. Runs containerized applications, CI/CD pipelines, monitoring stack, and network services on dedicated hardware.",
+    "bullets": [
+      "Deployed Kubernetes cluster with GitOps workflows using ArgoCD",
+      "Self-hosted CI/CD with Drone and private container registry",
+      "Implemented observability stack: Prometheus, Grafana, Loki",
+      "Network services: Pi-hole DNS, reverse proxy, VPN gateway"
+    ],
+    "metrics": [],
+    "stack": ["Kubernetes", "Docker", "ArgoCD", "Prometheus", "Grafana", "Linux"],
+    "motif": "HomelabRack",
+    "writingSlug": null
+  }
+]

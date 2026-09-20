@@ -1,0 +1,31 @@
+{
+  "name": "Ramesh Kumar",
+  "wordmark": "RK®",
+  "location": "TORONTO · CA",
+  "headline": "Senior Backend & Data Engineer | Java, Data Platforms & Cloud Modernization",
+  "statusLabel": "SENIOR BACKEND & DATA ENGINEER",
+  "statement": {
+    "leading": "I build the",
+    "accent": "quiet systems",
+    "trailing": "that keep business moving."
+  },
+  "summary": "Backend engineer with 7+ years across telecom and financial systems. I turn complex operational workflows into reliable Java services, automation, and clear interfaces.",
+  "email": "rameskum@example.com",
+  "resumePath": "/resume.pdf",
+  "socials": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "href": "https://github.com/rameskum",
+      "enabled": true,
+      "order": 1
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/rameskum",
+      "enabled": true,
+      "order": 2
+    }
+  ]
+}

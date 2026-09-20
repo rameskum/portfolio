@@ -1,0 +1,26 @@
+[
+  {
+    "id": "java",
+    "enabled": true,
+    "order": 1,
+    "label": "JAVA / SPRING BOOT"
+  },
+  {
+    "id": "services",
+    "enabled": true,
+    "order": 2,
+    "label": "MICROSERVICES / REST"
+  },
+  {
+    "id": "cloud",
+    "enabled": true,
+    "order": 3,
+    "label": "GOOGLE CLOUD / DOCKER"
+  },
+  {
+    "id": "web",
+    "enabled": true,
+    "order": 4,
+    "label": "NEXT.JS / TYPESCRIPT"
+  }
+]
