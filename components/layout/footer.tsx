@@ -12,43 +12,46 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {year} Ramesh Kumar · Toronto
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               asChild
               aria-label="GitHub"
+              className="h-11 w-11"
             >
               <a
                 href={siteConfig.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github className="h-4 w-4" />
+                <Github className="h-5 w-5" />
               </a>
             </Button>
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               asChild
               aria-label="LinkedIn"
+              className="h-11 w-11"
             >
               <a
                 href={siteConfig.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </Button>
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               asChild
               aria-label="Email"
+              className="h-11 w-11"
             >
               <a href={siteConfig.socials.email}>
-                <Mail className="h-4 w-4" />
+                <Mail className="h-5 w-5" />
               </a>
             </Button>
           </div>

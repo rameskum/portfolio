@@ -1,16 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
-import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { MobileNav } from "./mobile-nav";
 
 const navLinks = [
   { href: "/#experience", label: "Work" },
@@ -20,8 +10,6 @@ const navLinks = [
 ];
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <header className="sticky top-0 z-50 h-14 border-b border-border bg-background/80 backdrop-blur-md md:h-16">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -49,9 +37,7 @@ export function Header() {
         {/* Right - CTAs */}
         <div className="flex items-center gap-2">
           <Button size="sm" asChild className="hidden sm:flex">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
+            <Link href="/resume">Resume</Link>
           </Button>
           <Button
             variant="ghost"
@@ -63,40 +49,7 @@ export function Header() {
           </Button>
 
           {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="sm" aria-label="Menu">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle className="sr-only">Menu</SheetTitle>
-              </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="min-h-11 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <Button asChild className="mt-4 w-full">
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Resume
-                  </a>
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <MobileNav />
         </div>
       </div>
     </header>

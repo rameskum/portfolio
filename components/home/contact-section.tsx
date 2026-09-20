@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,23 +10,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
 import { Alert } from "@/components/ui/alert";
 import { siteConfig } from "@/content/site";
+import { submitContactForm } from "@/app/actions/contact";
 
 export function ContactSection() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [state, formAction, isPending] = useActionState(
+    submitContactForm,
+    null
+  );
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus("idle");
-
-    // Placeholder - no actual API implementation
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setStatus("success");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
-  };
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset();
+    }
+  }, [state]);
 
   return (
     <section
@@ -77,14 +74,14 @@ export function ContactSection() {
 
             <Separator className="my-8" />
 
-            <form onSubmit={handleSubmit} className="space-y-4 text-left">
+            <form ref={formRef} action={formAction} className="space-y-4 text-left">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
                   name="name"
                   required
-                  disabled={isSubmitting}
+                  disabled={isPending}
                 />
               </div>
               <div className="space-y-2">
@@ -94,7 +91,7 @@ export function ContactSection() {
                   name="email"
                   type="email"
                   required
-                  disabled={isSubmitting}
+                  disabled={isPending}
                 />
               </div>
               <div className="space-y-2">
@@ -104,11 +101,11 @@ export function ContactSection() {
                   name="message"
                   rows={4}
                   required
-                  disabled={isSubmitting}
+                  disabled={isPending}
                 />
               </div>
 
-              {status === "success" && (
+              {state?.success && (
                 <Alert>
                   <p className="text-sm">
                     Thanks! Your message has been received.
@@ -116,16 +113,16 @@ export function ContactSection() {
                 </Alert>
               )}
 
-              {status === "error" && (
+              {state?.error && (
                 <Alert variant="destructive">
                   <p className="text-sm">
-                    Something went wrong. Please try again.
+                    {state.error}
                   </p>
                 </Alert>
               )}
 
-              <Button type="submit" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? "Sending..." : "Send message"}
+              <Button type="submit" disabled={isPending} className="w-full">
+                {isPending ? "Sending..." : "Send message"}
               </Button>
             </form>
           </CardContent>

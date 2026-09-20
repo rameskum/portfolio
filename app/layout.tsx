@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="antialiased">
+      <body className={`${GeistSans.className} antialiased`}>
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
