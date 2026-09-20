@@ -17,11 +17,11 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL('https://rameskum.com'),
   title: {
-    default: 'Ramesh Kumar - Senior Backend & Data Engineer',
+    default: 'Ramesh Kumar | Java & Spring Backend Engineer',
     template: '%s | Ramesh Kumar',
   },
   description:
-    'Backend engineer with 7+ years across telecom and financial systems. I turn complex operational workflows into reliable Java services, automation, and clear interfaces.',
+    'Senior backend engineer with 7+ years building Java, Spring Boot, and Kubernetes microservices for telecom and finance.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Ramesh Kumar - Senior Backend & Data Engineer',
+        alt: 'Ramesh Kumar | Java & Spring Backend Engineer',
       },
     ],
   },
