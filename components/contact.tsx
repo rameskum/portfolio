@@ -9,7 +9,7 @@ export function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-xs tracking-[0.16em] uppercase text-muted-foreground mb-6">
+            <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-6">
               Contact
             </h2>
             <h3 className="text-3xl font-bold mb-6">Let's connect</h3>
@@ -40,7 +40,7 @@ export function Contact() {
 
           {education.enabled && (
             <div>
-              <h2 className="text-xs tracking-[0.16em] uppercase text-muted-foreground mb-6">
+              <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-6">
                 Education
               </h2>
               <div className="border border-border bg-card p-6">

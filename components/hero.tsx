@@ -10,7 +10,7 @@ export function Hero() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center gap-2 mb-8">
           <div className="w-2 h-2 rounded-full bg-success" />
-          <span className="text-xs tracking-[0.16em] uppercase text-muted-foreground">
+          <span className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
             {site.statusLabel}
           </span>
         </div>
@@ -62,7 +62,7 @@ export function Hero() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stack.map((item, index) => (
             <div key={item.id}>
-              <div className="text-[11px] md:text-xs tracking-wider uppercase text-center py-4">
+              <div className="text-[11px] md:text-xs font-mono tracking-wider uppercase text-center py-4">
                 {item.label}
               </div>
               {index < stack.length - 1 && (

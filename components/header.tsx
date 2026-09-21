@@ -65,7 +65,7 @@ export function Header() {
               </Link>
             ))}
             <div className="mt-4 pt-4 border-t border-border">
-              <div className="text-xs tracking-[0.16em] uppercase text-muted-foreground">
+              <div className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
                 {site.location}
               </div>
             </div>
@@ -73,7 +73,7 @@ export function Header() {
         </SheetContent>
       </Sheet>
 
-      <div className="hidden md:block text-xs tracking-[0.16em] uppercase text-muted-foreground">
+      <div className="hidden md:block text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
         {site.location}
       </div>
     </header>
