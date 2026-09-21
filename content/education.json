@@ -1,8 +1,1 @@
-{
-  "id": "nit-rourkela",
-  "enabled": true,
-  "school": "NIT Rourkela",
-  "degree": "M.Tech Computer Science",
-  "years": "2016–2018",
-  "note": null
-}
+[{"degree":"M.Tech Computer Science","enabled":true,"id":"nit-rourkela","note":null,"order":1,"school":"National Institute of Technology, Rourkela","years":"2014–2016"},{"degree":"B.Tech Computer Science & Engineering","enabled":true,"id":"uptu-lucknow","note":null,"order":2,"school":"Uttar Pradesh Technical University, Lucknow","years":"2009–2013"}]

@@ -15,7 +15,7 @@
     "id": "cloud",
     "enabled": true,
     "order": 3,
-    "label": "GOOGLE CLOUD / DOCKER"
+    "label": "AZURE / KUBERNETES"
   },
   {
     "id": "web",

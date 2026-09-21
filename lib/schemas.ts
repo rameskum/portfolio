@@ -9,17 +9,13 @@ export const ContentFlagsSchema = z.object({
 });
 
 export const SiteSchema = z.object({
-  name: z.string(),
   wordmark: z.string(),
   location: z.string(),
-  headline: z.string(),
-  statusLabel: z.string(),
   statement: z.object({
     leading: z.string(),
     accent: z.string(),
     trailing: z.string(),
   }),
-  summary: z.string(),
   email: z.string().email(),
   resumePath: z.string(),
   socials: z.array(
@@ -31,6 +27,19 @@ export const SiteSchema = z.object({
       order: z.number(),
     })
   ),
+});
+
+// Single source of truth for the person's profile copy, parsed from
+// content/profile.md (frontmatter + bio body). Experience length and all
+// identity strings live here, not hardcoded in components or metadata.
+export const ProfileSchema = z.object({
+  name: z.string(),
+  headline: z.string(),
+  jobTitle: z.string(),
+  statusLabel: z.string(),
+  yearsOfExperience: z.string(),
+  summary: z.string(),
+  metaDescription: z.string(),
 });
 
 export const MetricSchema = ContentFlagsSchema.extend({
@@ -89,6 +98,7 @@ export const WritingItemSchema = ContentFlagsSchema.extend({
 export const EducationSchema = z.object({
   id: z.string(),
   enabled: z.boolean(),
+  order: z.number(),
   school: z.string(),
   degree: z.string(),
   years: z.string(),
@@ -96,6 +106,7 @@ export const EducationSchema = z.object({
 });
 
 export type Site = z.infer<typeof SiteSchema>;
+export type Profile = z.infer<typeof ProfileSchema> & { bio: string };
 export type Metric = z.infer<typeof MetricSchema>;
 export type StackItem = z.infer<typeof StackItemSchema>;
 export type CaseStudy = z.infer<typeof CaseStudySchema>;
