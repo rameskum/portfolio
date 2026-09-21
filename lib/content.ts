@@ -3,7 +3,6 @@ import metricsData from '@/content/metrics.json';
 import stackData from '@/content/stack.json';
 import caseStudiesData from '@/content/case-studies.json';
 import projectsData from '@/content/projects.json';
-import writingData from '@/content/writing.json';
 import educationData from '@/content/education.json';
 import {
   SiteSchema,
@@ -11,14 +10,12 @@ import {
   StackItemSchema,
   CaseStudySchema,
   ProjectSchema,
-  WritingItemSchema,
   EducationSchema,
   type Site,
   type Metric,
   type StackItem,
   type CaseStudy,
   type Project,
-  type WritingItem,
   type Education,
 } from './schemas';
 import { z } from 'zod';
@@ -47,8 +44,6 @@ export const metrics = enabledSorted(z.array(MetricSchema).parse(metricsData));
 export const stack = enabledSorted(z.array(StackItemSchema).parse(stackData));
 export const caseStudies = enabledSorted(z.array(CaseStudySchema).parse(caseStudiesData));
 export const projects = z.array(ProjectSchema).parse(projectsData);
-export const writing = z.array(WritingItemSchema).parse(writingData);
 export const education = enabledSorted(z.array(EducationSchema).parse(educationData));
 
 export const featuredProjects = featured(projects);
-export const featuredWriting = featured(writing);

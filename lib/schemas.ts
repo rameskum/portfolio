@@ -84,17 +84,6 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   tier: z.enum(['primary', 'secondary', 'archived']),
 });
 
-export const WritingItemSchema = ContentFlagsSchema.extend({
-  slug: z.string(),
-  title: z.string(),
-  excerpt: z.string(),
-  date: z.string(),
-  tags: z.array(z.string()),
-  source: z.string(),
-  externalUrl: z.string().url().nullable().optional(),
-  bodyPath: z.string().nullable().optional(),
-});
-
 export const EducationSchema = z.object({
   id: z.string(),
   enabled: z.boolean(),
@@ -111,5 +100,4 @@ export type Metric = z.infer<typeof MetricSchema>;
 export type StackItem = z.infer<typeof StackItemSchema>;
 export type CaseStudy = z.infer<typeof CaseStudySchema>;
 export type Project = z.infer<typeof ProjectSchema>;
-export type WritingItem = z.infer<typeof WritingItemSchema>;
 export type Education = z.infer<typeof EducationSchema>;
