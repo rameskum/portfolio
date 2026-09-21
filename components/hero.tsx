@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { PlatformGrid } from '@/components/svg-motifs';
 import { site, metrics, stack } from '@/lib/content';
 import { profile } from '@/lib/profile';
 
@@ -52,8 +52,14 @@ export function Hero() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square bg-card border border-border rounded-t-full overflow-hidden flex items-center justify-center">
-              <PlatformGrid className="w-2/3 h-2/3 text-foreground opacity-50" />
+            <div className="aspect-square bg-card border border-border rounded-t-full overflow-hidden">
+              <Image
+                src="/images/hero-arches.png"
+                alt="Layered arches in charcoal, terracotta and orange with a circuit motif"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
