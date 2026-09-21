@@ -48,7 +48,7 @@ export const stack = enabledSorted(z.array(StackItemSchema).parse(stackData));
 export const caseStudies = enabledSorted(z.array(CaseStudySchema).parse(caseStudiesData));
 export const projects = z.array(ProjectSchema).parse(projectsData);
 export const writing = z.array(WritingItemSchema).parse(writingData);
-export const education = EducationSchema.parse(educationData);
+export const education = enabledSorted(z.array(EducationSchema).parse(educationData));
 
 export const featuredProjects = featured(projects);
 export const featuredWriting = featured(writing);

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Manrope, Newsreader, DM_Mono } from 'next/font/google';
+import { profile } from '@/lib/profile';
 import './globals.css';
 
 const manrope = Manrope({
@@ -26,8 +27,7 @@ export const metadata: Metadata = {
     default: 'Ramesh Kumar | Java & Spring Backend Engineer',
     template: '%s | Ramesh Kumar',
   },
-  description:
-    'Senior backend engineer with 7+ years building Java, Spring Boot, and Kubernetes microservices for telecom and finance.',
+  description: profile.metaDescription,
   openGraph: {
     type: 'website',
     locale: 'en_US',

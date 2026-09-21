@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { PlatformGrid } from '@/components/svg-motifs';
 import { site, metrics, stack } from '@/lib/content';
+import { profile } from '@/lib/profile';
 
 export function Hero() {
   return (
@@ -11,7 +12,7 @@ export function Hero() {
         <div className="flex items-center gap-2 mb-8">
           <div className="w-2 h-2 rounded-full bg-success" />
           <span className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
-            {site.statusLabel}
+            {profile.statusLabel}
           </span>
         </div>
 
@@ -26,7 +27,7 @@ export function Hero() {
             </h1>
 
             <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-8">
-              {site.summary}
+              {profile.summary}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { OG_BASE, TWITTER_CARD, ogImages } from '@/lib/seo';
+import { profile } from '@/lib/profile';
 
-const title = 'Resume | Ramesh Kumar';
-const description =
-  'Resume of Ramesh Kumar, Senior Backend & Data Engineer with 7+ years across telecom and financial systems. Java, Spring Boot, microservices, and data platforms.';
+const title = `Resume | ${profile.name}`;
+const description = `Resume of ${profile.name}, ${profile.jobTitle} with ${profile.yearsOfExperience} years across telecom and financial systems. Java, Spring Boot, microservices, and data platforms.`;
 
 export const metadata: Metadata = {
   title: 'Resume',

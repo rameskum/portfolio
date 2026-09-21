@@ -38,17 +38,21 @@ export function Contact() {
             </div>
           </div>
 
-          {education.enabled && (
+          {education.length > 0 && (
             <div>
               <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-6">
                 Education
               </h2>
-              <div className="border border-border bg-card p-6">
-                <div className="text-lg font-bold mb-2">{education.degree}</div>
-                <div className="text-sm text-muted-foreground mb-1">
-                  {education.school}
-                </div>
-                <div className="text-sm text-muted-foreground">{education.years}</div>
+              <div className="space-y-4">
+                {education.map((entry) => (
+                  <div key={entry.id} className="border border-border bg-card p-6">
+                    <div className="text-lg font-bold mb-2">{entry.degree}</div>
+                    <div className="text-sm text-muted-foreground mb-1">
+                      {entry.school}
+                    </div>
+                    <div className="text-sm text-muted-foreground">{entry.years}</div>
+                  </div>
+                ))}
               </div>
             </div>
           )}

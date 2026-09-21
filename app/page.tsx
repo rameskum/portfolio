@@ -5,13 +5,13 @@ import { Work } from '@/components/work';
 import { Projects } from '@/components/projects';
 import { Writing } from '@/components/writing';
 import { Contact } from '@/components/contact';
+import { profile } from '@/lib/profile';
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Ramesh Kumar - Senior Backend & Data Engineer',
+    absolute: `${profile.name} - ${profile.jobTitle}`,
   },
-  description:
-    'Backend engineer with 7+ years across telecom and financial systems. I turn complex operational workflows into reliable Java services, automation, and clear interfaces.',
+  description: profile.metaDescription,
   alternates: {
     canonical: '/',
   },
@@ -21,11 +21,10 @@ export const metadata: Metadata = {
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Ramesh Kumar',
+  name: profile.name,
   url: 'https://rameskum.com',
-  jobTitle: 'Senior Backend & Data Engineer',
-  description:
-    'Backend engineer with 7+ years across telecom and financial systems.',
+  jobTitle: profile.jobTitle,
+  description: profile.metaDescription,
   knowsAbout: [
     'Java',
     'Spring Boot',
