@@ -9,7 +9,7 @@ export function Projects() {
   return (
     <section id="projects" className="px-6 md:px-12 py-16">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-xs tracking-[0.16em] uppercase text-muted-foreground mb-12">
+        <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-12">
           Selected Builds
         </h2>
 

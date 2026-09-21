@@ -7,7 +7,7 @@ export function Writing() {
     <section id="writing" className="px-6 md:px-12 py-16 bg-card/50">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-baseline justify-between mb-12">
-          <h2 className="text-xs tracking-[0.16em] uppercase text-muted-foreground">
+          <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
             Writing
           </h2>
           <Link

@@ -25,8 +25,9 @@ const config: Config = {
         success: '#5FB27B',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        serif: ['var(--font-instrument-serif)'],
+        sans: ['var(--font-manrope)'],
+        serif: ['var(--font-newsreader)'],
+        mono: ['var(--font-dm-mono)'],
       },
       typography: {
         DEFAULT: {

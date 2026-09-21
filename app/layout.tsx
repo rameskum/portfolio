@@ -1,17 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter, Instrument_Serif } from 'next/font/google';
+import { Manrope, Newsreader, DM_Mono } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-geist-sans',
+  variable: '--font-manrope',
 });
 
-const instrumentSerif = Instrument_Serif({
+const newsreader = Newsreader({
   subsets: ['latin'],
   weight: ['400'],
   style: ['italic'],
-  variable: '--font-instrument-serif',
+  variable: '--font-newsreader',
+});
+
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-dm-mono',
 });
 
 export const metadata: Metadata = {
@@ -49,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
+      <body className={`${manrope.variable} ${newsreader.variable} ${dmMono.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
