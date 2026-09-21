@@ -139,30 +139,3 @@ export function HomelabRack({ className }: { className?: string }) {
     </svg>
   );
 }
-
-export function MarkRK({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M 20 20 L 20 80 M 20 20 L 40 20 Q 50 20 50 30 Q 50 40 40 40 L 20 40 M 40 40 L 55 80"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M 65 20 L 65 80 M 65 20 L 80 20 M 65 50 L 78 50 M 65 80 L 78 80"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
