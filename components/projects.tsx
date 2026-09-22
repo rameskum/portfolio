@@ -24,20 +24,24 @@ export function Projects() {
                   project.highlight ? 'md:col-span-2' : ''
                 } ${isSecondary ? 'opacity-90' : ''}`}
               >
-                <div className="relative aspect-video bg-muted flex items-center justify-center border-b border-border">
+                <div className="relative aspect-video bg-[#201e1b] isolate flex items-center justify-center border-b border-border">
                   {project.image && (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                      />
+                      <div className="absolute inset-0 bg-accent mix-blend-multiply opacity-50 pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#201e1b]/70 via-transparent to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+                    </>
                   )}
                   {!project.image && project.motif === 'HomelabRack' && (
-                    <HomelabRack className="w-1/2 h-1/2 text-foreground opacity-40" />
+                    <HomelabRack className="w-1/2 h-1/2 text-[#e8855a] opacity-80" />
                   )}
                   {!project.image && !project.motif && (
-                    <div className="text-sm text-muted-foreground">Preview</div>
+                    <div className="text-sm text-[#f5f4ec]/50">Preview</div>
                   )}
                   
                   <div className={`absolute top-0 left-0 w-2 h-full ${isSecondary ? 'bg-muted' : 'bg-accent'}`} />
