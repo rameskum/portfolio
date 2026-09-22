@@ -58,21 +58,6 @@ export function Work() {
                       ))}
                     </ul>
 
-                    {study.metrics.length > 0 && (
-                      <div className="flex flex-wrap gap-6 mb-6">
-                        {study.metrics.map((metric, i) => (
-                          <div key={i}>
-                            <div className="text-xl font-semibold tabular-nums">
-                              {metric.value}
-                            </div>
-                            <div className="text-xs text-muted-foreground">
-                              {metric.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
                     <div className="flex flex-wrap gap-2">
                       {study.stack.map((tech) => (
                         <Badge key={tech} variant="outline">

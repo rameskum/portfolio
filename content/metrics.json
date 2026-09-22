@@ -3,24 +3,24 @@
     "id": "upload-time",
     "enabled": true,
     "order": 1,
-    "value": "20→2 min",
-    "label": "Upload cycles",
+    "value": "20 → 2 min",
+    "label": "file processing",
     "source": "td"
   },
   {
     "id": "cycle-time",
     "enabled": true,
     "order": 2,
-    "value": "weeks→days",
-    "label": "Delivery cycle",
+    "value": "Weeks → days",
+    "label": "new-feed onboarding",
     "source": "td"
   },
   {
     "id": "art-overhead",
     "enabled": true,
     "order": 3,
-    "value": "−25%",
-    "label": "Operational overhead",
+    "value": "25% ↓",
+    "label": "operational overhead",
     "source": "amdocs-art"
   }
 ]

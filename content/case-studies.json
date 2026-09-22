@@ -1,1 +1,95 @@
-[{"bullets":["Optimized core data handling workflows with high-throughput batch inserts, cutting file-upload processing time from 20 minutes to under 2 minutes","Designed a configuration-driven API Source Loader framework that abstracted ingestion complexity and reduced new data-feed onboarding time from weeks to days","Instrumented Spring Boot services with OpenTelemetry to expose application and performance metrics for collection and monitoring in Datadog","Modernized data-intensive monolithic applications for AKS by separating deployable modules, containerizing Spring Boot services, and creating Dockerfiles and Helm charts for repeatable deployments","Developed Java and Spring Boot POCs to create and trigger Spark-based migrations of Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables, packaging and deploying workloads with Databricks Jobs and Asset Bundles"],"enabled":true,"end":null,"featured":true,"highlight":true,"id":"td-endava","location":"Toronto","metrics":[{"label":"File-upload processing","value":"20→2 min"},{"label":"Feed onboarding","value":"weeks→days"}],"motif":"PipelineFlow","order":1,"org":"TD Securities (Endava)","role":"Data Engineer","stack":["Java","Spring Boot","AKS","Apache Iceberg","Delta Lake","Databricks","OpenTelemetry","Datadog","Helm"],"start":"2024-10","summary":"Modernized data-intensive applications for Azure Kubernetes Service and built Java-orchestrated Spark and Databricks workflows to migrate Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables.","title":"Cut data upload cycles from 20 minutes to 2","writingSlug":null},{"bullets":["Engineered concurrent Java data pipelines using Google Pub/Sub to process debit and surcharge events with low latency and improved scalability","Designed and deployed scalable Spring Boot microservices on AWS using EC2, S3, RDS, and Lambda","Built a Spring Boot-based Automatic Recovery Tool (ART) to detect and remediate data inconsistencies and generate actionable reports, reducing operational overhead by 25%","Designed and developed a high-volume bulk charge and tax loading capability, reducing billing processing time by 20% and increasing operational throughput"],"enabled":true,"end":"2024-03","featured":true,"id":"amdocs","location":"Toronto","metrics":[{"label":"Operational overhead","value":"−25%"},{"label":"Billing processing time","value":"−20%"}],"motif":"RecoveryLoop","order":2,"org":"Amdocs Canada (Zenith SS)","role":"Software Developer","stack":["Java","Spring Boot","AWS","Google Pub/Sub","REST APIs","SQL"],"start":"2022-01","summary":"Engineered concurrent Java data pipelines and built the Automatic Recovery Tool (ART), a Spring Boot service that detected and remediated data inconsistencies across high-volume billing workflows.","title":"Reduced operational overhead 25% with automated recovery","writingSlug":null},{"bullets":["Design and operate a self-hosted platform using Proxmox VE, Unraid, Docker, and Kubernetes","Redundant storage with network segmentation for isolated service tiers","Reverse-proxy routing with secure external access via Nginx","Automated TLS certificate management"],"enabled":true,"end":null,"featured":true,"highlight":true,"id":"homelab","location":"Toronto","metrics":[],"motif":"HomelabRack","order":3,"org":"Personal","role":"Systems Engineer","stack":["Proxmox VE","Unraid","Docker","Kubernetes","Nginx","TLS/SSL"],"start":"2021-01","summary":"Self-hosted infrastructure for testing new technologies and maintaining personal services, with redundant storage, network segmentation, reverse-proxy routing, secure external access, and automated TLS certificate management.","title":"Production-grade homelab for continuous learning","writingSlug":null}]
+[
+  {
+    "bullets": [
+      "Optimized core data handling workflows with high-throughput batch inserts, cutting file-upload processing time from 20 minutes to under 2 minutes",
+      "Designed a configuration-driven API Source Loader framework that abstracted ingestion complexity and reduced new data-feed onboarding time from weeks to days",
+      "Instrumented Spring Boot services with OpenTelemetry to expose application and performance metrics for collection and monitoring in Datadog",
+      "Modernized data-intensive monolithic applications for AKS by separating deployable modules, containerizing Spring Boot services, and creating Dockerfiles and Helm charts for repeatable deployments",
+      "Developed Java and Spring Boot POCs to create and trigger Spark-based migrations of Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables, packaging and deploying workloads with Databricks Jobs and Asset Bundles"
+    ],
+    "enabled": true,
+    "end": null,
+    "featured": true,
+    "highlight": true,
+    "id": "td-endava",
+    "location": "Toronto",
+    "motif": "PipelineFlow",
+    "order": 1,
+    "org": "TD Securities (Endava)",
+    "role": "Data Engineer",
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "AKS",
+      "Apache Iceberg",
+      "Delta Lake",
+      "Databricks",
+      "OpenTelemetry",
+      "Datadog",
+      "Helm"
+    ],
+    "start": "2024-10",
+    "summary": "Modernized data-intensive applications for Azure Kubernetes Service and built Java-orchestrated Spark and Databricks workflows to migrate Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables.",
+    "title": "Cut data upload cycles from 20 minutes to 2",
+    "writingSlug": null
+  },
+  {
+    "bullets": [
+      "Engineered concurrent Java data pipelines using Google Pub/Sub to process debit and surcharge events with low latency and improved scalability",
+      "Designed and deployed scalable Spring Boot microservices on AWS using EC2, S3, RDS, and Lambda",
+      "Built a Spring Boot-based Automatic Recovery Tool (ART) to detect and remediate data inconsistencies and generate actionable reports, reducing operational overhead by 25%",
+      "Designed and developed a high-volume bulk charge and tax loading capability, reducing billing processing time by 20% and increasing operational throughput"
+    ],
+    "enabled": true,
+    "end": "2024-03",
+    "featured": true,
+    "id": "amdocs",
+    "location": "Toronto",
+    "motif": "RecoveryLoop",
+    "order": 2,
+    "org": "Amdocs Canada (Zenith SS)",
+    "role": "Software Developer",
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "AWS",
+      "Google Pub/Sub",
+      "REST APIs",
+      "SQL"
+    ],
+    "start": "2022-01",
+    "summary": "Engineered concurrent Java data pipelines and built the Automatic Recovery Tool (ART), a Spring Boot service that detected and remediated data inconsistencies across high-volume billing workflows.",
+    "title": "Reduced operational overhead 25% with automated recovery",
+    "writingSlug": null
+  },
+  {
+    "bullets": [
+      "Design and operate a self-hosted platform using Proxmox VE, Unraid, Docker, and Kubernetes",
+      "Redundant storage with network segmentation for isolated service tiers",
+      "Reverse-proxy routing with secure external access via Nginx",
+      "Automated TLS certificate management"
+    ],
+    "enabled": true,
+    "end": null,
+    "featured": true,
+    "highlight": true,
+    "id": "homelab",
+    "location": "Toronto",
+    "motif": "HomelabRack",
+    "order": 3,
+    "org": "Personal",
+    "role": "Systems Engineer",
+    "stack": [
+      "Proxmox VE",
+      "Unraid",
+      "Docker",
+      "Kubernetes",
+      "Nginx",
+      "TLS/SSL"
+    ],
+    "start": "2021-01",
+    "summary": "Self-hosted infrastructure for testing new technologies and maintaining personal services, with redundant storage, network segmentation, reverse-proxy routing, secure external access, and automated TLS certificate management.",
+    "title": "Production-grade homelab for continuous learning",
+    "writingSlug": null
+  }
+]
