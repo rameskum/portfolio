@@ -1,54 +1,46 @@
-# Ramesh Kumar - Portfolio v3 Editorial Engineer
+# Ramesh Kumar — Portfolio
 
-**Full rewrite** of rameskum.com as a Next.js App Router + Tailwind + shadcn/ui application implementing the Editorial engineer v3 design direction.
+Personal portfolio site for Ramesh Kumar, senior backend & data engineer. Live at [rameskum.com](https://rameskum.com).
 
-## About This Rewrite
-
-This is a **greenfield Next.js App Router application** implementing Editorial engineer v3, not an incremental restyle of the old CRA + Sass site. Reviewers should baseline against:
-
-- Design spec: `/workspace/design-specs/rameskum-portfolio-v3-editorial.md`
-- Muse 01 Editorial engineer frames
-- Content JSON structure and hierarchy
-
-**Do not** compare to the old rameskum.com CRA site - this is a complete architectural rewrite.
-
-## Design Direction
-
-Editorial engineer v3 features:
-- **Warm paper cream** (`#F5F4EC`) background with ink stage frame
-- **Statement hero** with serif/coral italic accents
-- **NO portrait** - SVG illustration motifs instead
-- **JSON-driven content** - all lists configurable via `content/*.json`
-- Magazine-style layout with editorial whitespace
+Editorial-style single-page site: statement hero, work case studies, projects, writing, contact — plus an in-app resume viewer.
 
 ## Tech Stack
 
-- **Next.js 15** - App Router with TypeScript
-- **Tailwind CSS** - Editorial color tokens
-- **shadcn/ui-style components** - Button, Badge, Separator
-- **JSON content modules** - Zod-validated, enabled/featured/order flags
-- **SVG motifs** - PlatformGrid, PipelineFlow, RecoveryLoop, HomelabRack, MarkRK
+- **Next.js 16** — App Router with TypeScript 7
+- **React 19**
+- **Tailwind CSS 3** — editorial color tokens
+- **shadcn/ui-style components** — Button, Badge, Separator, Sheet
+- **Zod 4** — build-time validation of all content modules
+- **Markdown + JSON content** — profile copy lives in `content/profile.md`; lists in `content/*.json`
 
-## Content Structure
+## Design
 
-All content is data-driven via JSON modules under `content/`:
+- Warm paper background (`#F5F4EC`), card surface (`#FFFCF7`), burnt-orange primary (`#E85A32`)
+- Serif/coral italic accents (Newsreader), grotesque body (Manrope), mono labels (DM Mono)
+- Hero: abstract arches artwork inside an arch-shaped (`rounded-t-full`) frame; image background is color-matched to the card surface so it blends seamlessly
+- SVG motifs (PlatformGrid, PipelineFlow, RecoveryLoop, HomelabRack) illustrate the work/projects sections
+- Brand favicon set (`public/favicon.ico`, `favicon-16x16/32x32.png`, `apple-touch-icon.png`) in burnt-orange with a cream arch mark
 
-- `site.json` - name, wordmark, location, statement, socials
-- `metrics.json` - outcome metrics (20→2 min, weeks→days, −25%)
-- `stack.json` - tech stack ribbon
-- `case-studies.json` - TD Securities → Amdocs → Homelab
-- `projects.json` - Homelab (highlight) + ecommerce-admin + ecommerce-store + TallyNest
-- `writing.json` - rameskum-blogs articles
-- `education.json` - NIT Rourkela
+## Content
 
-Components read JSON only via `lib/content.ts` helpers (`enabledSorted`, `featured`). Ramesh toggles visibility/order by editing JSON, not React.
+All content is data-driven — edit files, not React:
+
+- `content/profile.md` — single source of truth for name, headline, summary, SEO descriptions (parsed at build time by `lib/profile.ts`)
+- `content/site.json` — wordmark, location, statement, socials, resume path
+- `content/case-studies.json` — TD (Endava) → Amdocs → Homelab
+- `content/projects.json` — Homelab (highlighted) + ecommerce-admin + ecommerce-store + TallyNest; `hello-dog` disabled
+- `content/metrics.json`, `content/stack.json`, `content/education.json`
+- Components read content only via `lib/content.ts` helpers (`enabledSorted`, `featured`) — visibility/order is toggled in JSON
+
+### Writing section
+
+The Writing section pulls the **4 latest posts** from the blog feed (`https://blogs.rameskum.com/posts.json`) at build time via `lib/blog.ts` — Zod-validated, revalidated daily (ISR), and degrades to an empty list if the feed is down so builds never break. Cards deep-link to the original posts in new tabs. `/writing` and `/writing/*` redirect (301) to the blog — see `next.config.ts`.
 
 ## Routes
 
-- `/` - Editorial home (hero, work, projects, writing, contact)
-- `/writing` - Blog index
-- `/writing/[slug]` - Article page (placeholder content)
-- `/resume` - In-app PDF viewer + download
+- `/` — home (hero, work, projects, writing, contact)
+- `/resume` — in-app PDF viewer + download (place `resume.pdf` in `public/`)
+- `/writing`, `/writing/*` — 301 redirect to `blogs.rameskum.com`
 
 ## Development
 
@@ -56,36 +48,24 @@ Components read JSON only via `lib/content.ts` helpers (`enabledSorted`, `featur
 pnpm install
 pnpm dev          # Start dev server
 pnpm build        # Production build
-pnpm type-check   # TypeScript validation
+pnpm type-check   # tsc --noEmit
+pnpm lint         # next lint
 ```
 
-## Locked Content
+## Deployment
 
-Per spec:
+Netlify (`netlify.toml`): builds with `pnpm build`, publishes `.next`. `www.rameskum.com` 301-redirects to the apex domain.
+
+## Locked content
+
 - Headline: "Senior Backend & Data Engineer | Java, Data Platforms & Cloud Modernization"
-- Case studies order: TD → Amdocs → Homelab
+- Case studies order: TD (Endava, Data Engineer) → Amdocs (Software Developer) → Homelab
 - Location: "TORONTO · CA" only (never "Open to opportunities")
 - Metrics: 20→2 min · weeks→days · −25% overhead
-- Projects: Homelab highlighted, Hello Dog `enabled: false`
+- Experience: 10+ years everywhere (never 7+)
 
-## What's Different
+## Version history
 
-This rewrite:
-- ✅ Next.js App Router (was: CRA)
-- ✅ Tailwind CSS (was: Sass modules)
-- ✅ JSON-driven content (was: hardcoded JSX)
-- ✅ Editorial tokens (was: sky/teal)
-- ✅ SVG motifs (was: portrait photo)
-- ✅ Magazine layout (was: sidebar)
-
-## Resume
-
-Place `resume.pdf` in `/public` for the resume viewer.
-
-## Version
-
-**v3.0.0** - Editorial engineer (full rewrite)
-
-Previous versions:
-- v1 - Sky theme CRA
-- v2 - Dark+teal (rejected, PR #202 closed)
+- **v3** — Editorial engineer (Next.js App Router full rewrite; was CRA + Sass)
+- v2 — dark + teal (rejected)
+- v1 — sky theme CRA
