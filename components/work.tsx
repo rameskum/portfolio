@@ -1,4 +1,3 @@
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
 import { PipelineFlow, RecoveryLoop, HomelabRack } from '@/components/svg-motifs';
@@ -58,13 +57,9 @@ export function Work() {
                       ))}
                     </ul>
 
-                    <div className="flex flex-wrap gap-2">
-                      {study.stack.map((tech) => (
-                        <Badge key={tech} variant="outline">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                    <p className="text-xs font-mono text-muted-foreground">
+                      {study.stack.join(' · ')}
+                    </p>
 
                     {MotifComponent && (
                       <div className="mt-8 w-48 h-48 opacity-20">
