@@ -61,6 +61,7 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
   title: z.string(),
   summary: z.string(),
   bullets: z.array(z.string()),
+  visuals: z.array(z.string()).optional(),
   stack: z.array(z.string()),
   motif: z.string().optional(),
   writingSlug: z.string().nullable().optional(),

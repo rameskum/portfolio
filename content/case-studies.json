@@ -31,7 +31,11 @@
     "start": "2024-10",
     "summary": "Modernized data-intensive applications for Azure Kubernetes Service and built Java-orchestrated Spark and Databricks workflows to migrate Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables.",
     "title": "Cut data upload cycles from 20 minutes to 2",
-    "writingSlug": null
+    "writingSlug": null,
+    "visuals": [
+      "td-architecture",
+      "td-before-after"
+    ]
   },
   {
     "bullets": [

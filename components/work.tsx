@@ -1,11 +1,17 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
 import { PipelineFlow, RecoveryLoop, HomelabRack } from '@/components/svg-motifs';
+import { caseVisuals } from '@/components/case-visuals';
 
 const motifs = {
   PipelineFlow,
   RecoveryLoop,
   HomelabRack,
+};
+
+const visualSizing: Record<string, string> = {
+  'td-architecture': 'mx-auto w-full max-w-[300px]',
+  'td-before-after': 'w-full',
 };
 
 export function Work() {
@@ -61,10 +67,29 @@ export function Work() {
                       {study.stack.join(' · ')}
                     </p>
 
-                    {MotifComponent && (
-                      <div className="mt-8 w-48 h-48 opacity-20">
-                        <MotifComponent className="w-full h-full" />
+                    {study.visuals && study.visuals.length > 0 ? (
+                      <div className="mt-8 mb-6 space-y-6">
+                        {study.visuals.map((key) => {
+                          const Visual = caseVisuals[key];
+                          if (!Visual) return null;
+                          return (
+                            <div
+                              key={key}
+                              className="overflow-hidden rounded-2xl bg-[#201e1b] p-6 md:p-8"
+                            >
+                              <Visual
+                                className={`${visualSizing[key] ?? 'w-full'} h-auto text-primary`}
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
+                    ) : (
+                      MotifComponent && (
+                        <div className="mt-8 w-48 h-48 opacity-20">
+                          <MotifComponent className="w-full h-full" />
+                        </div>
+                      )
                     )}
                   </div>
                 </div>
