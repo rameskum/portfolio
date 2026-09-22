@@ -14,6 +14,10 @@ const visualSizing: Record<string, string> = {
   'td-before-after': 'w-full',
 };
 
+const visualColSpan: Record<string, string> = {
+  'td-architecture': 'lg:col-span-2',
+};
+
 export function Work() {
   return (
     <section id="work" className="px-6 md:px-12 py-16 bg-card/50">
@@ -64,14 +68,14 @@ export function Work() {
                     </p>
 
                     {study.visuals && study.visuals.length > 0 ? (
-                      <div className="mt-8 mb-6 space-y-6">
+                      <div className="mt-8 mb-6 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-3">
                         {study.visuals.map((key) => {
                           const Visual = caseVisuals[key];
                           if (!Visual) return null;
                           return (
                             <div
                               key={key}
-                              className="overflow-hidden rounded-2xl bg-[#201e1b] p-6 md:p-8"
+                              className={`flex flex-col justify-center overflow-hidden rounded-2xl bg-[#201e1b] p-6 md:p-8 ${visualColSpan[key] ?? ''}`}
                             >
                               <Visual
                                 className={`${visualSizing[key] ?? 'w-full'} h-auto text-primary`}
