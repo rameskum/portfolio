@@ -2,6 +2,7 @@
 name: Ramesh Kumar
 headline: Senior Backend & Data Engineer | Java, Data Platforms & Cloud Modernization
 jobTitle: Senior Backend & Data Engineer
+identityStack: Java · Spring Boot · Distributed Systems · Data Platforms · Azure
 statusLabel: SENIOR BACKEND & DATA ENGINEER
 yearsOfExperience: "10+"
 summary: Senior backend engineer with 10+ years building Java, Spring Boot, and Kubernetes microservices for telecom and finance.

@@ -34,16 +34,12 @@ export function Work() {
                   </div>
 
                   <div className="md:col-span-11">
-                    <div className="flex flex-wrap items-baseline gap-3 mb-4">
+                    <div className="mb-4">
                       <h3 className="text-xl font-bold">{study.org}</h3>
-                      <span className="text-sm text-muted-foreground">
+                      <p className="mt-1 text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground">
                         {study.role}
-                      </span>
-                      {study.location && (
-                        <span className="text-sm text-muted-foreground">
-                          · {study.location}
-                        </span>
-                      )}
+                        {study.location && ` · ${study.location}`}
+                      </p>
                     </div>
 
                     <h4 className="text-2xl md:text-3xl font-bold mb-4">

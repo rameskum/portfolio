@@ -9,11 +9,14 @@ export function Hero() {
   return (
     <section className="px-6 md:px-12 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-2 mb-8">
-          <div className="w-2 h-2 rounded-full bg-success" />
-          <span className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
-            {profile.statusLabel}
-          </span>
+        <div className="mb-8">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-success" />
+            <span className="text-lg md:text-xl font-bold">{profile.jobTitle}</span>
+          </div>
+          <p className="mt-2 pl-5 text-xs md:text-sm font-mono text-muted-foreground">
+            {profile.identityStack}
+          </p>
         </div>
 
         <div className="grid md:grid-cols-[1.5fr_1fr] gap-12 items-center">
