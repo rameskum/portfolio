@@ -33,7 +33,7 @@ export function Projects() {
                         fill
                         className="object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                       />
-                      <div className="absolute inset-0 bg-accent mix-blend-multiply opacity-50 pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
+                      <div className="absolute inset-0 bg-[#daa189] mix-blend-multiply opacity-50 pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#201e1b]/70 via-transparent to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
                     </>
                   )}
