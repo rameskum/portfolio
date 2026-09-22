@@ -36,6 +36,7 @@ export const ProfileSchema = z.object({
   name: z.string(),
   headline: z.string(),
   jobTitle: z.string(),
+  identityStack: z.string(),
   statusLabel: z.string(),
   yearsOfExperience: z.string(),
   summary: z.string(),
