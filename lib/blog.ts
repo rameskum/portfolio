@@ -16,11 +16,14 @@ export type BlogPost = z.infer<typeof BlogPostSchema>;
 const BLOG_FEED_URL = 'https://blogs.rameskum.com/posts.json';
 export const BLOG_URL = 'https://blogs.rameskum.com';
 
-// Revalidate daily so new posts appear without a redeploy. A feed outage
+// Fetched once at build time so the homepage is fully static and served from
+// the CDN edge (no serverless/ISR hop on the critical path). A feed outage
 // never breaks the portfolio build — it degrades to an empty list.
+// Trade-off: new posts appear after the next deploy; a daily Netlify build
+// hook keeps the Writing section fresh without manual redeploys.
 export async function getLatestPosts(count = 3): Promise<BlogPost[]> {
   try {
-    const res = await fetch(BLOG_FEED_URL, { next: { revalidate: 86_400 } });
+    const res = await fetch(BLOG_FEED_URL, { cache: 'force-cache' });
     if (!res.ok) throw new Error(`feed responded ${res.status}`);
     const posts = z.array(BlogPostSchema).parse(await res.json());
     return posts.slice(0, count);

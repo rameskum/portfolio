@@ -37,8 +37,10 @@ const personJsonLd = {
   ],
 };
 
-export default function Home() {
-  return (
+// Fully static: served from the CDN edge, no server round-trip on first paint.
+export const dynamic = 'force-static';
+
+export default function Home() {  return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
