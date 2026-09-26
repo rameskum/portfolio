@@ -60,6 +60,7 @@ export function Hero() {
                 src="/images/hero-arches.png"
                 alt="Layered arches in charcoal, terracotta and orange with a circuit motif"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
                 priority
               />
