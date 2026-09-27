@@ -20,7 +20,7 @@
     ],
     "stack": ["Traefik", "CrowdSec", "Authelia", "Pangolin", "Docker", "Beszel", "Dozzle", "Homarr"],
     "href": null,
-    "repoUrl": null,
+    "repoUrl": "https://github.com/rameskum/homelab",
     "liveUrl": null,
     "image": null,
     "motif": "HomelabTopology"
