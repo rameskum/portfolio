@@ -14,13 +14,23 @@ export function Contact() {
             </h2>
             <h3 className="text-3xl font-bold mb-6">Let's connect</h3>
             <p className="text-base leading-relaxed text-muted-foreground mb-8">
-              Open to backend engineering roles, data platform projects, and technical consulting.
+              Toronto · Open to backend roles
             </p>
 
             <div className="space-y-4">
-              <Button asChild>
-                <a href={`mailto:${site.email}`}>Email me</a>
-              </Button>
+              <div className="space-y-2">
+                <a 
+                  href={`mailto:${site.email}`}
+                  className="text-base text-foreground hover:text-primary transition-colors font-mono"
+                >
+                  {site.email}
+                </a>
+                <div>
+                  <Button asChild>
+                    <a href={`mailto:${site.email}`}>Email me</a>
+                  </Button>
+                </div>
+              </div>
 
               <div className="flex gap-4">
                 {enabledSocials.map((social) => (

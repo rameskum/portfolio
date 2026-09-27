@@ -77,7 +77,13 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   href: z.string().nullable().optional(),
   image: z.string().nullable().optional(),
   motif: z.string().optional(),
-  tier: z.enum(['primary', 'secondary', 'archived']),
+  tier: z.enum(['primary', 'secondary', 'archived']).optional(),
+  section: z.string().optional(),
+  eyebrow: z.string().optional(),
+  beforeAfter: z.string().optional(),
+  talkingPoint: z.string().optional(),
+  ownershipLine: z.string().optional(),
+  bullets: z.array(z.string()).optional(),
 });
 
 export const EducationSchema = z.object({

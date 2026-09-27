@@ -139,3 +139,96 @@ export function HomelabRack({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function HomelabTopology({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 800 500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <title>Homelab six-host topology</title>
+      
+      <rect x="40" y="30" width="720" height="30" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" fill="none" rx="4" opacity="0.4" />
+      <text x="400" y="50" textAnchor="middle" fontSize="11" fill="currentColor" opacity="0.6" fontFamily="monospace">
+        Fleet monitoring: Beszel · Dozzle · Homarr
+      </text>
+
+      <g opacity="0.8">
+        <rect x="40" y="90" width="720" height="130" stroke="#E85A32" strokeWidth="1" fill="none" rx="4" opacity="0.3" />
+        <text x="50" y="106" fontSize="10" fill="#E85A32" fontFamily="monospace" fontWeight="bold">
+          EDGE PLANE
+        </text>
+      </g>
+
+      <rect x="60" y="120" width="320" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="220" y="140" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        hlx-prod-rpi-01
+      </text>
+      <text x="220" y="160" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        Traefik · CrowdSec · Authelia · Pangolin
+      </text>
+
+      <rect x="420" y="120" width="320" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="580" y="140" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        hlx-edge-01
+      </text>
+      <text x="580" y="160" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        Pangolin/Gerbil · Traefik · SearxNG
+      </text>
+
+      <line x1="220" y1="200" x2="220" y2="240" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="580" y1="200" x2="580" y2="240" stroke="currentColor" strokeWidth="1.5" />
+      <polygon points="220,235 216,227 224,227" fill="currentColor" />
+      <polygon points="580,235 576,227 584,227" fill="currentColor" />
+
+      <text x="50" y="256" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+        APPS PLANE
+      </text>
+
+      <rect x="60" y="240" width="200" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="160" y="260" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        docker-01
+      </text>
+      <text x="160" y="280" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        App workloads
+      </text>
+
+      <rect x="290" y="240" width="200" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="390" y="260" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        docker-02
+      </text>
+      <text x="390" y="280" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        App workloads · Unmanic
+      </text>
+
+      <rect x="520" y="240" width="200" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="620" y="260" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        balerion
+      </text>
+      <text x="620" y="280" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        App workloads
+      </text>
+
+      <line x1="390" y1="320" x2="390" y2="360" stroke="currentColor" strokeWidth="1.5" />
+      <polygon points="390,355 386,347 394,347" fill="currentColor" />
+
+      <text x="50" y="376" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+        DATA PLANE
+      </text>
+
+      <rect x="60" y="360" width="660" height="80" stroke="currentColor" strokeWidth="2" fill="transparent" rx="4" />
+      <text x="390" y="380" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold" fontFamily="monospace">
+        hlx-prod-nas-01
+      </text>
+      <text x="390" y="400" textAnchor="middle" fontSize="10" fill="currentColor" opacity="0.7">
+        Immich+Postgres · Plex/Jellyfin · *arr pipeline
+      </text>
+      <text x="390" y="420" textAnchor="middle" fontSize="9" fill="currentColor" opacity="0.5" fontStyle="italic">
+        * Media = workload line
+      </text>
+    </svg>
+  );
+}
