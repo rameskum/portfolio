@@ -1,22 +1,22 @@
 [
   {
-    "id": "upload-time",
+    "id": "td-upload-latency",
     "enabled": true,
     "order": 1,
-    "value": "20 → 2 min",
-    "label": "file processing",
+    "value": "60% ↓",
+    "label": "upload latency",
     "source": "td"
   },
   {
-    "id": "cycle-time",
+    "id": "td-feed-onboarding",
     "enabled": true,
     "order": 2,
-    "value": "Weeks → days",
-    "label": "new-feed onboarding",
+    "value": "40% ↓",
+    "label": "feed onboarding",
     "source": "td"
   },
   {
-    "id": "art-overhead",
+    "id": "amdocs-art-overhead",
     "enabled": true,
     "order": 3,
     "value": "25% ↓",
