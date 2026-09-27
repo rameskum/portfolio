@@ -10,6 +10,7 @@
     "eyebrow": "Self-hosted platform",
     "title": "Homelab — production-style edge, identity & fleet ops",
     "description": "Six-host fleet with Traefik/CrowdSec/Authelia at the edge, app nodes, media as a workload line, and Beszel/Dozzle/Homarr across the board — not \"I run Plex.\"",
+    "ownershipLine": "Sole operator of a six-host edge / apps / data fleet with shared monitoring.",
     "beforeAfter": "Ad-hoc containers on one box → named hosts, ingress + authz, observability, and clear blast-radius boundaries.",
     "talkingPoint": "Walk me through how you'd isolate a compromised edge node without taking the media or app planes down.",
     "bullets": [

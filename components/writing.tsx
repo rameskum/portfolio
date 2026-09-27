@@ -17,7 +17,7 @@ export async function Writing() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-baseline justify-between mb-12">
           <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">
-            Writing
+            Recent Writing
           </h2>
           <a
             href={BLOG_URL}
@@ -43,10 +43,10 @@ export async function Writing() {
                   <time className="text-xs text-muted-foreground">
                     {formatDate(post.date)}
                   </time>
-                  <h3 className="text-lg font-bold mt-2 mb-3 group-hover:text-primary transition-colors line-clamp-3 break-words">
+                  <h3 className="text-lg font-bold mt-2 mb-3 group-hover:text-primary transition-colors line-clamp-2 [overflow-wrap:break-word] [word-break:normal] [hyphens:none]">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3 [overflow-wrap:break-word] [word-break:normal] [hyphens:none]">
                     {post.summary}
                   </p>
                   <div className="flex flex-wrap gap-2">

@@ -1,12 +1,13 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
-import { PipelineFlow, RecoveryLoop, HomelabRack } from '@/components/svg-motifs';
+import { PipelineFlow, RecoveryLoop, HomelabRack, HomelabTopology } from '@/components/svg-motifs';
 import { caseVisuals } from '@/components/case-visuals';
 
 const motifs = {
   PipelineFlow,
   RecoveryLoop,
   HomelabRack,
+  HomelabTopology,
 };
 
 const visualSizing: Record<string, string> = {
@@ -53,6 +54,42 @@ export function Work() {
                     <p className="text-base leading-relaxed text-muted-foreground mb-6">
                       {study.summary}
                     </p>
+
+                    {study.ownershipLine && (
+                      <div className="mb-4">
+                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                          OWNED
+                        </p>
+                        <p className="text-sm leading-relaxed">{study.ownershipLine}</p>
+                      </div>
+                    )}
+
+                    {study.teamSize && (
+                      <div className="mb-4">
+                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                          TEAM
+                        </p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{study.teamSize}</p>
+                      </div>
+                    )}
+
+                    {study.beforeAfter && (
+                      <div className="mb-4">
+                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                          BEFORE → AFTER
+                        </p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{study.beforeAfter}</p>
+                      </div>
+                    )}
+
+                    {study.talkingPoint && (
+                      <div className="mb-6">
+                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                          INTERVIEW
+                        </p>
+                        <p className="text-sm leading-relaxed italic text-primary">"{study.talkingPoint}"</p>
+                      </div>
+                    )}
 
                     <ul className="space-y-2 mb-6">
                       {study.bullets.map((bullet, i) => (
