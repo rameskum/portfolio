@@ -14,11 +14,11 @@
     "summary": "Hired to modernize data-intensive paths on AKS. Owned the upload pipeline and source-onboarding experience end to end — from batch windows that stalled operators to config-driven loaders and latency outcomes a hiring manager can probe in an interview.",
     "ownershipLine": "End-to-end ownership of the file-upload path and API source onboarding for platform consumers.",
     "teamSize": null,
-    "beforeAfter": "Multi-minute batch upload windows and week-scale API source onboarding → **60% ↓ upload latency** and **40% ↓ feed onboarding** via a config-driven API Source Loader, with OTel → Datadog so regressions surface in ops.",
+    "beforeAfter": "Multi-minute batch upload windows and week-scale API source onboarding → 60% ↓ upload latency and 40% ↓ feed onboarding via a config-driven API Source Loader, with OTel → Datadog so regressions surface in ops.",
     "talkingPoint": "How did you keep the loader config-driven without turning every new feed into a deploy?",
     "bullets": [
-      "Drove upload processing from multi-minute batch pain to a measurable latency win (**60% ↓**).",
-      "Shipped config-driven API Source Loader so new feeds land in days-class cycles (**40% ↓**), not weeks.",
+      "Drove upload processing from multi-minute batch pain to a measurable latency win (60% ↓).",
+      "Shipped config-driven API Source Loader so new feeds land in days-class cycles (40% ↓), not weeks.",
       "Instrumented Spring services (OpenTelemetry → Datadog) so performance regressions show up in ops, not war rooms.",
       "Split deployable modules, containerized Spring Boot, and Helm-charted repeatable AKS deploys.",
       "Java/Spring POCs for Iceberg → Unity Catalog Delta via Spark/Databricks — mention as supporting modernization, not the lead hire signal."
@@ -55,12 +55,12 @@
     "summary": "Built a Spring Boot recovery console operators actually use: detect inconsistencies, emit actionable reports, and remediate without opening an engineering ticket for every incident — cutting operational overhead instead of adding queue noise.",
     "ownershipLine": "Designed and delivered ART for ops inconsistency detection and remediation workflows.",
     "teamSize": null,
-    "beforeAfter": "Manual chase of inconsistent billing/ops data → **25% ↓ operational overhead** with a detect → report → remediate loop.",
+    "beforeAfter": "Manual chase of inconsistent billing/ops data → 25% ↓ operational overhead with a detect → report → remediate loop.",
     "talkingPoint": "What's the difference between a recovery tool operators trust and one they ignore?",
     "bullets": [
       "Detect data inconsistencies early with reports ops can act on (not raw dumps).",
       "Remediation path that does not require an engineer on every incident.",
-      "Outcome: **25% ↓ operational overhead** on the recovery workflow.",
+      "Outcome: 25% ↓ operational overhead on the recovery workflow.",
       "Concurrent Pub/Sub debit/surcharge pipelines and AWS Spring services — context for volume, not a second headline."
     ],
     "stack": [
@@ -90,7 +90,7 @@
     "beforeAfter": "Single-box ad-hoc containers → named hosts, plane separation (edge / apps / data), and fleet monitoring you can query when something breaks.",
     "talkingPoint": "What did running your own edge teach you that a cloud tutorial did not?",
     "bullets": [
-      "Treat media (Plex/Jellyfin/Immich) as a **workload line**, not the résumé lead — the hire signal is edge, identity, and fleet ops.",
+      "Treat media (Plex/Jellyfin/Immich) as a workload line, not the résumé lead — the hire signal is edge, identity, and fleet ops.",
       "Practice incident isolation: edge failure should not take apps or data planes with it.",
       "Prefer boring ops UX (Beszel / Dozzle / Homarr) so health and logs are habitual, not heroic."
     ],
