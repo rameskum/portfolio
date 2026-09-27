@@ -18,9 +18,19 @@ export function Contact() {
             </p>
 
             <div className="space-y-4">
-              <Button asChild>
-                <a href={`mailto:${site.email}`}>Email me</a>
-              </Button>
+              <div className="space-y-2">
+                <a 
+                  href={`mailto:${site.email}`}
+                  className="text-base text-foreground hover:text-primary transition-colors font-mono"
+                >
+                  {site.email}
+                </a>
+                <div>
+                  <Button asChild>
+                    <a href={`mailto:${site.email}`}>Email me</a>
+                  </Button>
+                </div>
+              </div>
 
               <div className="flex gap-4">
                 {enabledSocials.map((social) => (

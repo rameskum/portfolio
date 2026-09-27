@@ -87,7 +87,7 @@
     "title": "E-commerce admin",
     "description": "Multi-tenant admin dashboard for managing products, orders, and analytics. Built with Next.js, integrated with Stripe for payments and Clerk for authentication.",
     "stack": ["Next.js", "React", "Stripe", "Clerk", "Prisma", "PostgreSQL"],
-    "liveUrl": "https://ecommerce-admin-rameskum.vercel.app",
+    "liveUrl": null,
     "repoUrl": "https://github.com/rameskum/ecommerce-admin",
     "href": null,
     "image": "/ecommerce-admin.jpg"
@@ -103,7 +103,7 @@
     "title": "Storefront",
     "description": "Modern e-commerce storefront with product catalog, shopping cart, and checkout flow. Headless CMS architecture consuming admin API.",
     "stack": ["Next.js", "React", "Tailwind CSS", "Stripe", "Headless CMS"],
-    "liveUrl": "https://ecommerce-store-rameskum.vercel.app",
+    "liveUrl": null,
     "repoUrl": "https://github.com/rameskum/ecommerce-store",
     "href": null,
     "image": "/ecommerce-store.jpg"
