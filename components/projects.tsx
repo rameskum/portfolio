@@ -64,6 +64,30 @@ export function Projects() {
             {project.description}
           </p>
 
+          {!isSecondary && project.ownershipLine && (
+            <div className="mb-3 pb-3 border-b border-border/50">
+              <p className="text-sm leading-relaxed">{project.ownershipLine}</p>
+            </div>
+          )}
+
+          {!isSecondary && project.beforeAfter && (
+            <div className="mb-3">
+              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                BEFORE → AFTER
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground">{project.beforeAfter}</p>
+            </div>
+          )}
+
+          {!isSecondary && project.talkingPoint && (
+            <div className="mb-4">
+              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
+                TALKING POINT
+              </p>
+              <p className="text-sm leading-relaxed text-primary italic">"{project.talkingPoint}"</p>
+            </div>
+          )}
+
           {project.bullets && project.bullets.length > 0 && (
             <ul className="space-y-2 mb-4">
               {project.bullets.map((bullet, i) => (

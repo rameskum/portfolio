@@ -1,99 +1,110 @@
 [
   {
-    "bullets": [
-      "Optimized core data handling workflows with high-throughput batch inserts, cutting file-upload processing time from 20 minutes to under 2 minutes",
-      "Designed a configuration-driven API Source Loader framework that abstracted ingestion complexity and reduced new data-feed onboarding time from weeks to days",
-      "Instrumented Spring Boot services with OpenTelemetry to expose application and performance metrics for collection and monitoring in Datadog",
-      "Modernized data-intensive monolithic applications for AKS by separating deployable modules, containerizing Spring Boot services, and creating Dockerfiles and Helm charts for repeatable deployments",
-      "Developed Java and Spring Boot POCs to create and trigger Spark-based migrations of Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables, packaging and deploying workloads with Databricks Jobs and Asset Bundles"
-    ],
+    "id": "td-endava",
     "enabled": true,
-    "end": null,
+    "order": 1,
     "featured": true,
     "highlight": true,
-    "id": "td-endava",
-    "location": "Toronto",
-    "motif": "PipelineFlow",
-    "order": 1,
     "org": "TD Securities (Endava)",
     "role": "Data Engineer",
+    "location": "Toronto",
+    "start": "2024-10",
+    "end": null,
+    "title": "Cut file-upload latency and feed onboarding on a Java data platform",
+    "summary": "Hired to modernize data-intensive paths on AKS. Owned the upload pipeline and source-onboarding experience end to end — from batch windows that stalled operators to config-driven loaders and latency outcomes a hiring manager can probe in an interview.",
+    "ownershipLine": "End-to-end ownership of the file-upload path and API source onboarding for platform consumers.",
+    "teamSize": null,
+    "beforeAfter": "Multi-minute batch upload windows and week-scale API source onboarding → 60% ↓ upload latency and 40% ↓ feed onboarding via a config-driven API Source Loader, with OTel → Datadog so regressions surface in ops.",
+    "talkingPoint": "How did you keep the loader config-driven without turning every new feed into a deploy?",
+    "bullets": [
+      "Drove upload processing from multi-minute batch pain to a measurable latency win (60% ↓).",
+      "Shipped config-driven API Source Loader so new feeds land in days-class cycles (40% ↓), not weeks.",
+      "Instrumented Spring services (OpenTelemetry → Datadog) so performance regressions show up in ops, not war rooms.",
+      "Split deployable modules, containerized Spring Boot, and Helm-charted repeatable AKS deploys.",
+      "Java/Spring POCs for Iceberg → Unity Catalog Delta via Spark/Databricks — mention as supporting modernization, not the lead hire signal."
+    ],
     "stack": [
       "Java",
       "Spring Boot",
       "AKS",
-      "Apache Iceberg",
-      "Delta Lake",
-      "Databricks",
+      "Helm",
       "OpenTelemetry",
       "Datadog",
-      "Helm"
+      "Spark/Databricks",
+      "Iceberg/Delta"
     ],
-    "start": "2024-10",
-    "summary": "Modernized data-intensive applications for Azure Kubernetes Service and built Java-orchestrated Spark and Databricks workflows to migrate Apache Iceberg datasets from HDFS to Unity Catalog-managed Delta Lake tables.",
-    "title": "Cut data upload cycles from 20 minutes to 2",
-    "writingSlug": null,
+    "motif": "PipelineFlow",
     "visuals": [
       "td-architecture",
       "td-before-after"
-    ]
-  },
-  {
-    "bullets": [
-      "Engineered concurrent Java data pipelines using Google Pub/Sub to process debit and surcharge events with low latency and improved scalability",
-      "Designed and deployed scalable Spring Boot microservices on AWS using EC2, S3, RDS, and Lambda",
-      "Built a Spring Boot-based Automatic Recovery Tool (ART) to detect and remediate data inconsistencies and generate actionable reports, reducing operational overhead by 25%",
-      "Designed and developed a high-volume bulk charge and tax loading capability, reducing billing processing time by 20% and increasing operational throughput"
     ],
-    "enabled": true,
-    "end": "2024-03",
-    "featured": true,
-    "id": "amdocs",
-    "location": "Toronto",
-    "motif": "RecoveryLoop",
-    "order": 2,
-    "org": "Amdocs Canada (Zenith SS)",
-    "role": "Software Developer",
-    "stack": [
-      "Java",
-      "Spring Boot",
-      "AWS",
-      "Google Pub/Sub",
-      "REST APIs",
-      "SQL"
-    ],
-    "start": "2022-01",
-    "summary": "Engineered concurrent Java data pipelines and built the Automatic Recovery Tool (ART), a Spring Boot service that detected and remediated data inconsistencies across high-volume billing workflows.",
-    "title": "Reduced operational overhead 25% with automated recovery",
     "writingSlug": null
   },
   {
-    "bullets": [
-      "Design and operate a self-hosted platform using Proxmox VE, Unraid, Docker, and Kubernetes",
-      "Redundant storage with network segmentation for isolated service tiers",
-      "Reverse-proxy routing with secure external access via Nginx",
-      "Automated TLS certificate management"
-    ],
+    "id": "amdocs",
     "enabled": true,
-    "end": null,
+    "order": 2,
+    "featured": true,
+    "highlight": false,
+    "org": "Amdocs Canada",
+    "role": "Software Developer",
+    "location": "Toronto",
+    "start": "2022-01",
+    "end": "2024-03",
+    "title": "ART — Automatic Recovery Tool for billing data integrity",
+    "summary": "Built a Spring Boot recovery console operators actually use: detect inconsistencies, emit actionable reports, and remediate without opening an engineering ticket for every incident — cutting operational overhead instead of adding queue noise.",
+    "ownershipLine": "Designed and delivered ART for ops inconsistency detection and remediation workflows.",
+    "teamSize": null,
+    "beforeAfter": "Manual chase of inconsistent billing/ops data → 25% ↓ operational overhead with a detect → report → remediate loop.",
+    "talkingPoint": "What's the difference between a recovery tool operators trust and one they ignore?",
+    "bullets": [
+      "Detect data inconsistencies early with reports ops can act on (not raw dumps).",
+      "Remediation path that does not require an engineer on every incident.",
+      "Outcome: 25% ↓ operational overhead on the recovery workflow.",
+      "Concurrent Pub/Sub debit/surcharge pipelines and AWS Spring services — context for volume, not a second headline."
+    ],
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "Thymeleaf",
+      "AWS",
+      "Pub/Sub"
+    ],
+    "motif": "RecoveryLoop",
+    "writingSlug": null
+  },
+  {
+    "id": "homelab",
+    "enabled": true,
+    "order": 3,
     "featured": true,
     "highlight": true,
-    "id": "homelab",
-    "location": "Toronto",
-    "motif": "HomelabRack",
-    "order": 3,
-    "org": "Personal",
-    "role": "Systems Engineer",
-    "stack": [
-      "Proxmox VE",
-      "Unraid",
-      "Docker",
-      "Kubernetes",
-      "Nginx",
-      "TLS/SSL"
-    ],
+    "org": "Personal · Toronto",
+    "role": "Systems practice (self-hosted)",
     "start": "2021-01",
-    "summary": "Self-hosted infrastructure for testing new technologies and maintaining personal services, with redundant storage, network segmentation, reverse-proxy routing, secure external access, and automated TLS certificate management.",
-    "title": "Production-grade homelab for continuous learning",
+    "end": null,
+    "title": "Homelab as a production-style reliability gym",
+    "summary": "Long-running self-hosted platform used to rehearse the same habits as production backends: named blast-radius boundaries, ingress + identity at the edge, and observability you actually look at. The Selected Builds card shows the fleet topology; this study is about the operating posture.",
+    "ownershipLine": "Sole operator — design, secure, and run the fleet end to end.",
+    "teamSize": null,
+    "beforeAfter": "Single-box ad-hoc containers → named hosts, plane separation (edge / apps / data), and fleet monitoring you can query when something breaks.",
+    "talkingPoint": "What did running your own edge teach you that a cloud tutorial did not?",
+    "bullets": [
+      "Treat media (Plex/Jellyfin/Immich) as a workload line, not the résumé lead — the hire signal is edge, identity, and fleet ops.",
+      "Practice incident isolation: edge failure should not take apps or data planes with it.",
+      "Prefer boring ops UX (Beszel / Dozzle / Homarr) so health and logs are habitual, not heroic."
+    ],
+    "stack": [
+      "Traefik",
+      "CrowdSec",
+      "Authelia",
+      "Pangolin",
+      "Docker",
+      "Beszel",
+      "Dozzle",
+      "Homarr"
+    ],
+    "motif": "HomelabRack",
     "writingSlug": null
   }
 ]
