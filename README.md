@@ -35,7 +35,7 @@ All content is data-driven — edit files, not React:
 
 ### Writing section
 
-The Writing section pulls the **4 latest posts** from the blog feed (`https://blogs.rameskum.com/posts.json`) at build time via `lib/blog.ts` — Zod-validated, revalidated daily (ISR), and degrades to an empty list if the feed is down so builds never break. Cards deep-link to the original posts in new tabs. `/writing` and `/writing/*` redirect (301) to the blog — see `next.config.ts`.
+The Writing section pulls the **4 latest posts** from the blog feed (`https://blogs.rameskum.com/posts.json`) at build time via `lib/blog.ts` — Zod-validated, refreshed by the daily Netlify build hook (the page is fully static), and degrades to an empty list if the feed is down so builds never break. Cards deep-link to the original posts in new tabs. `/writing` and `/writing/*` redirect (301) to the blog — see `next.config.ts`.
 
 ## Routes
 
