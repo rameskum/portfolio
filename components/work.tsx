@@ -1,11 +1,12 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
 import { CaseVisuals, Motif } from '@/components/illustrations';
+import { SECTION_IDS } from '@/lib/sections';
 import { ProofPoints } from '@/components/proof-points';
 
 export function Work() {
   return (
-    <section id="work" className="px-6 md:px-12 py-16 bg-card/50">
+    <section id={SECTION_IDS.work} className="px-6 md:px-12 py-16 bg-card/50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-12">
           Case Studies

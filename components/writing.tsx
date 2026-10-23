@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import { SECTION_IDS } from '@/lib/sections';
 import { BLOG_URL, getLatestPosts } from '@/lib/blog';
 
 function formatDate(iso: string) {
@@ -13,7 +14,7 @@ export async function Writing() {
   const posts = await getLatestPosts(4);
 
   return (
-    <section id="writing" className="px-6 md:px-12 py-16 bg-card/50">
+    <section id={SECTION_IDS.writing} className="px-6 md:px-12 py-16 bg-card/50">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-baseline justify-between mb-12">
           <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground">

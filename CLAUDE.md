@@ -25,6 +25,8 @@ pnpm start        # serve the production build
 
 Single-page editorial site. `app/page.tsx` composes server components (`Header`, `Hero`, `Work`, `Projects`, `Writing`, `Contact`) and is `force-static`. The only other route is `app/resume` (in-app PDF viewer for `public/resume.pdf`). The homepage is intentionally zero-JS and fully static, so keep new sections as server components and avoid adding client-side hooks or `'use client'` unless unavoidable.
 
+Section anchor ids and the nav links that target them live in `lib/sections.ts`; section modules, the Header, and the Hero call to action import them, so keep ids there rather than retyping them.
+
 ### Content is data, not JSX
 
 All copy lives in `content/` and is validated by Zod schemas in `lib/schemas.ts`:

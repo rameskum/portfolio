@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/lib/content';
-
-const navLinks = [
-  { href: '#work', label: 'Work' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#writing', label: 'Writing' },
-  { href: '/resume', label: 'Resume' },
-  { href: '#contact', label: 'Contact' },
-];
+import { NAV_LINKS } from '@/lib/sections';
 
 // Server component: the mobile menu is CSS-only, driven by the :target
 // pseudo-class, so the homepage ships no client JavaScript at all.
@@ -19,7 +12,7 @@ export function Header() {
       <div className="text-lg font-bold tracking-tight">{site.wordmark}</div>
 
       <nav className="hidden md:flex items-center gap-8">
-        {navLinks.map((link) => (
+        {NAV_LINKS.map((link) => (
           <Link
             key={link.href}
             href={link.href}
@@ -74,7 +67,7 @@ export function Header() {
                 </svg>
               </a>
             </div>
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

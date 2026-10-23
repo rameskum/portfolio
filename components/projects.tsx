@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { selectedBuilds, alsoShipsUi } from '@/lib/content';
 import type { Project } from '@/lib/schemas';
 import { ILLUSTRATION_BACKDROP, Motif } from '@/components/illustrations';
+import { SECTION_IDS } from '@/lib/sections';
 import { ProofPoints } from '@/components/proof-points';
 
 export function Projects() {
@@ -95,7 +96,7 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="px-6 md:px-12 py-16">
+      <section id={SECTION_IDS.projects} className="px-6 md:px-12 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-12">
             Selected Builds
@@ -108,7 +109,7 @@ export function Projects() {
       </section>
 
       {alsoShipsUi.length > 0 && (
-        <section id="also-ships-ui" className="px-6 md:px-12 py-16 bg-card/30">
+        <section id={SECTION_IDS.alsoShipsUi} className="px-6 md:px-12 py-16 bg-card/30">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-4">
               Also ships UI
