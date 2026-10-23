@@ -1,30 +1,3 @@
-export function PlatformGrid({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="50" y="50" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="230" y="50" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="50" y="170" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="230" y="170" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="140" y="290" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <line x1="110" y1="130" x2="110" y2="170" stroke="currentColor" strokeWidth="2" />
-      <line x1="290" y1="130" x2="290" y2="170" stroke="currentColor" strokeWidth="2" />
-      <line x1="110" y1="250" x2="180" y2="290" stroke="currentColor" strokeWidth="2" />
-      <line x1="290" y1="250" x2="220" y2="290" stroke="currentColor" strokeWidth="2" />
-      <circle cx="110" cy="90" r="4" fill="currentColor" />
-      <circle cx="290" cy="90" r="4" fill="currentColor" />
-      <circle cx="110" cy="210" r="4" fill="currentColor" />
-      <circle cx="290" cy="210" r="4" fill="currentColor" />
-      <circle cx="200" cy="330" r="4" fill="currentColor" />
-    </svg>
-  );
-}
-
 export function PipelineFlow({ className }: { className?: string }) {
   return (
     <svg

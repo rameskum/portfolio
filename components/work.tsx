@@ -1,23 +1,6 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
-import { PipelineFlow, RecoveryLoop, HomelabRack, HomelabTopology } from '@/components/svg-motifs';
-import { caseVisuals } from '@/components/case-visuals';
-
-const motifs = {
-  PipelineFlow,
-  RecoveryLoop,
-  HomelabRack,
-  HomelabTopology,
-};
-
-const visualSizing: Record<string, string> = {
-  'td-architecture': 'mx-auto w-full max-w-[300px]',
-  'td-before-after': 'w-full',
-};
-
-const visualColSpan: Record<string, string> = {
-  'td-architecture': 'lg:col-span-2',
-};
+import { CaseVisuals, Motif } from '@/components/illustrations';
 
 export function Work() {
   return (
@@ -29,8 +12,6 @@ export function Work() {
 
         <div className="space-y-16">
           {caseStudies.map((study, index) => {
-            const MotifComponent = study.motif && motifs[study.motif as keyof typeof motifs];
-            
             return (
               <div key={study.id}>
                 <div className="grid md:grid-cols-12 gap-8">
@@ -105,26 +86,11 @@ export function Work() {
                     </p>
 
                     {study.visuals && study.visuals.length > 0 ? (
-                      <div className="mt-8 mb-6 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-3">
-                        {study.visuals.map((key) => {
-                          const Visual = caseVisuals[key];
-                          if (!Visual) return null;
-                          return (
-                            <div
-                              key={key}
-                              className={`flex flex-col justify-center overflow-hidden rounded-2xl bg-[#201e1b] p-6 md:p-8 ${visualColSpan[key] ?? ''}`}
-                            >
-                              <Visual
-                                className={`${visualSizing[key] ?? 'w-full'} h-auto text-primary`}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
+                      <CaseVisuals keys={study.visuals} />
                     ) : (
-                      MotifComponent && (
+                      study.motif && (
                         <div className="mt-8 w-48 h-48 opacity-20">
-                          <MotifComponent className="w-full h-full" />
+                          <Motif name={study.motif} className="w-full h-full" />
                         </div>
                       )
                     )}

@@ -36,10 +36,11 @@ All copy lives in `content/` and is validated by Zod schemas in `lib/schemas.ts`
 
 ### String keys that resolve to components
 
-Some JSON fields are string keys mapped to React components in code, so JSON and TSX must stay in sync:
+Some JSON fields are string keys that resolve to drawings, and they are validated against a fixed key list so a typo fails the build:
 
-- `motif` (in `case-studies.json` and `projects.json`) maps to SVG components in `components/svg-motifs.tsx` via a local `motifs` record in `components/work.tsx` and `components/projects.tsx`. Each file keeps its own map.
-- `visuals` (in `case-studies.json`) maps to components in the `caseVisuals` record in `components/case-visuals.tsx` (e.g. `td-architecture`, `td-before-after`).
+- `motif` (in `case-studies.json` and `projects.json`) and `visuals` (in `case-studies.json`) must be keys from `lib/illustrations.ts` (`MOTIF_KEYS`, `CASE_VISUAL_KEYS`).
+- `components/illustrations.tsx` owns the registries keyed by those types (an exhaustive `Record`, so a missing drawing is a type error), plus per-visual sizing, grid span, and the dark card. The drawings themselves live in `components/svg-motifs.tsx` (motifs, decorative) and `components/case-visuals.tsx` (case visuals, informative).
+- A visible project needs an `image` or a `motif`.
 
 ### Writing section and blog feed
 

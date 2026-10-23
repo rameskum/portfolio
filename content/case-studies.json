@@ -31,7 +31,6 @@
       "Spark/Databricks",
       "Iceberg/Delta"
     ],
-    "motif": "PipelineFlow",
     "visuals": [
       "td-architecture",
       "td-before-after"

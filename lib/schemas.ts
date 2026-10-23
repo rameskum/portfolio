@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { CASE_VISUAL_KEYS, MOTIF_KEYS } from './illustrations';
 
 // Every list item is either visible or hidden (`enabled`) and ordered by
 // `order`. This is the only visibility switch.
@@ -62,9 +63,9 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
   beforeAfter: z.string().optional(),
   talkingPoint: z.string().optional(),
   bullets: z.array(z.string()),
-  visuals: z.array(z.string()).optional(),
+  visuals: z.array(z.enum(CASE_VISUAL_KEYS)).optional(),
   stack: z.array(z.string()),
-  motif: z.string().optional(),
+  motif: z.enum(MOTIF_KEYS).optional(),
   writingSlug: z.string().nullable().optional(),
 });
 
@@ -80,12 +81,15 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   repoUrl: z.string().url().nullable().optional(),
   href: z.string().nullable().optional(),
   image: z.string().nullable().optional(),
-  motif: z.string().optional(),
+  motif: z.enum(MOTIF_KEYS).optional(),
   eyebrow: z.string().optional(),
   beforeAfter: z.string().optional(),
   talkingPoint: z.string().optional(),
   ownershipLine: z.string().optional(),
   bullets: z.array(z.string()).optional(),
+}).refine((project) => !project.enabled || Boolean(project.image || project.motif), {
+  message: 'a visible project needs an image or a motif',
+  path: ['image'],
 });
 
 export const EducationSchema = ContentFlagsSchema.extend({

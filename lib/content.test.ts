@@ -9,6 +9,7 @@ const project = (over: Record<string, unknown>) => ({
   title: 'T',
   description: 'D',
   stack: [],
+  image: '/p.jpg',
   ...over,
 });
 
@@ -80,5 +81,23 @@ describe('site content', () => {
   it('only exposes visible projects and socials', () => {
     expect(selectedBuilds.length).toBeGreaterThan(0);
     expect([...selectedBuilds, ...alsoShipsUi, ...socials].every((i) => i.enabled)).toBe(true);
+  });
+});
+
+describe('illustration keys', () => {
+  it('rejects an unknown motif', () => {
+    expect(() =>
+      buildContent({ ...base, projects: [project({ motif: 'NoSuchMotif' })] })
+    ).toThrow();
+  });
+
+  it('requires a visible project to have an image or a motif', () => {
+    expect(() => buildContent({ ...base, projects: [project({ image: undefined })] })).toThrow(/image or a motif/);
+    expect(() => buildContent({ ...base, projects: [project({ image: '/a.jpg', motif: undefined })] })).not.toThrow();
+    expect(() => buildContent({ ...base, projects: [project({ motif: 'PipelineFlow' })] })).not.toThrow();
+  });
+
+  it('lets a hidden project omit its art', () => {
+    expect(() => buildContent({ ...base, projects: [project({ enabled: false })] })).not.toThrow();
   });
 });

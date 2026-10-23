@@ -18,7 +18,7 @@ Editorial-style single-page site: statement hero, work case studies, projects, w
 - Warm paper background (`#F5F4EC`), card surface (`#FFFCF7`), burnt-orange primary (`#E85A32`)
 - Serif/coral italic accents (Newsreader), grotesque body (Manrope), mono labels (DM Mono)
 - Hero: abstract arches artwork inside an arch-shaped (`rounded-t-full`) frame; image background is color-matched to the card surface so it blends seamlessly
-- SVG motifs (PlatformGrid, PipelineFlow, RecoveryLoop, HomelabRack) illustrate the work/projects sections
+- SVG motifs (PipelineFlow, RecoveryLoop, HomelabRack, HomelabTopology) and case visuals illustrate the work/projects sections
 - Brand favicon set (`public/favicon.ico`, `favicon-16x16/32x32.png`, `apple-touch-icon.png`) in burnt-orange with a cream arch mark
 
 ## Content

@@ -4,20 +4,12 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { selectedBuilds, alsoShipsUi } from '@/lib/content';
 import type { Project } from '@/lib/schemas';
-import { HomelabRack, HomelabTopology, PipelineFlow, RecoveryLoop } from '@/components/svg-motifs';
-
-const motifs = {
-  HomelabRack,
-  HomelabTopology,
-  PipelineFlow,
-  RecoveryLoop,
-};
+import { ILLUSTRATION_BACKDROP, Motif } from '@/components/illustrations';
 
 export function Projects() {
   const renderProjectCard = (project: Project) => {
     const isSecondary = project.section === 'also-ships-ui';
-    const MotifComponent = project.motif && motifs[project.motif as keyof typeof motifs];
-    
+
     return (
       <div
         key={project.id}
@@ -25,7 +17,7 @@ export function Projects() {
           project.highlight ? 'md:col-span-2' : ''
         } ${isSecondary ? 'opacity-90' : ''}`}
       >
-        <div className="relative aspect-video bg-[#201e1b] isolate flex items-center justify-center border-b border-border">
+        <div className={`relative aspect-video ${ILLUSTRATION_BACKDROP} isolate flex items-center justify-center border-b border-border`}>
           {project.image && (
             <>
               <Image
@@ -38,11 +30,8 @@ export function Projects() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#201e1b]/70 via-transparent to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
             </>
           )}
-          {!project.image && MotifComponent && (
-            <MotifComponent className="w-full h-full p-8 text-[#e8855a] opacity-80" />
-          )}
-          {!project.image && !project.motif && (
-            <div className="text-sm text-[#f5f4ec]/50">Preview</div>
+          {!project.image && project.motif && (
+            <Motif name={project.motif} className="w-full h-full p-8 text-[#e8855a] opacity-80" />
           )}
           
           <div className={`absolute top-0 left-0 w-2 h-full ${isSecondary ? 'bg-muted' : 'bg-accent'}`} />
