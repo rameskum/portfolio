@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { site, metrics, stack } from '@/lib/content';
 import { profile } from '@/lib/profile';
