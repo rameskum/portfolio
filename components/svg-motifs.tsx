@@ -157,7 +157,7 @@ export function HomelabTopology({ className }: { className?: string }) {
       <polygon points="220,235 216,227 224,227" fill="currentColor" />
       <polygon points="580,235 576,227 584,227" fill="currentColor" />
 
-      <text x="50" y="256" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+      <text x="60" y="234" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
         APPS PLANE
       </text>
 
@@ -188,7 +188,7 @@ export function HomelabTopology({ className }: { className?: string }) {
       <line x1="390" y1="320" x2="390" y2="360" stroke="currentColor" strokeWidth="1.5" />
       <polygon points="390,355 386,347 394,347" fill="currentColor" />
 
-      <text x="50" y="376" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+      <text x="60" y="354" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
         DATA PLANE
       </text>
 
