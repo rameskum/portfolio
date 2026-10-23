@@ -1,4 +1,5 @@
 import siteData from '@/content/site.json';
+import socialsData from '@/content/socials.json';
 import metricsData from '@/content/metrics.json';
 import stackData from '@/content/stack.json';
 import caseStudiesData from '@/content/case-studies.json';
@@ -6,44 +7,65 @@ import projectsData from '@/content/projects.json';
 import educationData from '@/content/education.json';
 import {
   SiteSchema,
+  SocialSchema,
   MetricSchema,
   StackItemSchema,
   CaseStudySchema,
   ProjectSchema,
   EducationSchema,
-  type Site,
-  type Metric,
-  type StackItem,
-  type CaseStudy,
-  type Project,
-  type Education,
 } from './schemas';
 import { z } from 'zod';
 
-interface ContentFlags {
-  id: string;
-  enabled: boolean;
-  order: number;
-  featured?: boolean;
-  highlight?: boolean;
+export interface RawContent {
+  site: unknown;
+  socials: unknown;
+  metrics: unknown;
+  stack: unknown;
+  caseStudies: unknown;
+  projects: unknown;
+  education: unknown;
 }
 
-export function enabledSorted<T extends ContentFlags>(items: T[]): T[] {
+// An item is visible when `enabled`, and visible items are shown in `order`.
+function visible<T extends { enabled: boolean; order: number }>(items: T[]): T[] {
   return items
     .filter((item) => item.enabled)
     .sort((a, b) => a.order - b.order);
 }
 
-export function featured<T extends ContentFlags>(items: T[]): T[] {
-  return enabledSorted(items).filter((item) => item.featured);
+// Validates every collection (hidden items included, so a malformed draft
+// still fails the build) and returns only what the site shows, already
+// ordered and grouped. Every export below is therefore ready to render.
+export function buildContent(raw: RawContent) {
+  const projects = visible(z.array(ProjectSchema).parse(raw.projects));
+  return {
+    site: SiteSchema.parse(raw.site),
+    socials: visible(z.array(SocialSchema).parse(raw.socials)),
+    metrics: visible(z.array(MetricSchema).parse(raw.metrics)),
+    stack: visible(z.array(StackItemSchema).parse(raw.stack)),
+    caseStudies: visible(z.array(CaseStudySchema).parse(raw.caseStudies)),
+    selectedBuilds: projects.filter((p) => p.section === 'selected-builds'),
+    alsoShipsUi: projects.filter((p) => p.section === 'also-ships-ui'),
+    education: visible(z.array(EducationSchema).parse(raw.education)),
+  };
 }
 
 // Validate content at module load (build time)
-export const site = SiteSchema.parse(siteData);
-export const metrics = enabledSorted(z.array(MetricSchema).parse(metricsData));
-export const stack = enabledSorted(z.array(StackItemSchema).parse(stackData));
-export const caseStudies = enabledSorted(z.array(CaseStudySchema).parse(caseStudiesData));
-export const projects = z.array(ProjectSchema).parse(projectsData);
-export const education = enabledSorted(z.array(EducationSchema).parse(educationData));
-
-export const featuredProjects = featured(projects);
+export const {
+  site,
+  socials,
+  metrics,
+  stack,
+  caseStudies,
+  selectedBuilds,
+  alsoShipsUi,
+  education,
+} = buildContent({
+  site: siteData,
+  socials: socialsData,
+  metrics: metricsData,
+  stack: stackData,
+  caseStudies: caseStudiesData,
+  projects: projectsData,
+  education: educationData,
+});

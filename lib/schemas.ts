@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
+// Every list item is either visible or hidden (`enabled`) and ordered by
+// `order`. This is the only visibility switch.
 export const ContentFlagsSchema = z.object({
   id: z.string(),
   enabled: z.boolean(),
   order: z.number(),
-  featured: z.boolean().optional(),
-  highlight: z.boolean().optional(),
 });
 
 export const SiteSchema = z.object({
@@ -18,15 +18,11 @@ export const SiteSchema = z.object({
   }),
   email: z.string().email(),
   resumePath: z.string(),
-  socials: z.array(
-    z.object({
-      id: z.string(),
-      label: z.string(),
-      href: z.string().url(),
-      enabled: z.boolean(),
-      order: z.number(),
-    })
-  ),
+});
+
+export const SocialSchema = ContentFlagsSchema.extend({
+  label: z.string(),
+  href: z.string().url(),
 });
 
 // Single source of truth for the person's profile copy, parsed from
@@ -72,7 +68,11 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
   writingSlug: z.string().nullable().optional(),
 });
 
+export const ProjectSectionSchema = z.enum(['selected-builds', 'also-ships-ui']);
+
 export const ProjectSchema = ContentFlagsSchema.extend({
+  highlight: z.boolean().optional(),
+  section: ProjectSectionSchema,
   title: z.string(),
   description: z.string(),
   stack: z.array(z.string()),
@@ -81,8 +81,6 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   href: z.string().nullable().optional(),
   image: z.string().nullable().optional(),
   motif: z.string().optional(),
-  tier: z.enum(['primary', 'secondary', 'archived']).optional(),
-  section: z.string().optional(),
   eyebrow: z.string().optional(),
   beforeAfter: z.string().optional(),
   talkingPoint: z.string().optional(),
@@ -90,10 +88,7 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   bullets: z.array(z.string()).optional(),
 });
 
-export const EducationSchema = z.object({
-  id: z.string(),
-  enabled: z.boolean(),
-  order: z.number(),
+export const EducationSchema = ContentFlagsSchema.extend({
   school: z.string(),
   degree: z.string(),
   years: z.string(),
@@ -101,6 +96,8 @@ export const EducationSchema = z.object({
 });
 
 export type Site = z.infer<typeof SiteSchema>;
+export type Social = z.infer<typeof SocialSchema>;
+export type ProjectSection = z.infer<typeof ProjectSectionSchema>;
 export type Profile = z.infer<typeof ProfileSchema> & { bio: string };
 export type Metric = z.infer<typeof MetricSchema>;
 export type StackItem = z.infer<typeof StackItemSchema>;

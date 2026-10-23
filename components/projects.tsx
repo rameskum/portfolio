@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { featuredProjects } from '@/lib/content';
+import { selectedBuilds, alsoShipsUi } from '@/lib/content';
+import type { Project } from '@/lib/schemas';
 import { HomelabRack, HomelabTopology, PipelineFlow, RecoveryLoop } from '@/components/svg-motifs';
 
 const motifs = {
@@ -13,11 +14,8 @@ const motifs = {
 };
 
 export function Projects() {
-  const selectedBuilds = featuredProjects.filter(p => p.section === 'selected-builds');
-  const alsoShipsUI = featuredProjects.filter(p => p.section === 'also-ships-ui');
-
-  const renderProjectCard = (project: typeof featuredProjects[0]) => {
-    const isSecondary = project.tier === 'secondary';
+  const renderProjectCard = (project: Project) => {
+    const isSecondary = project.section === 'also-ships-ui';
     const MotifComponent = project.motif && motifs[project.motif as keyof typeof motifs];
     
     return (
@@ -100,7 +98,7 @@ export function Projects() {
           )}
 
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.stack.slice(0, project.tier === 'secondary' ? 4 : 8).map((tech) => (
+            {project.stack.slice(0, isSecondary ? 4 : 8).map((tech) => (
               <Badge key={tech} variant={isSecondary ? 'outline' : 'default'} className="text-xs">
                 {tech}
               </Badge>
@@ -152,7 +150,7 @@ export function Projects() {
         </div>
       </section>
 
-      {alsoShipsUI.length > 0 && (
+      {alsoShipsUi.length > 0 && (
         <section id="also-ships-ui" className="px-6 md:px-12 py-16 bg-card/30">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-4">
@@ -163,7 +161,7 @@ export function Projects() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {alsoShipsUI.map(renderProjectCard)}
+              {alsoShipsUi.map(renderProjectCard)}
             </div>
           </div>
         </section>

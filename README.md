@@ -26,11 +26,12 @@ Editorial-style single-page site: statement hero, work case studies, projects, w
 All content is data-driven — edit files, not React:
 
 - `content/profile.md` — single source of truth for name, headline, summary, SEO descriptions (parsed at build time by `lib/profile.ts`)
-- `content/site.json` — wordmark, location, statement, socials, resume path
+- `content/site.json` — wordmark, location, statement, email, resume path
+- `content/socials.json` — social links
 - `content/case-studies.json` — TD (Endava) → Amdocs → Homelab
-- `content/projects.json` — Homelab (highlighted) + ecommerce-admin + ecommerce-store + TallyNest; `hello-dog` disabled
+- `content/projects.json` — Homelab (highlighted) + ecommerce-admin + ecommerce-store ; TallyNest is hidden (`enabled: false`)
 - `content/metrics.json`, `content/stack.json`, `content/education.json`
-- Components read content only via `lib/content.ts` helpers (`enabledSorted`, `featured`) — visibility/order is toggled in JSON
+- Components read content only via the `lib/content.ts` exports, which are already visible, ordered, and grouped — visibility (`enabled`) and order are toggled in JSON
 
 ### Writing section
 
