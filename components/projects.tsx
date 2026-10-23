@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { selectedBuilds, alsoShipsUi } from '@/lib/content';
 import type { Project } from '@/lib/schemas';
 import { ILLUSTRATION_BACKDROP, Motif } from '@/components/illustrations';
+import { ProofPoints } from '@/components/proof-points';
 
 export function Projects() {
   const renderProjectCard = (project: Project) => {
@@ -51,40 +52,7 @@ export function Projects() {
             {project.description}
           </p>
 
-          {!isSecondary && project.ownershipLine && (
-            <div className="mb-3 pb-3 border-b border-border/50">
-              <p className="text-sm leading-relaxed">{project.ownershipLine}</p>
-            </div>
-          )}
-
-          {!isSecondary && project.beforeAfter && (
-            <div className="mb-3">
-              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                BEFORE → AFTER
-              </p>
-              <p className="text-sm leading-relaxed text-muted-foreground">{project.beforeAfter}</p>
-            </div>
-          )}
-
-          {!isSecondary && project.talkingPoint && (
-            <div className="mb-4">
-              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                TALKING POINT
-              </p>
-              <p className="text-sm leading-relaxed text-primary italic">"{project.talkingPoint}"</p>
-            </div>
-          )}
-
-          {project.bullets && project.bullets.length > 0 && (
-            <ul className="space-y-2 mb-4">
-              {project.bullets.map((bullet, i) => (
-                <li key={i} className="text-sm leading-relaxed flex gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ProofPoints {...project} className="mb-4" />
 
           <div className="flex flex-wrap gap-2 mb-4">
             {project.stack.slice(0, isSecondary ? 4 : 8).map((tech) => (

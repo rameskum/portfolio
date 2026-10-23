@@ -1,6 +1,7 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
 import { CaseVisuals, Motif } from '@/components/illustrations';
+import { ProofPoints } from '@/components/proof-points';
 
 export function Work() {
   return (
@@ -36,50 +37,7 @@ export function Work() {
                       {study.summary}
                     </p>
 
-                    {study.ownershipLine && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          OWNED
-                        </p>
-                        <p className="text-sm leading-relaxed">{study.ownershipLine}</p>
-                      </div>
-                    )}
-
-                    {study.teamSize && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          TEAM
-                        </p>
-                        <p className="text-sm leading-relaxed text-muted-foreground">{study.teamSize}</p>
-                      </div>
-                    )}
-
-                    {study.beforeAfter && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          BEFORE → AFTER
-                        </p>
-                        <p className="text-sm leading-relaxed text-muted-foreground">{study.beforeAfter}</p>
-                      </div>
-                    )}
-
-                    {study.talkingPoint && (
-                      <div className="mb-6">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          INTERVIEW
-                        </p>
-                        <p className="text-sm leading-relaxed italic text-primary">"{study.talkingPoint}"</p>
-                      </div>
-                    )}
-
-                    <ul className="space-y-2 mb-6">
-                      {study.bullets.map((bullet, i) => (
-                        <li key={i} className="text-sm leading-relaxed flex gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <ProofPoints {...study} className="mb-6" />
 
                     <p className="text-xs font-mono text-muted-foreground">
                       {study.stack.join(' · ')}

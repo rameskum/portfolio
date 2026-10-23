@@ -11,7 +11,6 @@
     "title": "Cut file-upload latency and feed onboarding on a Java data platform",
     "summary": "Hired to modernize data-intensive paths on AKS. Owned the upload pipeline and source-onboarding experience end to end — from batch windows that stalled operators to config-driven loaders and latency outcomes a hiring manager can probe in an interview.",
     "ownershipLine": "End-to-end ownership of the file-upload path and API source onboarding for platform consumers.",
-    "teamSize": null,
     "beforeAfter": "Multi-minute batch upload windows and week-scale API source onboarding → 60% ↓ upload latency and 40% ↓ feed onboarding via a config-driven API Source Loader, with OTel → Datadog so regressions surface in ops.",
     "talkingPoint": "How did you keep the loader config-driven without turning every new feed into a deploy?",
     "bullets": [
@@ -49,7 +48,6 @@
     "title": "ART — Automatic Recovery Tool for billing data integrity",
     "summary": "Built a Spring Boot recovery console operators actually use: detect inconsistencies, emit actionable reports, and remediate without opening an engineering ticket for every incident — cutting operational overhead instead of adding queue noise.",
     "ownershipLine": "Designed and delivered ART for ops inconsistency detection and remediation workflows.",
-    "teamSize": null,
     "beforeAfter": "Manual chase of inconsistent billing/ops data → 25% ↓ operational overhead with a detect → report → remediate loop.",
     "talkingPoint": "What's the difference between a recovery tool operators trust and one they ignore?",
     "bullets": [
@@ -79,7 +77,6 @@
     "title": "Homelab as a production-style reliability gym",
     "summary": "Long-running self-hosted platform used to rehearse the same habits as production backends: named blast-radius boundaries, ingress + identity at the edge, and observability you actually look at. The Selected Builds card shows the fleet topology; this study is about the operating posture.",
     "ownershipLine": "Sole operator — design, secure, and run the fleet end to end.",
-    "teamSize": null,
     "beforeAfter": "Single-box ad-hoc containers → named hosts, plane separation (edge / apps / data), and fleet monitoring you can query when something breaks.",
     "talkingPoint": "What did running your own edge teach you that a cloud tutorial did not?",
     "bullets": [

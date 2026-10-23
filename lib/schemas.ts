@@ -50,7 +50,15 @@ export const StackItemSchema = ContentFlagsSchema.extend({
   label: z.string(),
 });
 
-export const CaseStudySchema = ContentFlagsSchema.extend({
+// The evidence shown on a case study or project. Any of it may be absent.
+export const ProofPointsSchema = z.object({
+  ownershipLine: z.string().optional(),
+  beforeAfter: z.string().optional(),
+  talkingPoint: z.string().optional(),
+  bullets: z.array(z.string()).optional(),
+});
+
+export const CaseStudySchema = ContentFlagsSchema.extend(ProofPointsSchema.shape).extend({
   org: z.string(),
   role: z.string(),
   location: z.string().optional(),
@@ -58,11 +66,6 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
   end: z.string().nullable(),
   title: z.string(),
   summary: z.string(),
-  ownershipLine: z.string().optional(),
-  teamSize: z.string().nullable().optional(),
-  beforeAfter: z.string().optional(),
-  talkingPoint: z.string().optional(),
-  bullets: z.array(z.string()),
   visuals: z.array(z.enum(CASE_VISUAL_KEYS)).optional(),
   stack: z.array(z.string()),
   motif: z.enum(MOTIF_KEYS).optional(),
@@ -71,7 +74,7 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
 
 export const ProjectSectionSchema = z.enum(['selected-builds', 'also-ships-ui']);
 
-export const ProjectSchema = ContentFlagsSchema.extend({
+export const ProjectSchema = ContentFlagsSchema.extend(ProofPointsSchema.shape).extend({
   highlight: z.boolean().optional(),
   section: ProjectSectionSchema,
   title: z.string(),
@@ -83,10 +86,6 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   image: z.string().nullable().optional(),
   motif: z.enum(MOTIF_KEYS).optional(),
   eyebrow: z.string().optional(),
-  beforeAfter: z.string().optional(),
-  talkingPoint: z.string().optional(),
-  ownershipLine: z.string().optional(),
-  bullets: z.array(z.string()).optional(),
 }).refine((project) => !project.enabled || Boolean(project.image || project.motif), {
   message: 'a visible project needs an image or a motif',
   path: ['image'],
@@ -99,6 +98,7 @@ export const EducationSchema = ContentFlagsSchema.extend({
   note: z.string().nullable().optional(),
 });
 
+export type ProofPoints = z.infer<typeof ProofPointsSchema>;
 export type Site = z.infer<typeof SiteSchema>;
 export type Social = z.infer<typeof SocialSchema>;
 export type ProjectSection = z.infer<typeof ProjectSectionSchema>;

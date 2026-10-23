@@ -17,7 +17,7 @@ pnpm test         # vitest run
 pnpm start        # serve the production build
 ```
 
-- `pnpm test` runs vitest over `lib/**/*.test.ts`. There is no ESLint config. `pnpm lint` runs `next lint`, which Next 16 removed (it fails with "Invalid project directory ... /lint"); rely on `pnpm type-check`, `pnpm test` and `pnpm build`.
+- `pnpm test` runs vitest over `lib/**/*.test.ts` and `components/**/*.test.tsx`. There is no ESLint config. `pnpm lint` runs `next lint`, which Next 16 removed (it fails with "Invalid project directory ... /lint"); rely on `pnpm type-check`, `pnpm test` and `pnpm build`.
 - `pnpm build` is the real validation: content is Zod-validated at module load, so a malformed JSON/profile file fails the build.
 - The build fetches `https://blogs.rameskum.com/posts.json`; offline builds degrade to an empty Writing section rather than failing.
 
@@ -32,6 +32,7 @@ All copy lives in `content/` and is validated by Zod schemas in `lib/schemas.ts`
 - `lib/content.ts` imports each `content/*.json`, parses it at module load, and exports typed, ready-to-render collections (`site`, `socials`, `metrics`, `stack`, `caseStudies`, `selectedBuilds`, `alsoShipsUi`, `education`). Components read content only through these exports. The parsing lives in an exported `buildContent(raw)` so tests can feed it fixtures.
 - Every list item carries `id`, `enabled`, `order` (projects may also set `highlight`). `enabled` is the only visibility switch; every export is already enabled-and-sorted. Projects must set `section` (`selected-builds` or `also-ships-ui`), and a typo fails the build.
 - `lib/profile.ts` parses `content/profile.md` (flat `key: value` frontmatter plus a bio body) with a hand-rolled parser and `fs`. It is the single source of truth for name, headline, summary, and SEO descriptions. It is server-only (uses `fs`), so never import it from a client component.
+- Case studies and projects share `ProofPointsSchema` (`ownershipLine`, `beforeAfter`, `talkingPoint`, `bullets`) and render it through `components/proof-points.tsx`, which shows whichever fields exist.
 - Adding a new field means updating the Zod schema in `lib/schemas.ts` and the JSON together.
 
 ### String keys that resolve to components
