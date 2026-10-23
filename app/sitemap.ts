@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://rameskum.com';
+  const base = SITE_URL;
 
   // Note: /writing and /writing/* 301-redirect to https://blogs.rameskum.com
   // (see next.config.ts), so article URLs are intentionally absent here.

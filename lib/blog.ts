@@ -16,25 +16,41 @@ export type BlogPost = z.infer<typeof BlogPostSchema>;
 const BLOG_FEED_URL = 'https://blogs.rameskum.com/posts.json';
 export const BLOG_URL = 'https://blogs.rameskum.com';
 
-const htmlEntityMap: Record<string, string> = {
-  '&rsquo;': "'",
-  '&#8217;': "'",
-  '&ldquo;': '"',
-  '&rdquo;': '"',
-  '&#8220;': '"',
-  '&#8221;': '"',
-  '&mdash;': '—',
-  '&ndash;': '–',
-  '&amp;': '&',
-  '&hellip;': '…',
+// Hugo emits named and numeric HTML entities in the feed's text fields.
+// Curly quotes are normalised to straight ones to match the site's typography.
+const NAMED_ENTITIES: Record<string, string> = {
+  quot: '"',
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  apos: "'",
+  nbsp: '\u00a0',
+  lsquo: "'",
+  rsquo: "'",
+  ldquo: '"',
+  rdquo: '"',
+  mdash: '\u2014',
+  ndash: '\u2013',
+  hellip: '\u2026',
 };
 
-export function decodeHtmlEntities(text: string): string {
-  let decoded = text;
-  for (const [entity, char] of Object.entries(htmlEntityMap)) {
-    decoded = decoded.replace(new RegExp(entity, 'g'), char);
-  }
-  return decoded;
+const CURLY_QUOTES: Record<number, string> = {
+  0x2018: "'",
+  0x2019: "'",
+  0x201c: '"',
+  0x201d: '"',
+};
+
+// Single pass, so `&amp;lt;` decodes to the literal text `&lt;` and not `<`.
+// Unknown or invalid entities are left untouched.
+function decodeHtmlEntities(text: string): string {
+  return text.replace(/&(?:#(\d+)|#x([0-9a-fA-F]+)|([a-zA-Z]+));/g, (match, dec, hex, name) => {
+    if (name) return Object.hasOwn(NAMED_ENTITIES, name) ? NAMED_ENTITIES[name] : match;
+    const code = dec ? parseInt(dec, 10) : parseInt(hex, 16);
+    if (CURLY_QUOTES[code]) return CURLY_QUOTES[code];
+    const valid = code > 0 && code <= 0x10ffff && !(code >= 0xd800 && code <= 0xdfff);
+    return valid ? String.fromCodePoint(code) : match;
+  });
 }
 
 // Fetched once at build time so the homepage is fully static and served from

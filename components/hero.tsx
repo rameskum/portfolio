@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { site, metrics, stack } from '@/lib/content';
 import { profile } from '@/lib/profile';
+import { SECTION_IDS, sectionHref } from '@/lib/sections';
 
 export function Hero() {
   return (
@@ -35,7 +35,7 @@ export function Hero() {
 
             <div className="flex flex-wrap gap-4 mb-12">
               <Button asChild>
-                <a href="#work">Selected work</a>
+                <a href={sectionHref(SECTION_IDS.work)}>Selected work</a>
               </Button>
               <Button variant="outline" asChild>
                 <a href="/resume">Resume</a>

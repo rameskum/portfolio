@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Manrope, Newsreader, DM_Mono } from 'next/font/google';
 import { profile } from '@/lib/profile';
+import { SITE_URL } from '@/lib/seo';
 import './globals.css';
 
 const manrope = Manrope({
@@ -21,31 +22,15 @@ const dmMono = DM_Mono({
   variable: '--font-dm-mono',
 });
 
+// Routes declare their own complete metadata via pageMetadata (lib/seo.ts).
+// The root only supplies what applies everywhere, including the 404 page.
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rameskum.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Ramesh Kumar | Java & Spring Backend Engineer',
-    template: '%s | Ramesh Kumar',
+    default: `${profile.name} | ${profile.jobTitle}`,
+    template: `%s | ${profile.name}`,
   },
   description: profile.metaDescription,
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://rameskum.com',
-    siteName: 'Ramesh Kumar',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Ramesh Kumar | Java & Spring Backend Engineer',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    images: ['/og-image.png'],
-  },
 };
 
 export default function RootLayout({

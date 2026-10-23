@@ -1,11 +1,10 @@
 import { Button } from '@/components/ui/button';
-import { site, education } from '@/lib/content';
+import { SECTION_IDS } from '@/lib/sections';
+import { site, socials, education } from '@/lib/content';
 
 export function Contact() {
-  const enabledSocials = site.socials.filter(s => s.enabled).sort((a, b) => a.order - b.order);
-
   return (
-    <section id="contact" className="px-6 md:px-12 py-16">
+    <section id={SECTION_IDS.contact} className="px-6 md:px-12 py-16">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
@@ -33,7 +32,7 @@ export function Contact() {
               </div>
 
               <div className="flex gap-4">
-                {enabledSocials.map((social) => (
+                {socials.map((social) => (
                   <Button key={social.id} variant="outline" asChild>
                     <a
                       href={social.href}

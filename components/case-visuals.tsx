@@ -1,5 +1,3 @@
-import type { ComponentType } from 'react';
-
 const CREAM = '#f5f4ec';
 const MUTED = '#a8a29e';
 
@@ -145,8 +143,3 @@ export function TDBeforeAfter({ className }: { className?: string }) {
     </svg>
   );
 }
-
-export const caseVisuals: Record<string, ComponentType<{ className?: string }>> = {
-  'td-architecture': TDPipelineDiagram,
-  'td-before-after': TDBeforeAfter,
-};

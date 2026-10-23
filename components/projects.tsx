@@ -1,25 +1,16 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { featuredProjects } from '@/lib/content';
-import { HomelabRack, HomelabTopology, PipelineFlow, RecoveryLoop } from '@/components/svg-motifs';
-
-const motifs = {
-  HomelabRack,
-  HomelabTopology,
-  PipelineFlow,
-  RecoveryLoop,
-};
+import { selectedBuilds, alsoShipsUi } from '@/lib/content';
+import type { Project } from '@/lib/schemas';
+import { ILLUSTRATION_BACKDROP, Motif } from '@/components/illustrations';
+import { SECTION_IDS } from '@/lib/sections';
+import { ProofPoints } from '@/components/proof-points';
 
 export function Projects() {
-  const selectedBuilds = featuredProjects.filter(p => p.section === 'selected-builds');
-  const alsoShipsUI = featuredProjects.filter(p => p.section === 'also-ships-ui');
+  const renderProjectCard = (project: Project) => {
+    const isSecondary = project.section === 'also-ships-ui';
 
-  const renderProjectCard = (project: typeof featuredProjects[0]) => {
-    const isSecondary = project.tier === 'secondary';
-    const MotifComponent = project.motif && motifs[project.motif as keyof typeof motifs];
-    
     return (
       <div
         key={project.id}
@@ -27,7 +18,7 @@ export function Projects() {
           project.highlight ? 'md:col-span-2' : ''
         } ${isSecondary ? 'opacity-90' : ''}`}
       >
-        <div className="relative aspect-video bg-[#201e1b] isolate flex items-center justify-center border-b border-border">
+        <div className={`relative aspect-video ${ILLUSTRATION_BACKDROP} isolate flex items-center justify-center border-b border-border`}>
           {project.image && (
             <>
               <Image
@@ -40,11 +31,8 @@ export function Projects() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#201e1b]/70 via-transparent to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
             </>
           )}
-          {!project.image && MotifComponent && (
-            <MotifComponent className="w-full h-full p-8 text-[#e8855a] opacity-80" />
-          )}
-          {!project.image && !project.motif && (
-            <div className="text-sm text-[#f5f4ec]/50">Preview</div>
+          {!project.image && project.motif && (
+            <Motif name={project.motif} className="w-full h-full p-8 text-[#e8855a] opacity-80" />
           )}
           
           <div className={`absolute top-0 left-0 w-2 h-full ${isSecondary ? 'bg-muted' : 'bg-accent'}`} />
@@ -64,43 +52,10 @@ export function Projects() {
             {project.description}
           </p>
 
-          {!isSecondary && project.ownershipLine && (
-            <div className="mb-3 pb-3 border-b border-border/50">
-              <p className="text-sm leading-relaxed">{project.ownershipLine}</p>
-            </div>
-          )}
-
-          {!isSecondary && project.beforeAfter && (
-            <div className="mb-3">
-              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                BEFORE → AFTER
-              </p>
-              <p className="text-sm leading-relaxed text-muted-foreground">{project.beforeAfter}</p>
-            </div>
-          )}
-
-          {!isSecondary && project.talkingPoint && (
-            <div className="mb-4">
-              <p className="text-[10px] font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                TALKING POINT
-              </p>
-              <p className="text-sm leading-relaxed text-primary italic">"{project.talkingPoint}"</p>
-            </div>
-          )}
-
-          {project.bullets && project.bullets.length > 0 && (
-            <ul className="space-y-2 mb-4">
-              {project.bullets.map((bullet, i) => (
-                <li key={i} className="text-sm leading-relaxed flex gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ProofPoints {...project} className="mb-4" />
 
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.stack.slice(0, project.tier === 'secondary' ? 4 : 8).map((tech) => (
+            {project.stack.slice(0, isSecondary ? 4 : 8).map((tech) => (
               <Badge key={tech} variant={isSecondary ? 'outline' : 'default'} className="text-xs">
                 {tech}
               </Badge>
@@ -140,7 +95,7 @@ export function Projects() {
 
   return (
     <>
-      <section id="projects" className="px-6 md:px-12 py-16">
+      <section id={SECTION_IDS.projects} className="px-6 md:px-12 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-12">
             Selected Builds
@@ -152,8 +107,8 @@ export function Projects() {
         </div>
       </section>
 
-      {alsoShipsUI.length > 0 && (
-        <section id="also-ships-ui" className="px-6 md:px-12 py-16 bg-card/30">
+      {alsoShipsUi.length > 0 && (
+        <section id={SECTION_IDS.alsoShipsUi} className="px-6 md:px-12 py-16 bg-card/30">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-4">
               Also ships UI
@@ -163,7 +118,7 @@ export function Projects() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              {alsoShipsUI.map(renderProjectCard)}
+              {alsoShipsUi.map(renderProjectCard)}
             </div>
           </div>
         </section>

@@ -1,11 +1,12 @@
 import { z } from 'zod';
+import { CASE_VISUAL_KEYS, MOTIF_KEYS } from './illustrations';
 
+// Every list item is either visible or hidden (`enabled`) and ordered by
+// `order`. This is the only visibility switch.
 export const ContentFlagsSchema = z.object({
   id: z.string(),
   enabled: z.boolean(),
   order: z.number(),
-  featured: z.boolean().optional(),
-  highlight: z.boolean().optional(),
 });
 
 export const SiteSchema = z.object({
@@ -18,15 +19,11 @@ export const SiteSchema = z.object({
   }),
   email: z.string().email(),
   resumePath: z.string(),
-  socials: z.array(
-    z.object({
-      id: z.string(),
-      label: z.string(),
-      href: z.string().url(),
-      enabled: z.boolean(),
-      order: z.number(),
-    })
-  ),
+});
+
+export const SocialSchema = ContentFlagsSchema.extend({
+  label: z.string(),
+  href: z.string().url(),
 });
 
 // Single source of truth for the person's profile copy, parsed from
@@ -53,7 +50,15 @@ export const StackItemSchema = ContentFlagsSchema.extend({
   label: z.string(),
 });
 
-export const CaseStudySchema = ContentFlagsSchema.extend({
+// The evidence shown on a case study or project. Any of it may be absent.
+export const ProofPointsSchema = z.object({
+  ownershipLine: z.string().optional(),
+  beforeAfter: z.string().optional(),
+  talkingPoint: z.string().optional(),
+  bullets: z.array(z.string()).optional(),
+});
+
+export const CaseStudySchema = ContentFlagsSchema.extend(ProofPointsSchema.shape).extend({
   org: z.string(),
   role: z.string(),
   location: z.string().optional(),
@@ -61,18 +66,17 @@ export const CaseStudySchema = ContentFlagsSchema.extend({
   end: z.string().nullable(),
   title: z.string(),
   summary: z.string(),
-  ownershipLine: z.string().optional(),
-  teamSize: z.string().nullable().optional(),
-  beforeAfter: z.string().optional(),
-  talkingPoint: z.string().optional(),
-  bullets: z.array(z.string()),
-  visuals: z.array(z.string()).optional(),
+  visuals: z.array(z.enum(CASE_VISUAL_KEYS)).optional(),
   stack: z.array(z.string()),
-  motif: z.string().optional(),
+  motif: z.enum(MOTIF_KEYS).optional(),
   writingSlug: z.string().nullable().optional(),
 });
 
-export const ProjectSchema = ContentFlagsSchema.extend({
+export const ProjectSectionSchema = z.enum(['selected-builds', 'also-ships-ui']);
+
+export const ProjectSchema = ContentFlagsSchema.extend(ProofPointsSchema.shape).extend({
+  highlight: z.boolean().optional(),
+  section: ProjectSectionSchema,
   title: z.string(),
   description: z.string(),
   stack: z.array(z.string()),
@@ -80,28 +84,25 @@ export const ProjectSchema = ContentFlagsSchema.extend({
   repoUrl: z.string().url().nullable().optional(),
   href: z.string().nullable().optional(),
   image: z.string().nullable().optional(),
-  motif: z.string().optional(),
-  tier: z.enum(['primary', 'secondary', 'archived']).optional(),
-  section: z.string().optional(),
+  motif: z.enum(MOTIF_KEYS).optional(),
   eyebrow: z.string().optional(),
-  beforeAfter: z.string().optional(),
-  talkingPoint: z.string().optional(),
-  ownershipLine: z.string().optional(),
-  bullets: z.array(z.string()).optional(),
+}).refine((project) => !project.enabled || Boolean(project.image || project.motif), {
+  message: 'a visible project needs an image or a motif',
+  path: ['image'],
 });
 
-export const EducationSchema = z.object({
-  id: z.string(),
-  enabled: z.boolean(),
-  order: z.number(),
+export const EducationSchema = ContentFlagsSchema.extend({
   school: z.string(),
   degree: z.string(),
   years: z.string(),
   note: z.string().nullable().optional(),
 });
 
+export type ProofPoints = z.infer<typeof ProofPointsSchema>;
 export type Site = z.infer<typeof SiteSchema>;
-export type Profile = z.infer<typeof ProfileSchema> & { bio: string };
+export type Social = z.infer<typeof SocialSchema>;
+export type ProjectSection = z.infer<typeof ProjectSectionSchema>;
+export type Profile = z.infer<typeof ProfileSchema>;
 export type Metric = z.infer<typeof MetricSchema>;
 export type StackItem = z.infer<typeof StackItemSchema>;
 export type CaseStudy = z.infer<typeof CaseStudySchema>;

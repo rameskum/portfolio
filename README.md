@@ -18,7 +18,7 @@ Editorial-style single-page site: statement hero, work case studies, projects, w
 - Warm paper background (`#F5F4EC`), card surface (`#FFFCF7`), burnt-orange primary (`#E85A32`)
 - Serif/coral italic accents (Newsreader), grotesque body (Manrope), mono labels (DM Mono)
 - Hero: abstract arches artwork inside an arch-shaped (`rounded-t-full`) frame; image background is color-matched to the card surface so it blends seamlessly
-- SVG motifs (PlatformGrid, PipelineFlow, RecoveryLoop, HomelabRack) illustrate the work/projects sections
+- SVG motifs (PipelineFlow, RecoveryLoop, HomelabRack, HomelabTopology) and case visuals illustrate the work/projects sections
 - Brand favicon set (`public/favicon.ico`, `favicon-16x16/32x32.png`, `apple-touch-icon.png`) in burnt-orange with a cream arch mark
 
 ## Content
@@ -26,15 +26,16 @@ Editorial-style single-page site: statement hero, work case studies, projects, w
 All content is data-driven — edit files, not React:
 
 - `content/profile.md` — single source of truth for name, headline, summary, SEO descriptions (parsed at build time by `lib/profile.ts`)
-- `content/site.json` — wordmark, location, statement, socials, resume path
+- `content/site.json` — wordmark, location, statement, email, resume path
+- `content/socials.json` — social links
 - `content/case-studies.json` — TD (Endava) → Amdocs → Homelab
-- `content/projects.json` — Homelab (highlighted) + ecommerce-admin + ecommerce-store + TallyNest; `hello-dog` disabled
+- `content/projects.json` — Homelab (highlighted) + ecommerce-admin + ecommerce-store ; TallyNest is hidden (`enabled: false`)
 - `content/metrics.json`, `content/stack.json`, `content/education.json`
-- Components read content only via `lib/content.ts` helpers (`enabledSorted`, `featured`) — visibility/order is toggled in JSON
+- Components read content only via the `lib/content.ts` exports, which are already visible, ordered, and grouped — visibility (`enabled`) and order are toggled in JSON
 
 ### Writing section
 
-The Writing section pulls the **4 latest posts** from the blog feed (`https://blogs.rameskum.com/posts.json`) at build time via `lib/blog.ts` — Zod-validated, revalidated daily (ISR), and degrades to an empty list if the feed is down so builds never break. Cards deep-link to the original posts in new tabs. `/writing` and `/writing/*` redirect (301) to the blog — see `next.config.ts`.
+The Writing section pulls the **4 latest posts** from the blog feed (`https://blogs.rameskum.com/posts.json`) at build time via `lib/blog.ts` — Zod-validated, refreshed by the daily Netlify build hook (the page is fully static), and degrades to an empty list if the feed is down so builds never break. Cards deep-link to the original posts in new tabs. `/writing` and `/writing/*` redirect (301) to the blog — see `next.config.ts`.
 
 ## Routes
 

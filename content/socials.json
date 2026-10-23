@@ -1,0 +1,16 @@
+[
+  {
+    "id": "github",
+    "enabled": true,
+    "order": 1,
+    "label": "GitHub",
+    "href": "https://github.com/rameskum"
+  },
+  {
+    "id": "linkedin",
+    "enabled": true,
+    "order": 2,
+    "label": "LinkedIn",
+    "href": "https://linkedin.com/in/rameskum"
+  }
+]

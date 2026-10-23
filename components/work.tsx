@@ -1,27 +1,12 @@
 import { Separator } from '@/components/ui/separator';
 import { caseStudies } from '@/lib/content';
-import { PipelineFlow, RecoveryLoop, HomelabRack, HomelabTopology } from '@/components/svg-motifs';
-import { caseVisuals } from '@/components/case-visuals';
-
-const motifs = {
-  PipelineFlow,
-  RecoveryLoop,
-  HomelabRack,
-  HomelabTopology,
-};
-
-const visualSizing: Record<string, string> = {
-  'td-architecture': 'mx-auto w-full max-w-[300px]',
-  'td-before-after': 'w-full',
-};
-
-const visualColSpan: Record<string, string> = {
-  'td-architecture': 'lg:col-span-2',
-};
+import { CaseVisuals, Motif } from '@/components/illustrations';
+import { SECTION_IDS } from '@/lib/sections';
+import { ProofPoints } from '@/components/proof-points';
 
 export function Work() {
   return (
-    <section id="work" className="px-6 md:px-12 py-16 bg-card/50">
+    <section id={SECTION_IDS.work} className="px-6 md:px-12 py-16 bg-card/50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xs font-mono tracking-[0.16em] uppercase text-muted-foreground mb-12">
           Case Studies
@@ -29,8 +14,6 @@ export function Work() {
 
         <div className="space-y-16">
           {caseStudies.map((study, index) => {
-            const MotifComponent = study.motif && motifs[study.motif as keyof typeof motifs];
-            
             return (
               <div key={study.id}>
                 <div className="grid md:grid-cols-12 gap-8">
@@ -55,76 +38,18 @@ export function Work() {
                       {study.summary}
                     </p>
 
-                    {study.ownershipLine && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          OWNED
-                        </p>
-                        <p className="text-sm leading-relaxed">{study.ownershipLine}</p>
-                      </div>
-                    )}
-
-                    {study.teamSize && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          TEAM
-                        </p>
-                        <p className="text-sm leading-relaxed text-muted-foreground">{study.teamSize}</p>
-                      </div>
-                    )}
-
-                    {study.beforeAfter && (
-                      <div className="mb-4">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          BEFORE → AFTER
-                        </p>
-                        <p className="text-sm leading-relaxed text-muted-foreground">{study.beforeAfter}</p>
-                      </div>
-                    )}
-
-                    {study.talkingPoint && (
-                      <div className="mb-6">
-                        <p className="text-xs font-mono uppercase tracking-[0.14em] text-muted-foreground mb-1">
-                          INTERVIEW
-                        </p>
-                        <p className="text-sm leading-relaxed italic text-primary">"{study.talkingPoint}"</p>
-                      </div>
-                    )}
-
-                    <ul className="space-y-2 mb-6">
-                      {study.bullets.map((bullet, i) => (
-                        <li key={i} className="text-sm leading-relaxed flex gap-3">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <ProofPoints {...study} className="mb-6" />
 
                     <p className="text-xs font-mono text-muted-foreground">
                       {study.stack.join(' · ')}
                     </p>
 
                     {study.visuals && study.visuals.length > 0 ? (
-                      <div className="mt-8 mb-6 space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-3">
-                        {study.visuals.map((key) => {
-                          const Visual = caseVisuals[key];
-                          if (!Visual) return null;
-                          return (
-                            <div
-                              key={key}
-                              className={`flex flex-col justify-center overflow-hidden rounded-2xl bg-[#201e1b] p-6 md:p-8 ${visualColSpan[key] ?? ''}`}
-                            >
-                              <Visual
-                                className={`${visualSizing[key] ?? 'w-full'} h-auto text-primary`}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
+                      <CaseVisuals keys={study.visuals} />
                     ) : (
-                      MotifComponent && (
+                      study.motif && (
                         <div className="mt-8 w-48 h-48 opacity-20">
-                          <MotifComponent className="w-full h-full" />
+                          <Motif name={study.motif} className="w-full h-full" />
                         </div>
                       )
                     )}

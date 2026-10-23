@@ -13,10 +13,11 @@ pnpm install
 pnpm dev          # dev server
 pnpm build        # production build - this is the only CI check (.github/workflows/build.yml)
 pnpm type-check   # tsc --noEmit
+pnpm test         # vitest run
 pnpm start        # serve the production build
 ```
 
-- There is no test suite and no ESLint config. `pnpm lint` runs `next lint`, which Next 16 removed (it fails with "Invalid project directory ... /lint"); rely on `pnpm type-check` and `pnpm build`.
+- `pnpm test` runs vitest over `lib/**/*.test.ts` and `components/**/*.test.tsx`. There is no ESLint config. `pnpm lint` runs `next lint`, which Next 16 removed (it fails with "Invalid project directory ... /lint"); rely on `pnpm type-check`, `pnpm test` and `pnpm build`.
 - `pnpm build` is the real validation: content is Zod-validated at module load, so a malformed JSON/profile file fails the build.
 - The build fetches `https://blogs.rameskum.com/posts.json`; offline builds degrade to an empty Writing section rather than failing.
 
@@ -24,21 +25,25 @@ pnpm start        # serve the production build
 
 Single-page editorial site. `app/page.tsx` composes server components (`Header`, `Hero`, `Work`, `Projects`, `Writing`, `Contact`) and is `force-static`. The only other route is `app/resume` (in-app PDF viewer for `public/resume.pdf`). The homepage is intentionally zero-JS and fully static, so keep new sections as server components and avoid adding client-side hooks or `'use client'` unless unavoidable.
 
+Section anchor ids and the nav links that target them live in `lib/sections.ts`; section modules, the Header, and the Hero call to action import them, so keep ids there rather than retyping them.
+
 ### Content is data, not JSX
 
 All copy lives in `content/` and is validated by Zod schemas in `lib/schemas.ts`:
 
-- `lib/content.ts` imports each `content/*.json`, parses it at module load, and exports typed, pre-filtered collections (`site`, `metrics`, `stack`, `caseStudies`, `projects`, `education`, `featuredProjects`). Components read content only through these exports.
-- Every list item carries `id`, `enabled`, `order` (and optionally `featured`/`highlight`). Visibility and ordering are controlled in JSON via `enabledSorted`/`featured`. Note `projects` is exported unfiltered, while the others are already enabled-and-sorted.
-- `lib/profile.ts` parses `content/profile.md` (flat `key: value` frontmatter plus a bio body) with a hand-rolled parser and `fs`. It is the single source of truth for name, headline, summary, and SEO descriptions. It is server-only (uses `fs`), so never import it from a client component.
+- `lib/content.ts` imports each `content/*.json`, parses it at module load, and exports typed, ready-to-render collections (`site`, `socials`, `metrics`, `stack`, `caseStudies`, `selectedBuilds`, `alsoShipsUi`, `education`). Components read content only through these exports. The parsing lives in an exported `buildContent(raw)` so tests can feed it fixtures.
+- Every list item carries `id`, `enabled`, `order` (projects may also set `highlight`). `enabled` is the only visibility switch; every export is already enabled-and-sorted. Projects must set `section` (`selected-builds` or `also-ships-ui`), and a typo fails the build.
+- `lib/profile.ts` parses the flat `key: value` frontmatter of `content/profile.md` with a hand-rolled, strict parser (`parseProfile`, which throws on a malformed line or repeated key) and `fs`; the markdown body is not read. It is the single source of truth for name, headline, summary, and SEO descriptions. It is server-only (uses `fs`), so never import it from a client component.
+- Case studies and projects share `ProofPointsSchema` (`ownershipLine`, `beforeAfter`, `talkingPoint`, `bullets`) and render it through `components/proof-points.tsx`, which shows whichever fields exist.
 - Adding a new field means updating the Zod schema in `lib/schemas.ts` and the JSON together.
 
 ### String keys that resolve to components
 
-Some JSON fields are string keys mapped to React components in code, so JSON and TSX must stay in sync:
+Some JSON fields are string keys that resolve to drawings, and they are validated against a fixed key list so a typo fails the build:
 
-- `motif` (in `case-studies.json` and `projects.json`) maps to SVG components in `components/svg-motifs.tsx` via a local `motifs` record in `components/work.tsx` and `components/projects.tsx`. Each file keeps its own map.
-- `visuals` (in `case-studies.json`) maps to components in the `caseVisuals` record in `components/case-visuals.tsx` (e.g. `td-architecture`, `td-before-after`).
+- `motif` (in `case-studies.json` and `projects.json`) and `visuals` (in `case-studies.json`) must be keys from `lib/illustrations.ts` (`MOTIF_KEYS`, `CASE_VISUAL_KEYS`).
+- `components/illustrations.tsx` owns the registries keyed by those types (an exhaustive `Record`, so a missing drawing is a type error), plus per-visual sizing, grid span, and the dark card. The drawings themselves live in `components/svg-motifs.tsx` (motifs, decorative) and `components/case-visuals.tsx` (case visuals, informative).
+- A visible project needs an `image` or a `motif`.
 
 ### Writing section and blog feed
 
@@ -46,7 +51,7 @@ Some JSON fields are string keys mapped to React components in code, so JSON and
 
 ### SEO
 
-Next.js merges `openGraph`/`twitter` metadata shallowly, so every page must declare complete blocks. Use the shared pieces in `lib/seo.ts` (`OG_BASE`, `ogImages`, `TWITTER_CARD`) rather than relying on the root layout's values. `app/sitemap.ts` lists only `/` and `/resume`.
+Next.js merges `openGraph`/`twitter` metadata shallowly, so a route that declares only part of the block loses the rest. Every route therefore builds its metadata with `pageMetadata({ path, title, description })` from `lib/seo.ts`, which always returns the complete canonical, Open Graph, and Twitter blocks. The root layout only sets `metadataBase`, the title default/template, and the description. `SITE_URL` and the Person JSON-LD (`personJsonLd()`) also live in `lib/seo.ts`; the name and job title come from `profile`. `app/sitemap.ts` lists only `/` and `/resume`.
 
 ### Deployment
 

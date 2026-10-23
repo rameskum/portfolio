@@ -1,30 +1,3 @@
-export function PlatformGrid({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="50" y="50" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="230" y="50" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="50" y="170" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="230" y="170" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="140" y="290" width="120" height="80" stroke="currentColor" strokeWidth="2" fill="none" />
-      <line x1="110" y1="130" x2="110" y2="170" stroke="currentColor" strokeWidth="2" />
-      <line x1="290" y1="130" x2="290" y2="170" stroke="currentColor" strokeWidth="2" />
-      <line x1="110" y1="250" x2="180" y2="290" stroke="currentColor" strokeWidth="2" />
-      <line x1="290" y1="250" x2="220" y2="290" stroke="currentColor" strokeWidth="2" />
-      <circle cx="110" cy="90" r="4" fill="currentColor" />
-      <circle cx="290" cy="90" r="4" fill="currentColor" />
-      <circle cx="110" cy="210" r="4" fill="currentColor" />
-      <circle cx="290" cy="210" r="4" fill="currentColor" />
-      <circle cx="200" cy="330" r="4" fill="currentColor" />
-    </svg>
-  );
-}
-
 export function PipelineFlow({ className }: { className?: string }) {
   return (
     <svg
@@ -184,7 +157,7 @@ export function HomelabTopology({ className }: { className?: string }) {
       <polygon points="220,235 216,227 224,227" fill="currentColor" />
       <polygon points="580,235 576,227 584,227" fill="currentColor" />
 
-      <text x="50" y="256" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+      <text x="60" y="234" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
         APPS PLANE
       </text>
 
@@ -215,7 +188,7 @@ export function HomelabTopology({ className }: { className?: string }) {
       <line x1="390" y1="320" x2="390" y2="360" stroke="currentColor" strokeWidth="1.5" />
       <polygon points="390,355 386,347 394,347" fill="currentColor" />
 
-      <text x="50" y="376" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
+      <text x="60" y="354" fontSize="10" fill="currentColor" opacity="0.6" fontFamily="monospace" fontWeight="bold">
         DATA PLANE
       </text>
 
