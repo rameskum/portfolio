@@ -6,36 +6,13 @@ import { Projects } from '@/components/projects';
 import { Writing } from '@/components/writing';
 import { Contact } from '@/components/contact';
 import { profile } from '@/lib/profile';
+import { pageMetadata, personJsonLd } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: {
-    absolute: `${profile.name} - ${profile.jobTitle}`,
-  },
+export const metadata: Metadata = pageMetadata({
+  path: '/',
+  title: `${profile.name} - ${profile.jobTitle}`,
   description: profile.metaDescription,
-  alternates: {
-    canonical: '/',
-  },
-  // Inherits the full openGraph/twitter blocks from the root layout.
-};
-
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: profile.name,
-  url: 'https://rameskum.com',
-  jobTitle: profile.jobTitle,
-  description: profile.metaDescription,
-  knowsAbout: [
-    'Java',
-    'Spring Boot',
-    'Microservices',
-    'REST APIs',
-    'Docker',
-    'Kubernetes',
-    'Apache Iceberg',
-    'Data Engineering',
-  ],
-};
+});
 
 // Fully static: served from the CDN edge, no server round-trip on first paint.
 export const dynamic = 'force-static';
@@ -44,7 +21,7 @@ export default function Home() {  return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
       />
       <a 
         href="#main-content" 
@@ -63,7 +40,7 @@ export default function Home() {  return (
         </main>
         <footer className="border-t border-border px-6 md:px-12 py-8">
           <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Ramesh Kumar. Built with Next.js.</p>
+            <p>© {new Date().getFullYear()} {profile.name}. Built with Next.js.</p>
           </div>
         </footer>
       </div>

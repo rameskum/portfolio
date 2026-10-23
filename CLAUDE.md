@@ -49,7 +49,7 @@ Some JSON fields are string keys that resolve to drawings, and they are validate
 
 ### SEO
 
-Next.js merges `openGraph`/`twitter` metadata shallowly, so every page must declare complete blocks. Use the shared pieces in `lib/seo.ts` (`OG_BASE`, `ogImages`, `TWITTER_CARD`) rather than relying on the root layout's values. `app/sitemap.ts` lists only `/` and `/resume`.
+Next.js merges `openGraph`/`twitter` metadata shallowly, so a route that declares only part of the block loses the rest. Every route therefore builds its metadata with `pageMetadata({ path, title, description })` from `lib/seo.ts`, which always returns the complete canonical, Open Graph, and Twitter blocks. The root layout only sets `metadataBase`, the title default/template, and the description. `SITE_URL` and the Person JSON-LD (`personJsonLd()`) also live in `lib/seo.ts`; the name and job title come from `profile`. `app/sitemap.ts` lists only `/` and `/resume`.
 
 ### Deployment
 
