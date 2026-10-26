@@ -55,7 +55,7 @@ Next.js merges `openGraph`/`twitter` metadata shallowly, so a route that declare
 
 ### Deployment
 
-Netlify (`netlify.toml`, `@netlify/plugin-nextjs`): `www` to apex 301 redirect and explicit cache headers for static assets. Fingerprinted `/_next/static/*` is immutable; `public/` images, icons, and `resume.pdf` are revalidated. Dependabot (`.github/dependabot.yml`) opens weekly npm and GitHub Actions update PRs: react packages are grouped, other minor and patch bumps are grouped, and `@types/node` majors are ignored so the types track the Node 20 runtime. The `automerge` job in `build.yml` squash-merges a Dependabot PR once CI passes, unless it contains a major bump (those need a manual review).
+Netlify (`netlify.toml`, `@netlify/plugin-nextjs`): `www` to apex 301 redirect and explicit cache headers for static assets. Fingerprinted `/_next/static/*` is immutable; `public/` images, icons, and `resume.pdf` are revalidated. Dependabot (`.github/dependabot.yml`) opens weekly npm and GitHub Actions update PRs: react packages are grouped, other minor and patch bumps are grouped, and `@types/node` majors are ignored so it does not jump ahead of the Node runtime. The `automerge` job in `build.yml` squash-merges a Dependabot PR once CI passes, unless it contains a major bump (those need a manual review).
 
 ## Locked content rules (from README)
 
@@ -71,7 +71,7 @@ Do not change these without being asked:
 
 - Import alias `@/*` maps to the repo root (e.g. `@/lib/content`, `@/components/ui/button`).
 - `components/ui/` holds small shadcn-style primitives (Button, Badge, Separator); styling uses `clsx` + `tailwind-merge` via `lib/utils.ts`.
-- Design tokens (paper background, card surface, burnt-orange primary) and the three fonts (Manrope body, Newsreader italic accents, DM Mono labels) are defined in `tailwind.config.ts`, `app/globals.css`, and `app/layout.tsx`.
+- Design tokens (paper background, card surface, burnt-orange primary) and the three fonts (Manrope body, Newsreader italic accents, DM Mono labels) are defined in `app/globals.css` (Tailwind 4 `@theme`) and `app/layout.tsx`.
 
 ## Agent skills
 

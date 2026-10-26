@@ -23,7 +23,8 @@ updates:
           - "minor"
           - "patch"
     ignore:
-      # Types must track the Node runtime (.nvmrc / engines), not the latest Node release.
+      # Stay on the 22 line: the toolchain peers (vitest, vite, sharp) need ^22 or >=24, and the
+      # types should not jump ahead of the Node runtime (.nvmrc / engines) to the latest release.
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
 

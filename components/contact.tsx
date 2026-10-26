@@ -17,7 +17,7 @@ export function Contact() {
             </p>
 
             <div className="space-y-4">
-              <div className="space-y-2">
+              <div className="flex flex-col items-start gap-2">
                 <a 
                   href={`mailto:${site.email}`}
                   className="text-base text-foreground hover:text-primary transition-colors font-mono"
