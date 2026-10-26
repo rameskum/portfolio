@@ -11,7 +11,7 @@ Package manager is pnpm (pinned `9.11.0`); Node 20 (`.nvmrc`, `engines` is `>=20
 ```bash
 pnpm install
 pnpm dev          # dev server
-pnpm build        # production build - this is the only CI check (.github/workflows/build.yml)
+pnpm build        # production build; CI runs type-check, test and build (.github/workflows/build.yml)
 pnpm type-check   # tsc --noEmit
 pnpm test         # vitest run
 pnpm start        # serve the production build
@@ -55,7 +55,7 @@ Next.js merges `openGraph`/`twitter` metadata shallowly, so a route that declare
 
 ### Deployment
 
-Netlify (`netlify.toml`, `@netlify/plugin-nextjs`): `www` to apex 301 redirect and explicit cache headers for static assets. Fingerprinted `/_next/static/*` is immutable; `public/` images, icons, and `resume.pdf` are revalidated. Dependabot opens weekly npm update PRs.
+Netlify (`netlify.toml`, `@netlify/plugin-nextjs`): `www` to apex 301 redirect and explicit cache headers for static assets. Fingerprinted `/_next/static/*` is immutable; `public/` images, icons, and `resume.pdf` are revalidated. Dependabot (`.github/dependabot.yml`) opens weekly npm and GitHub Actions update PRs: react packages are grouped, other minor and patch bumps are grouped, and `@types/node` majors are ignored so it does not jump ahead of the Node runtime. The `automerge` job in `build.yml` squash-merges a Dependabot PR once CI passes, unless it contains a major bump (those need a manual review).
 
 ## Locked content rules (from README)
 
