@@ -27,7 +27,7 @@ export default function ResumePage() {
           <h1 className="text-3xl font-bold mb-8">Resume</h1>
 
           {hasError ? (
-            <div className="border border-border bg-card p-8 text-center rounded">
+            <div className="border border-border bg-card p-8 text-center rounded-sm">
               <div className="text-lg font-semibold mb-4">Unable to load PDF</div>
               <p className="text-sm text-muted-foreground mb-6">
                 The resume PDF could not be displayed in your browser.
@@ -39,7 +39,7 @@ export default function ResumePage() {
               </Button>
             </div>
           ) : (
-            <div className="border border-border bg-card relative rounded overflow-hidden">
+            <div className="border border-border bg-card relative rounded-sm overflow-hidden">
               {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-card">
                   <div className="text-center">

@@ -21,7 +21,7 @@ export function Hero() {
 
         <div className="grid md:grid-cols-[1.5fr_1fr] gap-12 items-center">
           <div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight md:leading-none mb-8">
               {site.statement.leading}{' '}
               <span className="font-serif italic text-primary">
                 {site.statement.accent}
@@ -29,7 +29,7 @@ export function Hero() {
               {site.statement.trailing}
             </h1>
 
-            <p className="text-base md:text-lg leading-relaxed text-muted-foreground mb-8">
+            <p className="text-base md:text-lg leading-relaxed md:leading-7 text-muted-foreground mb-8">
               {profile.summary}
             </p>
 

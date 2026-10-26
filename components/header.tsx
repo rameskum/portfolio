@@ -45,7 +45,7 @@ export function Header() {
         <a
           href="#nav-closed"
           aria-label="Close menu"
-          className="absolute inset-0 bg-foreground/80 backdrop-blur-sm"
+          className="absolute inset-0 bg-foreground/80 backdrop-blur-xs"
         />
         <nav className="absolute right-0 top-0 h-full w-3/4 max-w-sm bg-background border-l border-foreground shadow-lg animate-[sheet-in_0.3s_ease-out]">
           <div className="flex flex-col gap-6 p-6">
