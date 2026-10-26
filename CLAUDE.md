@@ -71,7 +71,7 @@ Do not change these without being asked:
 
 - Import alias `@/*` maps to the repo root (e.g. `@/lib/content`, `@/components/ui/button`).
 - `components/ui/` holds small shadcn-style primitives (Button, Badge, Separator); styling uses `clsx` + `tailwind-merge` via `lib/utils.ts`.
-- Design tokens (paper background, card surface, burnt-orange primary) and the three fonts (Manrope body, Newsreader italic accents, DM Mono labels) are defined in `tailwind.config.ts`, `app/globals.css`, and `app/layout.tsx`.
+- Design tokens (paper background, card surface, burnt-orange primary) and the three fonts (Manrope body, Newsreader italic accents, DM Mono labels) are defined in `app/globals.css` (Tailwind 4 `@theme`) and `app/layout.tsx`.
 
 ## Agent skills
 
